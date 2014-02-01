@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/customstyles.css" rel="stylesheet">
+		<link href="css/customstyles.css" rel="stylesheet"> 
 	</head>
 	<body>
 		<?php include('includes/nav.php'); 
