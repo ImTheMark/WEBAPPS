@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/customstyles.css" rel="stylesheet"> 
+		<link href="css/customstyles.css" rel="stylesheet">
 	</head>
 	<body>
 		<?php include('includes/nav.php'); 
-			  include('includes/connection.php')?>
+			  include('includes/connection.php');?>
 		<?php 
 		$search = $_GET['search'];
-		$query = "SELECT * FROM events WHERE eventname LIKE '%$search%'";
+		$query = "SELECT * FROM company ";
 		
 		
 		
@@ -18,11 +18,14 @@
 		
 		if($numrows > 0 ){
 			while($row = mysql_fetch_assoc($query)){
-				$id = $row['id'];
-				$events = $row['eventname'];
-				echo "<h2> id = ". $id . " eventname = " . $events . "<br></h2>";
+				$id = $row['idcompany'];
+				$companyname = $row['companyname'];
+				$contact = $row['contact'];
+				echo "<h2> id = ". $id . " companyname = " . $companyname . " contact = " . $contact . " " . "<br></h2>";
 			}
 		}
+		
+		
 		
 		?>
 		
