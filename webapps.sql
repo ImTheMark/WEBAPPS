@@ -37,6 +37,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Software Development'),(2,'Networking'),(3,'Business Management');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +52,8 @@ CREATE TABLE `company` (
   `idcompany` int(11) NOT NULL,
   `companyname` varchar(45) NOT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `contact` varchar(45) DEFAULT NULL,
+  `contactnumber` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idcompany`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -62,34 +64,56 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (1,'Google','Philippines','09171234567'),(2,'Accenture','Philippines','09121234567');
+INSERT INTO `company` VALUES (1,'Google','Philippines','09171234567','google@gmail.com'),(2,'Accenture','Philippines','09121234567','accenture@accenture.com');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `company-event`
+-- Table structure for table `company_category`
 --
 
-DROP TABLE IF EXISTS `company-event`;
+DROP TABLE IF EXISTS `company_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `company-event` (
+CREATE TABLE `company_category` (
   `idcompany` int(11) NOT NULL,
-  `idevent` int(11) NOT NULL,
-  PRIMARY KEY (`idcompany`,`idevent`),
-  KEY `idevent_idx` (`idevent`),
-  CONSTRAINT `idcompany` FOREIGN KEY (`idcompany`) REFERENCES `company` (`idcompany`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idevent` FOREIGN KEY (`idevent`) REFERENCES `event` (`idevent`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `idcategory` int(11) NOT NULL,
+  PRIMARY KEY (`idcompany`,`idcategory`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `company-event`
+-- Dumping data for table `company_category`
 --
 
-LOCK TABLES `company-event` WRITE;
-/*!40000 ALTER TABLE `company-event` DISABLE KEYS */;
-/*!40000 ALTER TABLE `company-event` ENABLE KEYS */;
+LOCK TABLES `company_category` WRITE;
+/*!40000 ALTER TABLE `company_category` DISABLE KEYS */;
+INSERT INTO `company_category` VALUES (1,1);
+/*!40000 ALTER TABLE `company_category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `company_event`
+--
+
+DROP TABLE IF EXISTS `company_event`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `company_event` (
+  `idcompany` int(11) NOT NULL,
+  `idevent` int(11) NOT NULL,
+  PRIMARY KEY (`idcompany`,`idevent`),
+  KEY `idevent_idx` (`idevent`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `company_event`
+--
+
+LOCK TABLES `company_event` WRITE;
+/*!40000 ALTER TABLE `company_event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `company_event` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -102,6 +126,7 @@ DROP TABLE IF EXISTS `event`;
 CREATE TABLE `event` (
   `idevent` int(11) NOT NULL,
   `eventname` varchar(45) NOT NULL,
+  `location` varchar(45) DEFAULT NULL,
   `startdatetime` datetime DEFAULT NULL,
   `enddatetime` datetime DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
@@ -118,34 +143,8 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (1,'Job Expo 2014','2014-02-04 08:00:00','2014-02-06 20:00:00','Job Expo for DLSU Students','YES',2);
+INSERT INTO `event` VALUES (1,'Job Expo 2014','DLSU','2014-02-04 08:00:00','2014-02-06 20:00:00','Job Expo for DLSU Students','YES',2);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `event-category`
---
-
-DROP TABLE IF EXISTS `event-category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `event-category` (
-  `idevent` int(11) NOT NULL,
-  `idcategory` int(11) NOT NULL,
-  PRIMARY KEY (`idevent`,`idcategory`),
-  KEY `idcategory_idx` (`idcategory`),
-  CONSTRAINT `idcategory` FOREIGN KEY (`idcategory`) REFERENCES `category` (`idcategory`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idevents` FOREIGN KEY (`idevent`) REFERENCES `event` (`idevent`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `event-category`
---
-
-LOCK TABLES `event-category` WRITE;
-/*!40000 ALTER TABLE `event-category` DISABLE KEYS */;
-/*!40000 ALTER TABLE `event-category` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -182,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-01-31 15:37:37
+-- Dump completed on 2014-02-01 16:11:59
