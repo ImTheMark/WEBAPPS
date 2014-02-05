@@ -1,8 +1,8 @@
 <?php
 
-	include('includes/connection.php');
-	include('objects/companyobject.php');
-	
+	include_once('includes/connection.php');
+	include_once('objects/companyobject.php');
+	include_once('model/categorymodel.php');
 	class CompanyModel{
 		function getAllCompanies(){
 			$companies =  array();
@@ -21,7 +21,9 @@
 						$contactnumber = $row['contactnumber'];
 						$email = $row['email'];
 						
-						$company = new CompanyObject($idcompany,$companyname,$address,$contactnumber,$email);
+						$model = new CategoryModel();
+						$categories = $model->getCompanyCategories($idcompany);
+						$company = new CompanyObject($idcompany,$companyname,$address,$contactnumber,$email,$categories);
 						array_push($companies, $company);
 						
 					}
@@ -32,8 +34,8 @@
 		function getAllCompaniesByCategory($arraycategoriesobjects){
 			$companies =  array();
 			
-			$query = "SELECT * FROM webapps.company_category INNER JOIN webapps.company 
-					ON webapps.company_category.idcompany = webapps.company.idcompany";
+			$query = "SELECT * FROM company_category INNER JOIN company 
+					ON company_category.idcompany = company.idcompany";
 			
 			$i = 0;
 			foreach($arraycategoriesobjects as $category){
