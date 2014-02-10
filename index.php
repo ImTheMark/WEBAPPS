@@ -45,6 +45,21 @@
 
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
+	
+	<?php
+		include_once('model/eventmodel.php');
+		$model = new EventModel;
+		$events = $model->getAllEvents();
+		foreach($events as $event){
+			$idevent = $event->idevent;
+			$name = $event->name;
+			$startdatetime = $event->startdatetime;
+			$enddatetime = $event->enddatetime;
+			$description = $event->description;
+			$picture = $event->picture;
+			$active = $event->active;
+		}
+	?>
   </head>
 <!-- NAVBAR
 ================================================== -->

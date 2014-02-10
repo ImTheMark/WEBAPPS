@@ -1,6 +1,6 @@
 <?php
-	include('includes/connection.php');
-	include('objects/eventobject.php');
+	include_once('includes/connection.php');
+	include_once('objects/eventobject.php');
 	
 	class EventModel{
 		public function getAllEvents(){
@@ -23,7 +23,7 @@
 					$picture = $row['picture'];
 					$active = $row['active'];
 					
-					$eventobj = new EventObject(,$idevent,$name,$startdatetime,$enddatetime,$description,$picture,$active);
+					$eventobj = new EventObject($idevent,$name,$startdatetime,$enddatetime,$description,$picture,$active);
 					array_push($events, $eventobj);
 					
 				}
@@ -31,19 +31,5 @@
 			return $events;
 		}
 	}
-	$model = new EventModel;
-	$events = $model->getAllEvents();
-	foreach($events as $event){
-		foreach($event as $x=>$x_value){
-			if($x == 'picture'){
-			
-				echo $x . " ";
-				echo $x_value;
-				echo "<img src= \"" . $x_value . "\">";
-			}
-			else{
-			echo $x . " " . $x_value . " <br>";
-			}
-		}
-	}
+	
 ?>
