@@ -3,20 +3,22 @@
 	class EventObject{ 
 		
 		public $idevent;
-		public $name = "";
+		public $eventname = "";
 		public $startdatetime = "";		
 		public $enddatetime = "";
 		public $description = ""; 
-		public $picture = "";
+		public $picturelink = "";
+		public $picturename = "";
 		public $active = "";
 		
-		public function __construct($idevent,$name,$startdatetime,$enddatetime,$description,$picture,$active){
+		public function __construct($idevent,$eventname,$startdatetime,$enddatetime,$description,$picturelink,$picturename, $active){
 			$this->idevent = $idevent;
-			$this->name = $name;
+			$this->eventname = $eventname;
 			$this->startdatetime = $startdatetime;
 			$this->enddatetime = $enddatetime;
 			$this->description = $description;
-			$this->picture = $picture;
+			$this->picturelink = $picturelink;
+			$this->picturename = $picturename;
 			$this->active = $active;
 		}
 		

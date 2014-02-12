@@ -12,8 +12,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/customstyles.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/customstyles.css" rel="stylesheet">
     <link href="css/justified-nav.css" rel="stylesheet">
     <style>
       body{
@@ -34,31 +34,12 @@
       }
 
     </style>
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
 	
 	<?php
 		include_once('model/eventmodel.php');
 		$model = new EventModel;
-		$events = $model->getAllEvents();
-		foreach($events as $event){
-			$idevent = $event->idevent;
-			$name = $event->name;
-			$startdatetime = $event->startdatetime;
-			$enddatetime = $event->enddatetime;
-			$description = $event->description;
-			$picture = $event->picture;
-			$active = $event->active;
-		}
+		$events = $model->getLatestEventsForHomepage();
 	?>
   </head>
 <!-- NAVBAR
@@ -97,6 +78,32 @@
     <div class="well">
 
       <!-- Three columns of text below the carousel -->
+	   <?php
+		  for($i = 0; $i < count($events) ; $i++){
+			$event = $events[$i];
+			$idevent = $event->idevent;
+			$eventname = $event->eventname;
+			$startdatetime = $event->startdatetime;
+			$enddatetime = $event->enddatetime;
+			$description = $event->description;
+			$picturelink = $event->picturelink;
+			$picturename = $event->picturename;
+			$active = $event->active;
+			
+			if($i % 4 == 0){ ?>
+				<div class="row">
+			<?php } ?>
+			<div class="col-lg-3">
+			<img class="featurette-image img-responsive" img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>"/>
+			<h2><?php echo $eventname ?></h2>
+			<p><?php echo $description ?>	</p>
+			<p><a class="btn btn-default" href="detail.php?id= <?php echo $idevent ?>" role="button">View details &raquo;</a></p>
+			</div>	
+			<?php if($i % 4 == 3){ ?>
+				</div>
+			<?php } ?>	
+		<?php } ?>
+
       <div class="row">
         <div class="col-lg-3">
           <img class="featurette-image img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
@@ -104,25 +111,8 @@
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="detail.php" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-3">
-          <img class="featurette-image img-responsive" img src="images/leap.jpg"  alt="Generic placeholder image">
-          <h2>LEAP ORIENTATION</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-3">
-          <img class="featurette-image img-responsive" img src="images/gamedev-poster.png" alt="Generic placeholder image">
-          <h2>GAME DEVELOPEMENT SEMINAR</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-3">
-          <img class="featurette-image img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
-          <h2>IT SERVICES</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="detail.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
+	 
 
 
     </div><!-- /.container -->
