@@ -4,6 +4,7 @@
 	include_once('objects/companyobject.php');
 	include_once('model/categorymodel.php');
 	class CompanyModel{
+		
 		function getAllCompanies(){
 			$companies =  array();
 			
@@ -21,14 +22,40 @@
 						$contactnumber = $row['contactnumber'];
 						$email = $row['email'];
 						
-						$model = new CategoryModel();
-						$categories = $model->getCompanyCategories($idcompany);
+						$categoryModel = new CategoryModel();
+						
+						$categories = $categoryModel->getCompanyCategories($idcompany);
 						$company = new CompanyObject($idcompany,$companyname,$address,$contactnumber,$email,$categories);
 						array_push($companies, $company);
 						
 					}
 				}
 				return $companies;
+		}
+		
+		function getCompanyById($id){
+			$query = "SELECT * 
+					 FROM company WHERE idcompany =" . $id;
+					 
+			$query = mysql_query($query);
+			$numrows = mysql_num_rows($query);
+			if($numrows > 0){
+				$row = mysql_fetch_assoc($query);
+				$idcompany = $row['idcompany'];
+				$companyname = $row['companyname'];
+				$address = $row['address'];
+				$contactnumber = $row['contactnumber'];
+				$email = $row['email'];
+				
+				$categoryModel = new CategoryModel();
+				
+				$categories = $categoryModel->getCompanyCategories($idcompany);
+				$company = new CompanyObject($idcompany,$companyname,$address,$contactnumber,$email,$categories);
+				return $company;
+			}
+			else{
+				return null;
+			}
 		}
 		
 		function getAllCompaniesByCategory($arraycategoriesobjects){
@@ -68,6 +95,5 @@
 		}
 		
 	}
-
 ?>
 
