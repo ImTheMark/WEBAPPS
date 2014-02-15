@@ -17,6 +17,7 @@
 				while($row = mysql_fetch_assoc($query)){
 					$idevent = $row['idevent'];
 					$eventname = $row['eventname'];
+					$location = $row['location'];
 					$startdatetime = $row['startdatetime'];
 					$enddatetime = $row['enddatetime'];
 					$description = $row['description'];
@@ -24,7 +25,7 @@
 					$picturename = $row['picturename'];
 					$active = $row['active'];
 					
-					$eventobj = new EventObject($idevent,$eventname,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
+					$eventobj = new EventObject($idevent,$eventname,$location,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
 					array_push($events, $eventobj);
 					
 				}
@@ -47,6 +48,7 @@
 				while($row = mysql_fetch_assoc($query)){
 					$idevent = $row['idevent'];
 					$eventname = $row['eventname'];
+					$location = $row['location'];
 					$startdatetime = $row['startdatetime'];
 					$enddatetime = $row['enddatetime'];
 					$description = $row['description'];
@@ -54,7 +56,7 @@
 					$picturename = $row['picturename'];
 					$active = $row['active'];
 					
-					$eventobj = new EventObject($idevent,$eventname,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
+					$eventobj = new EventObject($idevent,$eventname,$location,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
 					array_push($events, $eventobj);
 					
 				}
@@ -81,7 +83,7 @@
 					$picture = $row['picturelink'];
 					$picturename = $row['picturename'];
 					$active = $row['active'];
-					$eventobj = new EventObject($idevent,$eventname,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
+					$eventobj = new EventObject($idevent,$eventname,$location,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
 					return $eventobj;		
 			}
 			else{
