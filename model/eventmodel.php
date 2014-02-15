@@ -39,7 +39,7 @@
 					  FROM webapps.event INNER JOIN webapps.eventpicture
 					  ON webapps.event.idpicture = webapps.eventpicture.ideventpicture
 					  ORDER BY startdatetime ASC
-					  LIMIT 40;";
+					  LIMIT 60;";
 			$query = mysql_query($query);
 			$numrows = mysql_num_rows($query);
 			
