@@ -70,7 +70,6 @@
 			include_once('includes/connection.php');
 			include_once('model/eventmodel.php');
 			include_once('model/companymodel.php');
-			include_once('config/domain.php');
 			if(isset($_GET['id'])){
 				$id = $_GET['id'];
 				$eventModel = new EventModel();
@@ -111,7 +110,7 @@
       <div class="row">
 		<div  class="col-md-14">
 			<div id="poster">
-				<img src="<?php echo getDomainLink() . $picturelink ?>" class="img-responsive" alt="<?php echo $picturename?>">
+				<img src="<?php echo $picturelink ?>" class="img-responsive" alt="<?php echo $picturename?>">
 			</div>
 		</div>
 		<div  class="col-md-7">
