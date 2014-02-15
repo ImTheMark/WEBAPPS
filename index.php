@@ -44,6 +44,23 @@
       .panel:hover{
         box-shadow: 0 0 3px #333333;
       }
+
+      .poster {
+          display: block;
+          overflow: hidden;
+          height: 250px;
+          width: 100%;
+      }
+
+      .poster img {
+          display: block; /* Otherwise it keeps some space around baseline */
+          min-width: 100%;    /* Scale up to fill container width */
+          min-height: 100%;   /* Scale up to fill container height */
+          -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
+      }
+
+      
+
     </style>
 	
 	<?php
@@ -56,7 +73,17 @@
 ================================================== -->
   <body>
 	<?php include('includes/nav.php'); ?>
+<!--
 
+      .poster img{
+        position: relative;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 333px;
+        max-width: 100%;
+      }
+-->
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -120,7 +147,9 @@
         <div class="col-lg-3">
           <div class="panel panel-default">
             <a href="detail.php" class="nohover">
-                <img class="featurette-image img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
+                <div class="poster">
+                  <img class="featurette-image img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
+                </div>  
                 <div class="details">
                   <h2>IT SERVICES of the republic of the Philippines Metro Manila</h2>
                   <p>
@@ -133,7 +162,23 @@
           </div>
         </div>
 
-
+        <div class="col-lg-3">
+          <div class="panel panel-default">
+            <a href="detail.php" class="nohover">
+                <div class="poster">
+                    <img class="featurette-image img-responsive" img src="images/job expo.jpg" alt="Generic placeholder image">
+                </div>
+                <div class="details">
+                  <h2>IT SERVICES of the republic of the Philippines Metro Manila</h2>
+                  <p>
+                    <span class="glyphicon glyphicon-calendar"></span> January 23,2014<br>
+                    <span class="glyphicon glyphicon-time"></span> 8am<br>
+                    <span class="glyphicon glyphicon-map-marker"></span> DLSU<br>
+                  </p>
+                </div>
+            </a>
+          </div>
+        </div>
 
       </div><!-- /.row -->
 	   
