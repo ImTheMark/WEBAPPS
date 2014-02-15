@@ -51,6 +51,7 @@ DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `idcompany` int(11) NOT NULL,
   `companyname` varchar(45) NOT NULL,
+  `companydescription` varchar(1000) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   `contactnumber` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
@@ -68,7 +69,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (1,'Google','Philippines','09171234567','google@gmail.com',1,'http://www.google.com',NULL),(2,'Accenture','Philippines','09121234567','accenture@accenture.com',2,'http://www.accenture.com',NULL),(3,'Hewlett Packard','Philippines','09172324142','hp@hp.com',3,'http://www.hp.com',NULL);
+INSERT INTO `company` VALUES (1,'Google','Google is an American multinational corporation specializing in Internet-related services and products. These include search, cloud computing, software, and online advertising technologies. Most of its profits are derived from AdWords','Philippines','09171234567','google@gmail.com',1,'http://www.google.com',NULL),(2,'Accenture','Accenture plc is a multinational management consulting, technology services and outsourcing company. Incorporated headquarters are in Dublin, Republic of Ireland while operations headquarters are in Chicago, Illinois.','Philippines','09121234567','accenture@accenture.com',2,'http://www.accenture.com',NULL),(3,'Hewlett Packard','Hewlett-Packard Company or HP is an American multinational information technology corporation headquartered in Palo Alto, California, United States.','Philippines','09172324142','hp@hp.com',3,'http://www.hp.com',NULL);
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +143,7 @@ CREATE TABLE `companypicture` (
 
 LOCK TABLES `companypicture` WRITE;
 /*!40000 ALTER TABLE `companypicture` DISABLE KEYS */;
-INSERT INTO `companypicture` VALUES (1,'Google','google.jpg'),(2,'Accenture','accenture.jpg'),(3,'HP','hp.jpg');
+INSERT INTO `companypicture` VALUES (1,'Google','images/google.jpg'),(2,'Accenture','images/accenture.jpg'),(3,'HP','images/hp.jpg');
 /*!40000 ALTER TABLE `companypicture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +174,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (1,'Job Expo 2014','DLSU','2014-02-04 08:00:00','2014-02-06 20:00:00','Job Expo for DLSU Students','YES',2),(2,'Leap 2014','DLSU','2014-02-01 10:00:00','2014-02-11 18:00:00','Leap 2014 for DLSU Students','YES',3);
+INSERT INTO `event` VALUES (1,'Job Expo 2014','Ayala Avenue corner,Makati Avenue,Makati City','2014-02-04 08:00:00','2014-02-06 20:00:00','Job Expo for DLSU Students','YES',2),(2,'Leap 2014','DLSU','2014-02-01 10:00:00','2014-02-11 18:00:00','Leap 2014 for DLSU Students','YES',3);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,7 +199,7 @@ CREATE TABLE `eventpicture` (
 
 LOCK TABLES `eventpicture` WRITE;
 /*!40000 ALTER TABLE `eventpicture` DISABLE KEYS */;
-INSERT INTO `eventpicture` VALUES (1,'logo','http://localhost/WEBAPPS/images/e-logo.jpg'),(2,'job expo','http://localhost/WEBAPPS/images/job expo.jpg'),(3,'leap','http://localhost/WEBAPPS/images/leap.jpg'),(4,'gamedev','http://localhost/WEBAPPS/images/gamedev-poste');
+INSERT INTO `eventpicture` VALUES (1,'logo','images/e-logo.jpg'),(2,'job expo','images/job expo.jpg'),(3,'leap','images/leap.jpg'),(4,'gamedev','images/gamedev-poster.jpg');
 /*!40000 ALTER TABLE `eventpicture` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -211,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-15 15:55:51
+-- Dump completed on 2014-02-15 17:22:12
