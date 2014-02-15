@@ -44,7 +44,9 @@
       .panel:hover{
         box-shadow: 0 0 3px #333333;
       }
-
+      .panel{
+        height: 450px;
+      }
       .poster {
           display: block;
           overflow: hidden;
@@ -155,6 +157,28 @@
 
 
 	   
+
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+        <a href="EventDetail.php?id=1" class="nohover">
+          <div class="poster">
+            <img class="featurette-image img-responsive" img src="images/leap.png" alt="ok">
+          </div>  
+          <div class="details">
+            <h2>a b c d e f g h i j k l m n o p q r s t </h2>
+            <p>
+            <span class="glyphicon glyphicon-calendar"></span> A<br>
+            <span class="glyphicon glyphicon-time"></span> A<br>
+            <span class="glyphicon glyphicon-map-marker"></span> a b c d e f g h i j k l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0 a b <br>
+            <span class="glyphicon glyphicon-briefcase"></span> Google Philippines<br>
+            </p>
+          </div>
+        </a>
+        </div>
+      </div>
+        </div>
+
+
       <br>
       <a href="search.php" class="nohover"><button type="button" class="btn btn-default btn-lg btn-block">Browse More Events</button></a>
 
