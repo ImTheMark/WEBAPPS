@@ -71,9 +71,10 @@
 			$numrows = mysql_num_rows($query);
 			
 			if($numrows > 0 ){
-				$row = mysql_fetch_assoc($query))
+				$row = mysql_fetch_assoc($query);
 					$idevent = $row['idevent'];
 					$eventname = $row['eventname'];
+					$location = $row['location'];
 					$startdatetime = $row['startdatetime'];
 					$enddatetime = $row['enddatetime'];
 					$description = $row['description'];

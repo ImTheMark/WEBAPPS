@@ -88,9 +88,10 @@
 			$startdatetime = $event->startdatetime;
 			$enddatetime = $event->enddatetime;
 			$description = $event->description;
-			$picture = $event->picture;
+			$picturelink = $event->picturelink;
 			$picturename = $event->picturename;
 			$active = $event->active;
+			$company = "De la Salle University";
 			//do postings here
 		
 		?>
@@ -109,7 +110,7 @@
 			</div>
 		</div>
 		<div  class="col-md-7">
-			<h1><?php $eventname?></h1>
+			<h1><?php echo $eventname?></h1>
 			<h3>OCBC Securities Private Limited </h3>
 			<h3>Wednesday, February 26, 2014 from 6:30 PM to 8:30 PM</h3>
 			<h3>De La Salle University, Manila</h3>
@@ -141,9 +142,9 @@
 		<div  class="col-md-4" id="location">
 		<div class="panel panel-danger">
 			<div class="panel-heading" id="panelHead" style="color:#FDF8FF;">When & Where</div>
+			<div id="map" style="width: 258px; height: 300px;"></div></br>
 			  <div class="panel-body">
-				<?php include('includes/map.php'); ?>
-				<p><br>2401 Taft Ave, Manila 1004, Philippines</p>
+				<p id="address"><br>2401 Taft Ave, Manila 1004, Philippines</p>
 				<p>Wednesday, February 26, 2014 from 6:30 PM to 8:30 PM</p>
 			  </div>
 			</div>
@@ -174,7 +175,11 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-1.10.2.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false" 
+           type="text/javascript"></script> 
     <script src="js/bootstrap.min.js"></script>
+	<script src="js/eventdetail.js"></script>
     <script src="js/holder.js"></script>
+	
   </body>
 </html>
