@@ -133,7 +133,7 @@
 			<?php } ?>
 			<div class="col-lg-3">
 			  <div class="panel panel-default">
-				<a href="detail.php?id=<?php echo $idevent ?>" class="nohover">
+				<a href="EventDetail.php?id=<?php echo $idevent ?>" class="nohover">
 					<div class="poster">
 					  <img class="featurette-image img-responsive" img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
 					</div>  
