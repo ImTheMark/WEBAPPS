@@ -17,9 +17,9 @@
 				
           </ul>
 		  </ul>
-		<form class="navbar-form navbar-right" role="search">
+		<form class="navbar-form navbar-right" role="search" method="GET">
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search Events...">
+	          <input name='s' type="text" class="form-control" placeholder="Search Events...">
 	        </div>
 	        <button type="submit" class="btn btn-primary">Search</button>
 	    </form>

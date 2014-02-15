@@ -27,3 +27,7 @@ $("input:checkbox.companies").change(function() {
 $("textbox").change(function(){
 	searchWord = $("textbox").val();
 });
+
+function setSearchWordVal(val){
+	searchWord = val;
+}
