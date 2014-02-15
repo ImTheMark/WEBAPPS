@@ -125,12 +125,9 @@
 			$idevent = $event->idevent;
 			$eventname = $event->eventname;
 			$location = $event->location;
-			$startdatetime = $event->startdatetime;
-			$enddatetime = $event->enddatetime;
-			$description = $event->description;
+			$startdatetime = date_create($event->startdatetime);
 			$picturelink = $event->picturelink;
 			$picturename = $event->picturename;
-			$active = $event->active;
 			
 			$company = $companyModel->getCompanyGivenEventId($idevent);
 			$companyname = $company->companyname;
@@ -147,8 +144,8 @@
 					<div class="details">
 					  <h2><?php echo $eventname ?></h2>
 					  <p>
-						<span class="glyphicon glyphicon-calendar"></span> <?php echo $startdatetime ?><br>
-						<span class="glyphicon glyphicon-time"></span> <?php echo $startdatetime ?><br>
+						<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
+						<span class="glyphicon glyphicon-time"></span> <?php echo date_format($startdatetime, 'G:ia'); ?><br>
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
 						<span class="glyphicon glyphicon-briefcase"></span> <?php echo $companyname ?><br>
 					  </p>

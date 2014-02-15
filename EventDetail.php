@@ -97,7 +97,7 @@
 			$idevent = $event->idevent;
 			$eventname = $event->eventname;
 			$location = $event->location;
-			$startdatetime = $event->startdatetime;
+			$startdatetime = date_create($event->startdatetime);
 			$enddatetime = $event->enddatetime;
 			$eventdescription = $event->description;
 			$picturelink = $event->picturelink;
@@ -125,7 +125,8 @@
 		<div  class="col-md-7">
 			<h1><?php echo $eventname?></h1>
 			<h3><?php echo $companyname ?></h3>
-			<h3>Datetime : <?php echo $startdatetime ?></h3>
+			<h3><?php echo date_format($startdatetime, 'l jS F Y') ?></h3>
+			<h3><?php echo date_format($startdatetime, 'G:ia'); ?> </h3>
 			<h3><?php echo $location ?></h3>
 		</div>
 		</div>
@@ -150,7 +151,8 @@
 			<div id="map" style="width: 300px; height: 300px;"></div>
 			  <div class="panel-body">
 				<p id="address"><?php echo $location ?></p>
-				<p><?php echo $startdatetime ?></p>
+				<p><?php echo date_format($startdatetime, 'l jS F Y') ?></p>
+				<p><?php echo date_format($startdatetime, 'G:ia'); ?> </p>
 			  </div>
 			</div>
 		
