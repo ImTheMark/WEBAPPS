@@ -44,6 +44,9 @@
       .panel:hover{
         box-shadow: 0 0 3px #333333;
       }
+      .panel{
+        height: 450px;
+      }
       .poster {
           display: block;
           overflow: hidden;
@@ -64,8 +67,10 @@
 	
 	<?php
 		include_once('model/eventmodel.php');
-		$model = new EventModel;
-		$events = $model->getLatestEventsForHomepage();
+		include_once('model/companymodel.php');
+		$eventModel = new EventModel;
+		$events = $eventModel->getLatestEventsForHomepage();
+		$companyModel = new CompanyModel;
 	?>
   </head>
 <!-- NAVBAR
@@ -81,9 +86,6 @@
         min-width: 100%;
         height: 333px;
         max-width: 100%;
-      }
-      .panel{
-        height: 450px;
       }
 -->
 
@@ -130,6 +132,9 @@
 			$picturename = $event->picturename;
 			$active = $event->active;
 			
+			$company = $companyModel->getCompanyGivenEventId($idevent);
+			$companyname = $company->companyname;
+			
 			if($i % 4 == 0){ ?>
 				<div class="row">
 			<?php } ?>
@@ -145,6 +150,7 @@
 						<span class="glyphicon glyphicon-calendar"></span> <?php echo $startdatetime ?><br>
 						<span class="glyphicon glyphicon-time"></span> <?php echo $startdatetime ?><br>
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
+						<span class="glyphicon glyphicon-briefcase"></span> <?php echo $companyname ?><br>
 					  </p>
 					</div>
 				</a>
