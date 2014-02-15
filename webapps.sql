@@ -117,6 +117,7 @@ CREATE TABLE `company_event` (
 
 LOCK TABLES `company_event` WRITE;
 /*!40000 ALTER TABLE `company_event` DISABLE KEYS */;
+INSERT INTO `company_event` VALUES (1,1),(1,2);
 /*!40000 ALTER TABLE `company_event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,4 +211,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-15 13:32:43
+-- Dump completed on 2014-02-15 15:55:51

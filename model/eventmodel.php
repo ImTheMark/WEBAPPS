@@ -61,6 +61,32 @@
 			}
 			return $events;
 		}
+		
+		function getEventById($id){
+			$query = "SELECT * 
+					  FROM webapps.event INNER JOIN webapps.eventpicture
+					  ON webapps.event.idpicture = webapps.eventpicture.ideventpicture
+					  WHERE idevent=$id;";
+			$query = mysql_query($query);
+			$numrows = mysql_num_rows($query);
+			
+			if($numrows > 0 ){
+				$row = mysql_fetch_assoc($query))
+					$idevent = $row['idevent'];
+					$eventname = $row['eventname'];
+					$startdatetime = $row['startdatetime'];
+					$enddatetime = $row['enddatetime'];
+					$description = $row['description'];
+					$picture = $row['picturelink'];
+					$picturename = $row['picturename'];
+					$active = $row['active'];
+					$eventobj = new EventObject($idevent,$eventname,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
+					return $eventobj;		
+			}
+			else{
+				return null;
+			}
+		}
 	}
 	
 ?>

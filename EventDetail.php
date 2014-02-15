@@ -65,6 +65,35 @@
 
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
+	
+	<?php 
+			include_once('includes/connection.php');
+			include_once('model/eventmodel.php');
+			
+			if(isset($_GET['id'])){
+				$id = $_GET['id'];
+				$eventModel = new EventModel();
+				$event = $eventModel->getEventById($id);
+				if($event == null){
+					header('Location: detailserror.php');
+					exit();
+				}
+			}
+			else{
+				header('Location: search.php');
+				exit();
+			}
+			$idevent = $event->idevent;
+			$eventname = $event->eventname;
+			$startdatetime = $event->startdatetime;
+			$enddatetime = $event->enddatetime;
+			$description = $event->description;
+			$picture = $event->picture;
+			$picturename = $event->picturename;
+			$active = $event->active;
+			//do postings here
+		
+		?>
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -80,7 +109,7 @@
 			</div>
 		</div>
 		<div  class="col-md-7">
-			<h1>Trading Sense: The Technical Analysis Way</h1>
+			<h1><?php $eventname</h1>
 			<h3>OCBC Securities Private Limited </h3>
 			<h3>Wednesday, February 26, 2014 from 6:30 PM to 8:30 PM</h3>
 			<h3>De La Salle University, Manila</h3>
