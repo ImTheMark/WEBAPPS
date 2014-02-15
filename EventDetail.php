@@ -78,7 +78,7 @@
 				$companyModel = new CompanyModel();
 				$company = $companyModel->getCompanyGivenEventId($id);
 				if($event == null){
-					header('Location: detailserror.php');
+					header('Location: search.php');
 					exit();
 				}
 			}
@@ -139,7 +139,7 @@
 		<div  class="col-md-4" id="location">
 		<div class="panel panel-danger">
 			<div class="panel-heading" id="panelHead" style="color:#FDF8FF;">When & Where</div>
-			<div id="map" style="width: 258px; height: 300px;"></div>
+			<div id="map" style="width: 300px; height: 300px;"></div>
 			  <div class="panel-body">
 				<p id="address"><?php echo $location ?></p>
 				<p><?php echo $startdatetime ?></p>
