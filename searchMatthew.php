@@ -27,10 +27,9 @@
 		</style>
 
     <title>EVENTORY - Search</title>
+	
 	</head>
 	<body>
-	
-		
 		<?php include('includes/nav.php'); 
 		?>
 		
@@ -51,11 +50,11 @@
 							foreach($categories as $category){
 								$id = $category->idcategory;
 								$c = $category->category;
-
-							echo "<input type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
-							}
-						
 							?>
+							<input type="checkbox" class = "categories" value="<?php echo $id ?>" > <?php echo $c ?> </input><br>
+							<?php } ?>
+						
+							
 						</div>
 				</div>
 				
@@ -73,11 +72,9 @@
 							foreach($companies as $company){
 								$id = $company->idcompany;
 								$c = $company->companyname;
-
-							echo "<input type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
-							}
-						
 							?>
+							<input type="checkbox" class = "companies" value="<?php echo $id ?>" > <?php echo $c ?> </input><br>
+							<?php } ?>
 						</div>
 				</div>
 				
@@ -177,7 +174,7 @@
 
 			</div>
 
-
+		<script src="js/jquery-1.11.0.js"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
