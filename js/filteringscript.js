@@ -28,6 +28,11 @@ $("textbox").change(function(){
 	searchWord = $("textbox").val();
 });
 
-function setSearchWordVal(val){
+function x(val){
+	alert("CALLED");
 	searchWord = val;
+}
+
+function al(){
+	alert(searchWord);
 }

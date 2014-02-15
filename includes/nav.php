@@ -17,7 +17,7 @@
 				
           </ul>
 		  </ul>
-		<form class="navbar-form navbar-right" role="search" method="GET">
+		<form action='search.php' class="navbar-form navbar-right" role="search" method="GET">
 	        <div class="form-group">
 	          <input name='s' type="text" class="form-control" placeholder="Search Events...">
 	        </div>
