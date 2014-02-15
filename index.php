@@ -44,9 +44,6 @@
       .panel:hover{
         box-shadow: 0 0 3px #333333;
       }
-      .panel{
-        height: 450px;
-      }
       .poster {
           display: block;
           overflow: hidden;
@@ -84,6 +81,9 @@
         min-width: 100%;
         height: 333px;
         max-width: 100%;
+      }
+      .panel{
+        height: 450px;
       }
 -->
 
