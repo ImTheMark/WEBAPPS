@@ -32,9 +32,19 @@
         margin: 0 auto;
         float: none;
       }
-
+      .details{
+        margin: 15px;
+      }
+      a.nohover { 
+        color: #333333; 
+      }
+      a.nohover:hover { 
+        text-decoration: none;
+      }
+      .panel:hover{
+        box-shadow: 0 0 3px #333333;
+      }
     </style>
-    <link href="css/carousel.css" rel="stylesheet">
 	
 	<?php
 		include_once('model/eventmodel.php');
@@ -105,15 +115,30 @@
 		<?php } ?>
 
       <div class="row">
-        <div class="col-lg-3">
-          <img class="featurette-image img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
-          <h2>IT SERVICES</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="detail.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-	 
 
+
+        <div class="col-lg-3">
+          <div class="panel panel-default">
+            <a href="detail.php" class="nohover">
+                <img class="featurette-image img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
+                <div class="details">
+                  <h2>IT SERVICES of the republic of the Philippines Metro Manila</h2>
+                  <p>
+                    <span class="glyphicon glyphicon-calendar"></span> January 23,2014<br>
+                    <span class="glyphicon glyphicon-time"></span> 8am<br>
+                    <span class="glyphicon glyphicon-map-marker"></span> DLSU<br>
+                  </p>
+                </div>
+            </a>
+          </div>
+        </div>
+
+
+
+      </div><!-- /.row -->
+	   
+      <br>
+      <a href="search.php" class="nohover"><button type="button" class="btn btn-default btn-lg btn-block">Browse More Events</button></a>
 
     </div><!-- /.container -->
 

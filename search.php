@@ -24,6 +24,10 @@
 				background-color: #7C578C;
         		background: url('images/bg.png') repeat center center;
 			}
+			.btn-toolbar{
+				display:inline-block;
+ 				text-align: center;
+			}​
 		</style>
 
     <title>EVENTORY - Search</title>
@@ -134,18 +138,29 @@
 					</div>
 
 
-
-
+					<br>
+					<center>
+					<div class="btn-toolbar" role="toolbar">
+					  <div class="btn-group">	
+						  <button type="button" class="btn btn-default">1</button>
+						  <button type="button" class="btn btn-default">2</button>
+						  <button type="button" class="btn btn-default">3</button>
+						  <button type="button" class="btn btn-default">4</button>
+						  <button type="button" class="btn btn-default">5</button>
+					  </div>
+					</div>
+					</center>
 				</div>
 			
 
 
+				<!--
 					<ul class="pager">
 					  <li class="previous"><a href="#">&larr; Newer</a></li>
 					  <li class="next"><a href="#">Older &rarr;</a></li>
 					</ul>
 			
-
+				-->
 
 
     <div class=" well">

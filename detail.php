@@ -7,6 +7,10 @@
 		<link href="css/customstyles.css" rel="stylesheet">
 		
 		<style>
+		      body{
+		        background-color: #7C578C;
+		        background: url('images/bg.png') repeat center center;
+		      }
 		
 			#container1 {
 				
