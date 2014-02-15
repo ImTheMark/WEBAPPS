@@ -7,14 +7,6 @@ $("input:checkbox.categories").change(function() {
       selectedCategories.push($(this).val());
     });
 	
-	$.ajax({
-   type: "POST",
-   data: {'searchWord' : searchWord , 'selectedCategories':selectedCategories , 'selectedCompanies' : selectedCompanies},
-   url: "phpscripts/searchfilter.php",
-   success: function(data){
-     replace list to the string that will be created by the searchfilter.php
-	}
-	});
 });
 
 $("input:checkbox.companies").change(function() {
@@ -22,17 +14,15 @@ $("input:checkbox.companies").change(function() {
   $('input.companies:checked').each(function(){
       selectedCompanies.push($(this).val());
     });
+  alert(selectedCompanies);
 });
 
-$("textbox").change(function(){
-	searchWord = $("textbox").val();
-});
-
-function x(val){
-	alert("CALLED");
-	searchWord = val;
-}
-
-function al(){
+$("#filter-searchbar").change(function(){
+	searchWord = $("#filter-searchbar").val();
 	alert(searchWord);
-}
+});
+
+$(window).load(function() {
+      searchWord = $("#filter-searchbar").val();
+		alert(searchWord);
+});

@@ -38,7 +38,12 @@
 	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/moment.js"></script>
 	    <script type="text/javascript" src="js/daterangepicker.js"></script>
-
+		<?php 
+			$searchWord="";
+			if(isset($_POST['s'])){
+				$searchWord = $_POST['s'];
+			}
+		 ?>
     <title>EVENTORY - Search</title>
 	</head>
 	<body>
@@ -47,12 +52,7 @@
 		<?php include('includes/nav.php'); 
 		?>
 		
-		<?php 
-			$searchWord="";
-			if(isset($_GET['s'])){
-				$searchWord = $_GET['s'];
-			}
-		 ?>
+		
 		
 		<h3> <div class="label label-default"> Search for Events </div></h3>
 		<BR>
@@ -74,7 +74,7 @@
 								$id = $category->idcategory;
 								$c = $category->category;
 
-							echo "<input type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
+							echo "<input class = 'categories' type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
 							}
 						
 							?>
@@ -96,7 +96,7 @@
 								$id = $company->idcompany;
 								$c = $company->companyname;
 
-							echo "<input type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
+							echo "<input class = 'companies' type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
 							}
 						
 							?>
