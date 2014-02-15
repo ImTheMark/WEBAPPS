@@ -22,11 +22,20 @@
       }
 	  
       #poster {
-				float: left; 
-				width: 40%;
-				height: auto;
+				float: left;
 				padding: 10px; 
+          		display: block;
+          		overflow: hidden;
+          		height: 250px;
+          		width: 400px;
 		}
+		
+      #poster img {
+		          display: block; /* Otherwise it keeps some space around baseline */
+		          min-width: 100%;    /* Scale up to fill container width */
+		          min-height: 100%;   /* Scale up to fill container height */
+		          -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
+      }
 		
 		#detail {
 				float: left; 
