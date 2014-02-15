@@ -18,14 +18,15 @@
 					while($row = mysql_fetch_assoc($query)){
 						$idcompany = $row['idcompany'];
 						$companyname = $row['companyname'];
+						$description = $row['companydescription'];
 						$address = $row['address'];
 						$contactnumber = $row['contactnumber'];
 						$email = $row['email'];
 						
 						$categoryModel = new CategoryModel();
-						
+					
 						$categories = $categoryModel->getCompanyCategories($idcompany);
-						$company = new CompanyObject($idcompany,$companyname,$address,$contactnumber,$email,$categories);
+						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
 						array_push($companies, $company);
 						
 					}
@@ -43,14 +44,15 @@
 				$row = mysql_fetch_assoc($query);
 				$idcompany = $row['idcompany'];
 				$companyname = $row['companyname'];
+				$description = $row['companydescription'];
 				$address = $row['address'];
 				$contactnumber = $row['contactnumber'];
 				$email = $row['email'];
 				
 				$categoryModel = new CategoryModel();
-				
+			
 				$categories = $categoryModel->getCompanyCategories($idcompany);
-				$company = new CompanyObject($idcompany,$companyname,$address,$contactnumber,$email,$categories);
+				$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
 				return $company;
 			}
 			else{
@@ -82,16 +84,49 @@
 					while($row = mysql_fetch_assoc($query)){
 						$idcompany = $row['idcompany'];
 						$companyname = $row['companyname'];
+						$description = $row['companydescription'];
 						$address = $row['address'];
 						$contactnumber = $row['contactnumber'];
 						$email = $row['email'];
 						
-						$company = new CompanyObject($idcompany,$companyname,$address,$contactnumber,$email);
+						$categoryModel = new CategoryModel();
+					
+						$categories = $categoryModel->getCompanyCategories($idcompany);
+						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
 						array_push($companies, $company);
 						
 					}
 				}
 				return $companies;
+		}
+		
+		function getCompanyGivenEventId($id){
+			$query = "SELECT *
+					  FROM company
+					  INNER JOIN company_event ON company.idcompany = company_event.idcompany
+					  INNER JOIN event ON company_event.idevent = event.idevent
+					  WHERE event.idevent=$id;";
+			$query = mysql_query($query);
+			$numrows = mysql_num_rows($query);
+			
+			if($numrows > 0 ){
+				$row = mysql_fetch_assoc($query);
+					$idcompany = $row['idcompany'];
+					$companyname = $row['companyname'];
+					$description = $row['companydescription'];
+					$address = $row['address'];
+					$contactnumber = $row['contactnumber'];
+					$email = $row['email'];
+					
+					$categoryModel = new CategoryModel();
+				
+					$categories = $categoryModel->getCompanyCategories($idcompany);
+					$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
+					return $company;		
+			}
+			else{
+				return null;
+			}
 		}
 		
 	}
