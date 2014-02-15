@@ -120,6 +120,7 @@
 			$event = $events[$i];
 			$idevent = $event->idevent;
 			$eventname = $event->eventname;
+			$location = $event->location;
 			$startdatetime = $event->startdatetime;
 			$enddatetime = $event->enddatetime;
 			$description = $event->description;
@@ -131,56 +132,28 @@
 				<div class="row">
 			<?php } ?>
 			<div class="col-lg-3">
-			<img class="featurette-image img-responsive" img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>"/>
-			<h2><?php echo $eventname ?></h2>
-			<p><?php echo $description ?>	</p>
-			<p><a class="btn btn-default" href="detail.php?id= <?php echo $idevent ?>" role="button">View details &raquo;</a></p>
-			</div>	
+			  <div class="panel panel-default">
+				<a href="detail.php?id=<?php echo $idevent ?>" class="nohover">
+					<div class="poster">
+					  <img class="featurette-image img-responsive" img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
+					</div>  
+					<div class="details">
+					  <h2><?php echo $eventname ?></h2>
+					  <p>
+						<span class="glyphicon glyphicon-calendar"></span> <?php echo $startdatetime ?><br>
+						<span class="glyphicon glyphicon-time"></span> <?php echo $startdatetime ?><br>
+						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
+					  </p>
+					</div>
+				</a>
+			  </div>
+			</div>
 			<?php if($i % 4 == 3){ ?>
 				</div>
 			<?php } ?>	
 		<?php } ?>
 
-      <div class="row">
 
-
-        <div class="col-lg-3">
-          <div class="panel panel-default">
-            <a href="detail.php" class="nohover">
-                <div class="poster">
-                  <img class="featurette-image img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
-                </div>  
-                <div class="details">
-                  <h2>IT SERVICES of the republic of the Philippines Metro Manila</h2>
-                  <p>
-                    <span class="glyphicon glyphicon-calendar"></span> January 23,2014<br>
-                    <span class="glyphicon glyphicon-time"></span> 8am<br>
-                    <span class="glyphicon glyphicon-map-marker"></span> DLSU<br>
-                  </p>
-                </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3">
-          <div class="panel panel-default">
-            <a href="detail.php" class="nohover">
-                <div class="poster">
-                    <img class="featurette-image img-responsive" img src="images/job expo.jpg" alt="Generic placeholder image">
-                </div>
-                <div class="details">
-                  <h2>IT SERVICES of the republic of the Philippines Metro Manila</h2>
-                  <p>
-                    <span class="glyphicon glyphicon-calendar"></span> January 23,2014<br>
-                    <span class="glyphicon glyphicon-time"></span> 8am<br>
-                    <span class="glyphicon glyphicon-map-marker"></span> DLSU<br>
-                  </p>
-                </div>
-            </a>
-          </div>
-        </div>
-
-      </div><!-- /.row -->
 	   
       <br>
       <a href="search.php" class="nohover"><button type="button" class="btn btn-default btn-lg btn-block">Browse More Events</button></a>
