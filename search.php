@@ -4,6 +4,7 @@
 	<head>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/customstyles.css" rel="stylesheet">
+
 		<style>
 			#filter{
 				float: left; 
@@ -29,6 +30,14 @@
  				text-align: center;
 			}​
 		</style>
+
+
+	    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
+	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/moment.js"></script>
+	    <script type="text/javascript" src="js/daterangepicker.js"></script>
 
     <title>EVENTORY - Search</title>
 	</head>
@@ -102,15 +111,40 @@
 
 		<!----------------------------- RESULTS -------------------------------------->	
 			<div id="results" class="col-md-9">
-				<div class="btn-group">
-					<button type="button" class="btn btn-default">Grid</button>
-					<button type="button" class="btn btn-default">Thumbnail</button>
-					<button type="button" class="btn btn-default">Calendar</button>
-				</div><br><br>
 
+			<div class="search-options">
+				<div class="btn-group" style="overflow: auto">
+					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> List</button>
+					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> Grid</button>
+				</div>
 
+               	<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                    <i class="fa fa-calendar fa-lg"></i>
+				    <span><?php echo date("F j, Y", strtotime('-0 day')); ?> - <?php echo date("F j, Y"); ?></span> <b class="caret"></b>
+				</div>
+				 
+				<script type="text/javascript">
+				$('#reportrange').daterangepicker(
+				    {
+				      ranges: {
+				         'Today': [moment(), moment()],
+				         'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+				         'Last 7 Days': [moment().subtract('days', 6), moment()],
+				         'Last 30 Days': [moment().subtract('days', 29), moment()],
+				         'This Month': [moment().startOf('month'), moment().endOf('month')],
+				         'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+				      },
+				      startDate: moment().subtract('days', 0),
+				      endDate: moment()
+				    },
+				    function(start, end) {
+				        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+				    }
+				);
+				</script>
 
-
+			</div>
+			<br>
 
 
 				<div class="list-group">
