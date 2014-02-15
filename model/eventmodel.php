@@ -64,8 +64,8 @@
 		
 		function getEventById($id){
 			$query = "SELECT * 
-					  FROM webapps.event INNER JOIN webapps.eventpicture
-					  ON webapps.event.idpicture = webapps.eventpicture.ideventpicture
+					  FROM webapps.event 
+					  INNER JOIN webapps.eventpicture ON webapps.event.idpicture = webapps.eventpicture.ideventpicture
 					  WHERE idevent=$id;";
 			$query = mysql_query($query);
 			$numrows = mysql_num_rows($query);

@@ -109,7 +109,7 @@
 			</div>
 		</div>
 		<div  class="col-md-7">
-			<h1><?php $eventname</h1>
+			<h1><?php $eventname?></h1>
 			<h3>OCBC Securities Private Limited </h3>
 			<h3>Wednesday, February 26, 2014 from 6:30 PM to 8:30 PM</h3>
 			<h3>De La Salle University, Manila</h3>

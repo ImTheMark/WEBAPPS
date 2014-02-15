@@ -10,8 +10,9 @@
 		public $picturelink = "";
 		public $picturename = "";
 		public $active = "";
+		public $companyname = "";
 		
-		public function __construct($idevent,$eventname,$startdatetime,$enddatetime,$description,$picturelink,$picturename, $active){
+		public function __construct($idevent,$eventname,$startdatetime,$enddatetime,$description,$picturelink,$picturename, $active,$companyname){
 			$this->idevent = $idevent;
 			$this->eventname = $eventname;
 			$this->startdatetime = $startdatetime;
@@ -20,6 +21,7 @@
 			$this->picturelink = $picturelink;
 			$this->picturename = $picturename;
 			$this->active = $active;
+			$this->companyname = "";
 		}
 		
 	}
