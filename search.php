@@ -60,7 +60,7 @@
 			<div id="filter" class="col-md-3">
 
 			<input id='filter-searchbar' name='searchWord' type="text" class="form-control" placeholder="Search Events..." value= "<?php echo $searchWord;?>" ><br>
-			<button type="submit" class="btn btn-primary">Search</button>
+			<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
 		<!----------------------------- CATEGORIES -------------------------------------->
 				<div class="panel panel-default">
 					<div class="panel-heading">Categories</div>
@@ -234,7 +234,7 @@
 
 			</div>
 
-		<script src="js/filteringscript.js"></script>
+		<script src="js/paginate.js"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
