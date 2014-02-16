@@ -1,6 +1,5 @@
 <?php
 	include_once('../includes/connection.php');
-	
 	$selectedCategories = "";
 	$selectedCompanies = "";
 	$searchWord = "";
@@ -15,12 +14,24 @@
 		$searchWord = $_POST['searchWord'];		
 	}	
 	
-	print_r($selectedCategories);
-	print_r($selectedCompanies);
-	print_r($searchWord);
+	$query = "SELECT COUNT(*) as nRows
+			  FROM company INNER JOIN company_event on company.idcompany = company_event.idcompany
+			 INNER JOIN event on company_event.idevent = event.idevent
+			 INNER JOIN company_category on company.idcompany = company_category.idcompany
+			 INNER JOIN category on company_category.idcategory = category.idcategory";
 	
-	$query = "SELECT COUNT(*) FROM event";
+	if($searchWord!=null && $searchWord!=""){
+		$query.= " WHERE companyname LIKE '%" . $searchWord . "%' OR eventname LIKE '%" . $searchWord . "%'";
+	}
+	echo $query;
 	
-	$results = mysql_query($query)
-
+	$results = mysql_query($query);
+	if(mysql_num_rows($results) > 0){
+		$result = mysql_fetch_assoc($results);
+		echo $result['nRows'];
+	}
+	else{
+		// DB ERROR
+	}
+	
 ?>
