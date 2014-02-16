@@ -62,6 +62,11 @@
 		h1,h2,h3,h4{
 			color:black;
 		}
+		
+		iframe{
+			width:100%;
+			height:100%;
+		}
     </style>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -148,8 +153,8 @@
 		<div  class="col-md-4" id="location">
 		<div class="panel panel-danger">
 			<div class="panel-heading" id="panelHead" style="color:#FDF8FF;">When & Where</div>
-			<div id="map" style="width: 300px; height: 300px;"></div>
 			  <div class="panel-body">
+				<iframe id="map"></iframe>
 				<p id="address"><?php echo $location ?></p>
 				<p><?php echo date_format($startdatetime, 'l jS F Y') ?></p>
 				<p><?php echo date_format($startdatetime, 'G:ia'); ?> </p>
@@ -158,7 +163,7 @@
 		
 		</div>
 		
-		<div  class="col-md-offset-8" id="location">
+		<div class="col-md-offset-8" id="location">
 		<div class="panel panel-danger">
 			<div class="panel-heading" id="panelHead" style="color:#FDF8FF;">Organizer</div>
 			  <div class="panel-body">
