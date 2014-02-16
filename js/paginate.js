@@ -6,7 +6,7 @@ $("input:checkbox.categories").change(function() {
   $('input.categories:checked').each(function(){
       selectedCategories.push($(this).val());
     });
-	
+	paginate();
 });
 
 $("input:checkbox.companies").change(function() {
@@ -14,15 +14,36 @@ $("input:checkbox.companies").change(function() {
   $('input.companies:checked').each(function(){
       selectedCompanies.push($(this).val());
     });
-  alert(selectedCompanies);
+	paginate();
 });
 
 $("#filter-searchbar").change(function(){
 	searchWord = $("#filter-searchbar").val();
-	alert(searchWord);
+	paginate();
 });
 
 $(window).load(function() {
       searchWord = $("#filter-searchbar").val();
-		alert(searchWord);
+	  paginate();
 });
+
+$("#filter-button").click( function(){
+      searchWord = $("#filter-searchbar").val();
+	  paginate();
+});
+
+
+function paginate(){
+	$.ajax({
+      type: "POST",
+      data: {
+		 'companies' : selectedCompanies , 
+		 'categories' : selectedCategories, 
+		 'searchWord' : searchWord, 
+	  },
+      url: "php/paginate.php",
+      success: function(data){
+         alert(data);
+		}
+	});
+}
