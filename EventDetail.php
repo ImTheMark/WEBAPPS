@@ -153,8 +153,8 @@
 		<div  class="col-md-4" id="location">
 		<div class="panel panel-danger">
 			<div class="panel-heading" id="panelHead" style="color:#FDF8FF;">When & Where</div>
+			  <div id="map" style="width: 300px; height: 300px;"></div>
 			  <div class="panel-body">
-				<iframe id="map"></iframe>
 				<p id="address"><?php echo $location ?></p>
 				<p><?php echo date_format($startdatetime, 'l jS F Y') ?></p>
 				<p><?php echo date_format($startdatetime, 'G:ia'); ?> </p>
