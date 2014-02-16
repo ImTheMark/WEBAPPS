@@ -59,6 +59,13 @@
 			if(isset($_POST['s'])){
 				$searchWord = $_POST['s'];
 			}
+			
+			$catname = "";
+			
+			if(isset($_GET['company'])){
+				$catname = $_GET['company'];
+			}
+			
 		    ?>
 			<input id='filter-searchbar' name='searchWord' type="text" class="form-control" placeholder="Search Events..." value= "<?php echo $searchWord;?>" ><br>
 			<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
@@ -74,11 +81,12 @@
 							foreach($categories as $category){
 								$id = $category->idcategory;
 								$c = $category->category;
-
-							echo "<input class = 'categories' type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
-							}
-						
 							?>
+							<input class = 'categories' type="checkbox" value=" <?php echo $id; ?>" > <?php echo $c; ?></input><br>
+							
+							
+							<?php } ?>
+						
 						</div>
 				</div>
 				
@@ -96,11 +104,10 @@
 							foreach($companies as $company){
 								$id = $company->idcompany;
 								$c = $company->companyname;
-
-							echo "<input class = 'companies' type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
-							}
-						
 							?>
+							<input class = 'companies' type="checkbox" value="<?php echo $id; ?>" <?php if($catname==$c){echo "checked";} ?>> <?php echo $c ;?></input><br>
+							<?php } ?>
+						
 						</div>
 				</div>
 				
