@@ -41,9 +41,10 @@ function paginate(){
 		 'categories' : selectedCategories, 
 		 'searchWord' : searchWord, 
 	  },
-      url: "php/paginate.php",
+      url: "php/paginateevents.php",
       success: function(data){
          alert(data);
 		}
 	});
 }
+

@@ -18,5 +18,9 @@
 	print_r($selectedCategories);
 	print_r($selectedCompanies);
 	print_r($searchWord);
+	
+	$query = "SELECT COUNT(*) FROM event";
+	
+	$results = mysql_query($query)
 
 ?>
