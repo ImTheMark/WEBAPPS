@@ -38,12 +38,7 @@
 	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/moment.js"></script>
 	    <script type="text/javascript" src="js/daterangepicker.js"></script>
-		<?php 
-			$searchWord="";
-			if(isset($_POST['s'])){
-				$searchWord = $_POST['s'];
-			}
-		 ?>
+		
     <title>EVENTORY - Search</title>
 	</head>
 	<body>
@@ -59,6 +54,12 @@
 		
 			<div id="filter" class="col-md-3">
 
+			<?php 
+			$searchWord="";
+			if(isset($_POST['s'])){
+				$searchWord = $_POST['s'];
+			}
+		    ?>
 			<input id='filter-searchbar' name='searchWord' type="text" class="form-control" placeholder="Search Events..." value= "<?php echo $searchWord;?>" ><br>
 			<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
 		<!----------------------------- CATEGORIES -------------------------------------->

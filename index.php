@@ -98,12 +98,14 @@
         for their interests.</p>
         <p>
           <div class="col-lg-6 col-centered">
-            <div class="input-group">
-              <input type="text" class="searchbox form-control">
-              <span class="input-group-btn">
-                <button class="btn btn-success" type="button">Go!</button>
-              </span>
-            </div><!-- /input-group -->
+            <form action='search.php' role="search" method="POST">
+				<div class="input-group">
+				  <input name ='s' type="text" class="searchbox form-control">
+				  <span class="input-group-btn">
+					<button class="btn btn-success" type="submit">Go!</button>
+				  </span>
+				</div><!-- /input-group -->
+			</form>
           </div><!-- /.col-lg-6 -->
         </p>
       </div>
