@@ -22,7 +22,7 @@ $("#filter-searchbar").change(function(){
 	paginate();
 });
 
-$(window).load(function() {
+$(document).ready(function() {
       searchWord = $("#filter-searchbar").val();
 	  paginate();
 });
@@ -30,8 +30,28 @@ $(window).load(function() {
 $("#filter-button").click( function(){
       searchWord = $("#filter-searchbar").val();
 	  paginate();
+	  
 });
 
+$(".paginate_click").click( function () {
+	var clicked_id = $(this).attr("id").split("-");
+	var page_num = parseInt(clicked_id[0]);
+	$('.paginate_click').removeClass('active');
+	$.ajax({
+	  type: "POST",
+	  data: {
+		 'page' : page_num,
+		 'companies' : selectedCompanies , 
+		 'categories' : selectedCategories, 
+		 'searchWord' : searchWord, 
+	  },
+	  url: "php/fetchevents.php",
+	  success: function(data){
+			$("#event-results").html(data);
+		}
+	});
+	$(this).addClass('active');
+});
 
 function paginate(){
 	$.ajax({
@@ -43,8 +63,39 @@ function paginate(){
 	  },
       url: "php/paginateevents.php",
       success: function(data){
-         alert(data);
+		 if(data == ""){
+			$("#event-results").html("No results found");
+		 }
+		 else if(data == "one-pager"){
+			$("#pages").html("");
+			displayFirstPage();
+		 }
+		 else{
+			$("#pages").html(data);
+			displayFirstPage();
+		  }
 		}
 	});
 }
+
+function displayFirstPage(){
+	$.ajax({
+		  type: "POST",
+		  data: {
+		     'page' : 1,
+			 'companies' : selectedCompanies , 
+			 'categories' : selectedCategories, 
+			 'searchWord' : searchWord, 
+		  },
+		  url: "php/fetchevents.php",
+		  success: function(data){
+				$("#event-results").html(data);
+			}
+		});
+}
+
+
+
+
+
 

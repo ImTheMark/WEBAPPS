@@ -162,45 +162,16 @@
 
 			</div>
 			<br>
-			
-				<div class="list-group">
-					<div class="list-group-item clearfix">
-					    <a href="#" class="thumbnail col-xs-3">
-					      <img src="images/IT-poster2.png" alt="...">
-					    </a>
-						<p class="event-title list-group-item-heading col-xs-6">IT SERVICES</p>
-						<p class="event-body list-group-item-text col-xs-6">
-							DATE:		January 23,2014<br>
-							TIME:		8am<br>
-							LOCATION:	DLSU<br><br>
-						<a class="btn btn-lg btn-primary" href="detail.php" role="button">View details</a></p>
-					</div>
-					<div class="list-group-item clearfix">
-					    <a href="#" class="thumbnail col-xs-3">
-					      <img src="images/leap.jpg" alt="...">
-					    </a>
-						<p class="event-title list-group-item-heading col-xs-6">LEAP</p>
-						<p class="event-body list-group-item-text col-xs-6">
-							DATE:		January 23,2014<br>
-							TIME:		8am<br>
-							LOCATION:	DLSU<br><br>
-						<a class="btn btn-lg btn-primary" href="#" role="button">View details</a></p>
-					</div>
-
-
-					<br>
-					<center>
-					<div class="btn-toolbar" role="toolbar">
-					  <div class="btn-group">	
-						  <button type="button" class="btn btn-default">1</button>
-						  <button type="button" class="btn btn-default">2</button>
-						  <button type="button" class="btn btn-default">3</button>
-						  <button type="button" class="btn btn-default">4</button>
-						  <button type="button" class="btn btn-default">5</button>
-					  </div>
-					</div>
-					</center>
+				<div id = "event-results" class = "list-group">
 				</div>
+				
+				<br>
+				<center>
+				<div class="btn-toolbar" role="toolbar">
+				  <div  id = "pages" class="btn-group">	
+				  </div>
+				</div>
+				</center>
 			
 
 

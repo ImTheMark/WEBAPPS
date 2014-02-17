@@ -3,7 +3,8 @@
 	$selectedCategories = "";
 	$selectedCompanies = "";
 	$searchWord = "";
-	
+
+	$page_number = $_POST['page'];
 	if(isset($_POST['companies'])){
 		$selectedCompanies = $_POST['companies'];		
 	}
@@ -14,7 +15,11 @@
 		$searchWord = $_POST['searchWord'];		
 	}	
 	
-	$query = "SELECT COUNT(distinct event.idevent, eventname, location, startdatetime, picturelink, picturename) as nRows
+	$item_per_page = 5;
+	$page_number -=1;
+	$position = ($page_number * $item_per_page);
+	
+	$query = "SELECT distinct event.idevent, eventname, location, startdatetime, picturelink, picturename
 			  FROM company INNER JOIN company_event on company.idcompany = company_event.idcompany
 			 INNER JOIN event on company_event.idevent = event.idevent
 			 INNER JOIN company_category on company.idcompany = company_category.idcompany
@@ -76,27 +81,31 @@
 	}
 	
 	$query .= $cond;
+	$query .= " LIMIT $position, $item_per_page";
 	
-	$results = mysql_query($query);
-	if(mysql_num_rows($results) > 0){
-		$result = mysql_fetch_assoc($results);
-		$nRows = $result['nRows'];
-		$item_per_page = 5;
-		$nPages = ceil($nRows/$item_per_page);
-		$pagination = "";
-		if($nPages == 1){
-			echo "one-pager";
-		}
-		else if($nPages > 1){
-			for($i = 1 ; $i <= $nPages ; $i++){
-					$pagination .= '<a class="paginate_click" id = "' .$i. '-page"> <button type="button" class="btn btn-default">'. $i . '</button>';
-				}
-			echo $pagination;
-		}
-		
+	$query = mysql_query($query);
+	$numrows = mysql_num_rows($query);
+			
+	if($numrows > 0 ){
+		while($row = mysql_fetch_assoc($query)){
+			$idevent = $row['idevent'];
+			$eventname = $row['eventname'];
+			$location = $row['location'];
+			$startdatetime = date_create($row['startdatetime']);
+			$picturelink = $row['picturelink'];
+			$picturename = $row['picturename'];
+			?>
+			<div class="list-group-item clearfix">
+				<a href="EventDetail.php?id=<?php echo $idevent ?>" class="thumbnail col-xs-3">
+				  <img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
+				</a>
+				<p class="event-title list-group-item-heading col-xs-6"><?php echo $eventname ?></p>
+				<p class="event-body list-group-item-text col-xs-6">
+					DATE:		<?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
+					TIME:		<?php echo date_format($startdatetime, 'G:ia'); ?><br>
+					LOCATION:	<?php echo $location ?><br><br>
+				<a class="btn btn-lg btn-primary" href="EventDetail.php?id=<?php echo $idevent ?>" role="button">View details</a></p>
+			</div>
+		<?php }
 	}
-	else{
-		// DB ERROR
-	}
-	
 ?>
