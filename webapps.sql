@@ -93,7 +93,7 @@ CREATE TABLE `company_category` (
 
 LOCK TABLES `company_category` WRITE;
 /*!40000 ALTER TABLE `company_category` DISABLE KEYS */;
-INSERT INTO `company_category` VALUES (1,1);
+INSERT INTO `company_category` VALUES (1,1),(2,1),(2,2),(3,3);
 /*!40000 ALTER TABLE `company_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +118,7 @@ CREATE TABLE `company_event` (
 
 LOCK TABLES `company_event` WRITE;
 /*!40000 ALTER TABLE `company_event` DISABLE KEYS */;
-INSERT INTO `company_event` VALUES (1,1),(1,2);
+INSERT INTO `company_event` VALUES (1,1),(1,2),(2,3),(2,4),(3,5),(3,6);
 /*!40000 ALTER TABLE `company_event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,8 +163,7 @@ CREATE TABLE `event` (
   `description` varchar(1000) DEFAULT NULL,
   `active` varchar(10) NOT NULL,
   `idpicture` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idevent`),
-  CONSTRAINT `idpicture` FOREIGN KEY (`idevent`) REFERENCES `eventpicture` (`ideventpicture`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`idevent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -174,7 +173,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (1,'Job Expo 2014','Ayala Avenue corner,Makati Avenue,Makati City','2014-02-04 08:00:00','2014-02-06 20:00:00','Job Expo for DLSU Students','YES',2),(2,'Leap 2014','DLSU','2014-02-01 10:00:00','2014-02-11 18:00:00','Leap 2014 for DLSU Students','YES',3);
+INSERT INTO `event` VALUES (1,'Job Expo 2014','Ayala Avenue corner,Makati Avenue,Makati City','2014-02-04 08:00:00','2014-02-06 20:00:00','Job Expo for DLSU Students','YES',2),(2,'Leap 2014','DLSU','2014-02-01 10:00:00','2014-02-11 18:00:00','Leap 2014 for DLSU Students','YES',3),(3,'Leap 2015','DLSU','2014-02-01 10:00:00','2014-02-11 18:00:00','Leap 2014 for DLSU Students','YES',5),(4,'Leap 2016','DLSU','2014-02-01 10:00:00','2014-02-11 18:00:00','Leap 2014 for DLSU Students','YES',5),(5,'Random','DLSU','2014-02-01 10:00:00','2014-02-01 10:00:00','Random','YES',5),(6,'Random1','DLSU','2014-02-01 10:00:00','2014-02-01 10:00:00','Random','YES',5);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +198,7 @@ CREATE TABLE `eventpicture` (
 
 LOCK TABLES `eventpicture` WRITE;
 /*!40000 ALTER TABLE `eventpicture` DISABLE KEYS */;
-INSERT INTO `eventpicture` VALUES (1,'logo','images/e-logo.jpg'),(2,'job expo','images/job expo.jpg'),(3,'leap','images/leap.jpg'),(4,'gamedev','images/gamedev-poster.jpg');
+INSERT INTO `eventpicture` VALUES (1,'logo','images/e-logo.jpg'),(2,'job expo','images/job expo.jpg'),(3,'leap','images/leap.jpg'),(4,'gamedev','images/gamedev-poster.jpg'),(5,'no-image','images/no-image.jpg');
 /*!40000 ALTER TABLE `eventpicture` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -212,4 +211,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-15 17:22:12
+-- Dump completed on 2014-02-17 21:23:34
