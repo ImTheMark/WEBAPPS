@@ -17,7 +17,7 @@
 				
           </ul>
 		  </ul>
-		<form action='search.php' class="navbar-form navbar-right" role="search" method="POST">
+		<form action='search.php' class="navbar-form navbar-right" role="search" method="GET">
 	        <div class="form-group">
 	          <input name='s' type="text" class="form-control" placeholder="Search Events...">
 	        </div>
@@ -25,3 +25,4 @@
 	    </form>
         </div><!--/.nav-collapse -->
  </div>
+ 

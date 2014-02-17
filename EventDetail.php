@@ -187,6 +187,7 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/eventdetail.js"></script>
     <script src="js/holder.js"></script>
+	 <script src="js/removesession.js"></script>
 	
   </body>
 </html>

@@ -56,8 +56,8 @@
 
 			<?php 
 			$searchWord="";
-			if(isset($_POST['s'])){
-				$searchWord = $_POST['s'];
+			if(isset($_GET['s'])){
+				$searchWord = $_GET['s'];
 			}
 			
 			$catname = "";
@@ -68,6 +68,8 @@
 			
 		    ?>
 			<input id='filter-searchbar' name='searchWord' type="text" class="form-control" placeholder="Search Events..." value= "<?php echo $searchWord;?>" ><br>
+			
+			
 			<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
 		<!----------------------------- CATEGORIES -------------------------------------->
 				<div class="panel panel-default">

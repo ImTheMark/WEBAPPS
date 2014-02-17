@@ -98,7 +98,7 @@
         for their interests.</p>
         <p>
           <div class="col-lg-6 col-centered">
-            <form action='search.php' role="search" method="POST">
+            <form action='search.php' role="search" method="GET">
 				<div class="input-group">
 				  <input name ='s' type="text" class="searchbox form-control">
 				  <span class="input-group-btn">
@@ -176,5 +176,6 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/holder.js"></script>
+	 <script src="js/removesession.js"></script>
   </body>
 </html>
