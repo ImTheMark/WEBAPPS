@@ -58,8 +58,6 @@
 ================================================== -->
   <body>
 	<?php include('includes/nav.php'); 
-	
-		
 	?>
 	<div class="well" id="wellColor">
 
