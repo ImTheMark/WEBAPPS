@@ -98,12 +98,14 @@
         for their interests.</p>
         <p>
           <div class="col-lg-6 col-centered">
-            <div class="input-group">
-              <input type="text" class="searchbox form-control">
-              <span class="input-group-btn">
-                <button class="btn btn-success" type="button">Go!</button>
-              </span>
-            </div><!-- /input-group -->
+            <form action='search.php' role="search" method="GET">
+				<div class="input-group">
+				  <input name ='s' type="text" class="searchbox form-control">
+				  <span class="input-group-btn">
+					<button class="btn btn-success" type="submit">Go!</button>
+				  </span>
+				</div><!-- /input-group -->
+			</form>
           </div><!-- /.col-lg-6 -->
         </p>
       </div>
@@ -125,12 +127,9 @@
 			$idevent = $event->idevent;
 			$eventname = $event->eventname;
 			$location = $event->location;
-			$startdatetime = $event->startdatetime;
-			$enddatetime = $event->enddatetime;
-			$description = $event->description;
+			$startdatetime = date_create($event->startdatetime);
 			$picturelink = $event->picturelink;
 			$picturename = $event->picturename;
-			$active = $event->active;
 			
 			$company = $companyModel->getCompanyGivenEventId($idevent);
 			$companyname = $company->companyname;
@@ -147,8 +146,8 @@
 					<div class="details">
 					  <h2><?php echo $eventname ?></h2>
 					  <p>
-						<span class="glyphicon glyphicon-calendar"></span> <?php echo $startdatetime ?><br>
-						<span class="glyphicon glyphicon-time"></span> <?php echo $startdatetime ?><br>
+						<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
+						<span class="glyphicon glyphicon-time"></span> <?php echo date_format($startdatetime, 'G:ia'); ?><br>
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
 						<span class="glyphicon glyphicon-briefcase"></span> <?php echo $companyname ?><br>
 					  </p>
@@ -177,5 +176,6 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/holder.js"></script>
+	 <script src="js/removesession.js"></script>
   </body>
 </html>

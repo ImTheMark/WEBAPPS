@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/customstyles.css" rel="stylesheet">
 
@@ -32,13 +33,13 @@
 		</style>
 
 
-	    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-	    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
-	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	    <!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	    /<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />  -->
+	    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
 	    <script type="text/javascript" src="js/moment.js"></script>
 	    <script type="text/javascript" src="js/daterangepicker.js"></script>
-
+		
     <title>EVENTORY - Search</title>
 	</head>
 	<body>
@@ -47,11 +48,30 @@
 		<?php include('includes/nav.php'); 
 		?>
 		
+		
+		
 		<h3> <div class="label label-default"> Search for Events </div></h3>
 		<BR>
 		
 			<div id="filter" class="col-md-3">
 
+			<?php 
+			$searchWord="";
+			if(isset($_GET['s'])){
+				$searchWord = $_GET['s'];
+			}
+			
+			$catname = "";
+			
+			if(isset($_GET['company'])){
+				$catname = $_GET['company'];
+			}
+			
+		    ?>
+			<input id='filter-searchbar' name='searchWord' type="text" class="form-control" placeholder="Search Events..." value= "<?php echo $searchWord;?>" ><br>
+			
+			
+			<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
 		<!----------------------------- CATEGORIES -------------------------------------->
 				<div class="panel panel-default">
 					<div class="panel-heading">Categories</div>
@@ -64,11 +84,12 @@
 							foreach($categories as $category){
 								$id = $category->idcategory;
 								$c = $category->category;
-
-							echo "<input type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
-							}
-						
 							?>
+							<input class = 'categories' type="checkbox" value=" <?php echo $id; ?>" > <?php echo $c; ?></input><br>
+							
+							
+							<?php } ?>
+						
 						</div>
 				</div>
 				
@@ -86,11 +107,10 @@
 							foreach($companies as $company){
 								$id = $company->idcompany;
 								$c = $company->companyname;
-
-							echo "<input type=\"checkbox\" value=\"". $id . "\"> " . $c ."</input><br>";
-							}
-						
 							?>
+							<input class = 'companies' type="checkbox" value="<?php echo $id; ?>" <?php if($catname==$c){echo "checked";} ?>> <?php echo $c ;?></input><br>
+							<?php } ?>
+						
 						</div>
 				</div>
 				
@@ -114,8 +134,8 @@
 
 			<div class="search-options">
 				<div class="btn-group" style="overflow: auto">
-					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> List</button>
-					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> Grid</button>
+					<button id = "list" type="button" class="btn btn-default active"><span class="glyphicon glyphicon-list"></span> List</button>
+					<button id = "grid" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> Grid</button>
 				</div>
 
                	<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -145,46 +165,16 @@
 
 			</div>
 			<br>
-
-
-				<div class="list-group">
-					<div class="list-group-item clearfix">
-					    <a href="#" class="thumbnail col-xs-3">
-					      <img src="images/IT-poster2.png" alt="...">
-					    </a>
-						<p class="event-title list-group-item-heading col-xs-6">IT SERVICES</p>
-						<p class="event-body list-group-item-text col-xs-6">
-							DATE:		January 23,2014<br>
-							TIME:		8am<br>
-							LOCATION:	DLSU<br><br>
-						<a class="btn btn-lg btn-primary" href="detail.php" role="button">View details</a></p>
-					</div>
-					<div class="list-group-item clearfix">
-					    <a href="#" class="thumbnail col-xs-3">
-					      <img src="images/leap.jpg" alt="...">
-					    </a>
-						<p class="event-title list-group-item-heading col-xs-6">LEAP</p>
-						<p class="event-body list-group-item-text col-xs-6">
-							DATE:		January 23,2014<br>
-							TIME:		8am<br>
-							LOCATION:	DLSU<br><br>
-						<a class="btn btn-lg btn-primary" href="#" role="button">View details</a></p>
-					</div>
-
-
-					<br>
-					<center>
-					<div class="btn-toolbar" role="toolbar">
-					  <div class="btn-group">	
-						  <button type="button" class="btn btn-default">1</button>
-						  <button type="button" class="btn btn-default">2</button>
-						  <button type="button" class="btn btn-default">3</button>
-						  <button type="button" class="btn btn-default">4</button>
-						  <button type="button" class="btn btn-default">5</button>
-					  </div>
-					</div>
-					</center>
+				<div id = "event-results" class = "list-group">
 				</div>
+				
+				<br>
+				<center>
+				<div class="btn-toolbar" role="toolbar">
+				  <div  id = "pages" class="btn-group">	
+				  </div>
+				</div>
+				</center>
 			
 
 
@@ -197,36 +187,12 @@
 				-->
 
 
-    <div class=" well">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="thumbnail img-responsive" img src="images/leap.jpg"  alt="Generic placeholder image">
-          <h2>LEAP ORIENTATION</h2>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="thumbnail img-responsive" img src="images/gamedev-poster.png" alt="Generic placeholder image">
-          <h2>GAME DEVELOPEMENT SEMINAR</h2>
-		  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="thumbnail img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
-          <h2>IT SERVICES</h2>
-          <p><a class="btn btn-default" href="detail.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-    </div><!-- /.container -->
-
 
 
 
 			</div>
 
-
+		<script src="js/paginateevents.js"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
