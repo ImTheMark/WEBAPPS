@@ -15,9 +15,8 @@
 				float: right; 
 			}
 			.event-title{
-				padding: 25px 0px 0px 10px;
 				font-weight: bold;
-				font-size: 50px;
+				font-size: 25px;
 			}
 			.event-body{
 				padding: 0px 0px 25px 25px;
@@ -33,9 +32,16 @@
 		</style>
 
 
-	    <!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-	    /<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />  -->
+	    <!--
+		
+			.event-title{
+				padding: 25px 0px 0px 10px;
+				font-weight: bold;
+				font-size: 50px;
+			}
+ -->
+
+	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" /> 
 	    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
 	    <script type="text/javascript" src="js/moment.js"></script>
 	    <script type="text/javascript" src="js/daterangepicker.js"></script>
@@ -68,10 +74,15 @@
 			}
 			
 		    ?>
-			<input id='filter-searchbar' name='searchWord' type="text" class="form-control" placeholder="Search Events..." value= "<?php echo $searchWord;?>" ><br>
-			
-			
-			<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
+
+		<div class="input-group">
+			<input id='filter-searchbar' name='searchWord' type="text" class="searchbox form-control" placeholder="Search Events..." value= "<?php echo $searchWord;?>" ><br>
+			<span class="input-group-btn">
+				<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
+			</span>
+		</div>
+		
+		<br>
 		<!----------------------------- CATEGORIES -------------------------------------->
 				<div class="panel panel-default">
 					<div class="panel-heading">Categories</div>
@@ -133,15 +144,17 @@
 			<div id="results" class="col-md-9">
 
 			<div class="search-options">
-				<div class="btn-group" style="overflow: auto">
+				<div class="col-md-7 btn-group" style="overflow: auto">
 					<button id = "list" type="button" class="btn btn-default active"><span class="glyphicon glyphicon-list"></span> List</button>
 					<button id = "grid" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> Grid</button>
 				</div>
 
-               	<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+               	<div id="reportrange" class="col-md-5 pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                     <i class="fa fa-calendar fa-lg"></i>
-				    <span><?php echo date("F j, Y", strtotime('-0 day')); ?> - <?php echo date("F j, Y"); ?></span> <b class="caret"></b>
+				    <span class=""><?php echo date("F j, Y", strtotime('-0 day')); ?> - <?php echo date("F j, Y"); ?></span> <b class="caret"></b>
 				</div>
+
+				<br><br>
 				 
 				<script type="text/javascript">
 				$('#reportrange').daterangepicker(
