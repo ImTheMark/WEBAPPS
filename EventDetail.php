@@ -56,10 +56,13 @@
 			color:black;
 		}
 		
-		iframe{
-			width:100%;
-			height:100%;
+		#map{
+			height:300px;  
+			position: relative; 
+			overflow: hidden;
 		}
+		
+		
     </style>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -152,7 +155,7 @@
 			<div class="panel-heading" id="panelHead" style="color:#FDF8FF;"><h4>When & Where</h4></div>
 				
 			  <div class="panel-body" >
-				<div id="map" style = "width:280px; height:300px;"></div>
+				<div id="map"></div>
 				<br>
 				<p id="address"><?php echo $location ?></p>
 				<p><?php echo date_format($startdatetime, 'l jS F Y') ?></p>
@@ -168,7 +171,7 @@
 			  <div class="panel-body">
 				<h4><?php echo $companyname ?></h4>
 				<p class="text-justify"><?php echo $companydescription ?></p>
-				<p><span class="glyphicon glyphicon-info-sign"></span><a href="CompanyProfile.php?id=<?php echo $companyid; ?>">&nbsp Show Company Profile</a></p>
+				<p><span class="glyphicon glyphicon-info-sign"></span><a href="CompanyProfile.php?id=<?php echo $companyid; ?>">&nbsp Show Comapany Profile</a></p>
 			  </div>
 			</div>
 		
