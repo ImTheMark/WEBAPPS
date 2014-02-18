@@ -57,7 +57,10 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-	<?php include('includes/nav.php'); ?>
+	<?php include('includes/nav.php'); 
+	
+		
+	?>
 	<div class="well" id="wellColor">
 
       <!-- Three columns of text below the carousel -->
