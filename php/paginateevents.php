@@ -13,7 +13,9 @@
 	if(isset($_POST['searchWord'])){
 		$searchWord = $_POST['searchWord'];		
 	}	
-	
+	if(isset($_POST['pastPage'])){
+		$pastPage = $_POST['pastPage'];		
+	}
 	$query = "SELECT COUNT(distinct event.idevent, eventname, location, startdatetime, picturelink, picturename) as nRows
 			  FROM company INNER JOIN company_event on company.idcompany = company_event.idcompany
 			 INNER JOIN event on company_event.idevent = event.idevent
@@ -22,9 +24,10 @@
 			 INNER JOIN eventpicture on event.idpicture = eventpicture.ideventpicture";
 	
 	$cond = "";
-	if($searchWord!=null && $searchWord!="")
-		$cond .= " WHERE (companyname LIKE '%" . $searchWord . "%' OR eventname LIKE '%" . $searchWord . "%')";
-	
+	if($searchWord!=null && $searchWord!=""){
+		//$cond .= " WHERE (companyname LIKE '%" . $searchWord . "%' OR eventname LIKE '%" . $searchWord . "%')";
+		  $cond .= " WHERE (eventname LIKE '%" . $searchWord . "%')";
+	}
 	if(!empty($selectedCompanies)){
 		if($cond!=""){
 			$cond.= " AND ";
@@ -77,26 +80,25 @@
 	
 	$query .= $cond;
 	
+	
 	$results = mysql_query($query);
 	if(mysql_num_rows($results) > 0){
 		$result = mysql_fetch_assoc($results);
 		$nRows = $result['nRows'];
-		$item_per_page = 5;
+		$item_per_page = 4;
 		$nPages = ceil($nRows/$item_per_page);
 		$pagination = "";
 		if($nPages == 1){
 			echo "one-pager";
 		}
 		else if($nPages > 1){
-			for($i = 1 ; $i <= $nPages ; $i++){
-					$pagination .= '<a class="paginate_click" id = "' .$i. '-page"> <button type="button" class="btn btn-default">'. $i . '</button>';
-				}
+			for($i = 1 ; $i <= $nPages ; $i++){ ?>
+					<a href="#"  class="paginate_click<?php if($i == $pastPage){ echo " active"; } ?>" id = '<?php echo $i ?>-page'> <button type="button" class="btn btn-default<?php if($i == $pastPage){ echo " active"; } ?> "><?php  echo $i ?></button>
+				<?php }
 			echo $pagination;
 		}
-		
 	}
 	else{
-		// DB ERROR
 	}
 	
 ?>

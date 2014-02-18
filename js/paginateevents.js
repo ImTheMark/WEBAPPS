@@ -2,7 +2,8 @@
 var selectedCompanies = new Array;
 var selectedCategories = new Array;
 var searchWord = "";
-
+var c = 'list';
+var pastPage = 1;
 if(sessionStorage.getItem('selectedCompanies') != null){
 	selectedCompanies = JSON.parse(sessionStorage.getItem('selectedCompanies'));
 	$('input:checkbox.companies').each(function() {
@@ -23,6 +24,29 @@ if(sessionStorage.getItem('selectedCategories') != null){
 if(sessionStorage.getItem('searchWord') != null){
 	searchWord = sessionStorage.getItem('searchWord');
 	$('#filter-searchbar').val(searchWord);
+}
+if(sessionStorage.getItem('c') != null){
+	c = sessionStorage.getItem('c');
+	if(c == 'grid'){
+		$("#grid").addClass("active");
+		$("#list").removeClass("active");
+		if($("#event-results").hasClass('list-group')){
+			$("#event-results").removeClass('list-group');
+			$("#event-results").addClass("well");
+		}
+	}
+	else if(c == 'list'){
+		if($("#event-results").hasClass('well')){
+			$("#event-results").removeClass('well');
+			$("#event-results").addClass("list-group");
+		}
+		$("#list").addClass("active");
+		$("#grid").removeClass("active");
+	}
+}
+
+if(sessionStorage.getItem('pastPage') != null){
+	pastPage = sessionStorage.getItem('pastPage');
 }
 
 $("input:checkbox.categories").change(function() {
@@ -63,13 +87,35 @@ $("#filter-button").click( function(){
 	  
 });
 
+$("#grid").click(function(){
+	c = "grid";
+	sessionStorage.setItem('c',c);
+	if($("#event-results").hasClass('list-group')){
+		$("#event-results").removeClass('list-group');
+		$("#event-results").addClass("well");
+	}
+	$("#grid").addClass("active");
+	$("#list").removeClass("active");
+	paginate();
+});
 
-
+$("#list").click(function(){
+	c = "list";
+	sessionStorage.setItem('c',c);
+	if($("#event-results").hasClass('well')){
+		$("#event-results").removeClass('well');
+		$("#event-results").addClass("list-group");
+	}
+	$("#list").addClass("active");
+	$("#grid").removeClass("active");
+	paginate();
+});
 
 function paginate(){
 	$.ajax({
       type: "POST",
       data: {
+		 'pastPage' : pastPage,
 		 'companies' : selectedCompanies , 
 		 'categories' : selectedCategories, 
 		 'searchWord' : searchWord, 
@@ -81,42 +127,55 @@ function paginate(){
 		 }
 		 else if(data == "one-pager"){
 			$("#pages").html("");
-			displayFirstPage();
+			displayCurrPage();
 		 }
 		 else{
 			$("#pages").html(data);
-			displayFirstPage();
+			
+			displayCurrPage();
 			setPagesListener();
 		  }
 		}
 	});
 }
 
-function displayFirstPage(){
-	$.ajax({
-		  type: "POST",
-		  data: {
-		     'page' : 1,
-			 'companies' : selectedCompanies , 
-			 'categories' : selectedCategories, 
-			 'searchWord' : searchWord, 
-		  },
-		  url: "php/fetchevents.php",
-		  success: function(data){
-				$("#event-results").html(data);
-			}
-		});
+
+function findElemGivenPageNum(page_num){
+	$(".paginate_click").each(function (){
+		var page = page_num + '-page';
+		if($(this).attr('id') == page){
+			return $(this);
+		}
+	});
 }
 
+function displayCurrPage(){
+	page_num = 1;
+	var elem;
+	$(".paginate_click").each(function (){
+		if($(this).attr('class') == 'paginate_click active'){
+			var id = $(this).attr("id").split("-");
+			page_num = parseInt(id[0]);
+			elem = $(this);
+		}
+	});
+	displayPage(page_num,elem);
+}
 function setPagesListener(){
 	$(".paginate_click").click( function () {
 		var clicked_id = $(this).attr("id").split("-");
 		var page_num = parseInt(clicked_id[0]);
-		$('.paginate_click').removeClass('active');
-		$.ajax({
+		sessionStorage.setItem('pastPage', page_num);
+		displayPage(page_num,$(this));
+	});
+}
+
+function displayPage(page_num,elem){
+	$.ajax({
 		  type: "POST",
 		  data: {
 			 'page' : page_num,
+			 'class' : c,
 			 'companies' : selectedCompanies , 
 			 'categories' : selectedCategories, 
 			 'searchWord' : searchWord, 
@@ -126,8 +185,19 @@ function setPagesListener(){
 				$("#event-results").html(data);
 			}
 		});
-		$(this).addClass('active');
-	});
+	if(elem!=null){	
+		if(!elem.hasClass('active')){
+			$('.paginate_click').removeClass('active');
+			$('.paginate_click button').removeClass('active');
+			$('.paginate_click button').each(function(){
+			});
+			elem.addClass('active');
+			elem.children('button').eq(0).addClass('active');
+			$('.paginate_click button').each(function(){
+			});
+		}
+	}
+	
 }
 
 

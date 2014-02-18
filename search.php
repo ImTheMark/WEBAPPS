@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/customstyles.css" rel="stylesheet">
 
@@ -32,10 +33,10 @@
 		</style>
 
 
-	    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-	    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
-	    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	    <!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	    /<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />  -->
+	    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
 	    <script type="text/javascript" src="js/moment.js"></script>
 	    <script type="text/javascript" src="js/daterangepicker.js"></script>
 		
@@ -133,8 +134,8 @@
 
 			<div class="search-options">
 				<div class="btn-group" style="overflow: auto">
-					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> List</button>
-					<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> Grid</button>
+					<button id = "list" type="button" class="btn btn-default active"><span class="glyphicon glyphicon-list"></span> List</button>
+					<button id = "grid" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> Grid</button>
 				</div>
 
                	<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -185,30 +186,6 @@
 			
 				-->
 
-
-    <div class=" well">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="thumbnail img-responsive" img src="images/leap.jpg"  alt="Generic placeholder image">
-          <h2>LEAP ORIENTATION</h2>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="thumbnail img-responsive" img src="images/gamedev-poster.png" alt="Generic placeholder image">
-          <h2>GAME DEVELOPEMENT SEMINAR</h2>
-		  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="thumbnail img-responsive" img src="images/IT-poster2.png" alt="Generic placeholder image">
-          <h2>IT SERVICES</h2>
-          <p><a class="btn btn-default" href="detail.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-    </div><!-- /.container -->
 
 
 
