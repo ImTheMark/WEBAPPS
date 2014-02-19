@@ -113,17 +113,21 @@
 			if($class =='list'){
 			?>
 				<div class="list-group-item clearfix">
-					<a href="EventDetail.php?id=<?php echo $idevent ?>" class="thumbnail col-xs-2">
+					<a href="EventDetail.php?id=<?php echo $idevent ?>" class="thumbnail col-xs-1">
 					  <img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
 					</a>
 					<p class="event-title list-group-item-heading col-xs-10"><?php echo $eventname ?></p>
-					<p class="event-body list-group-item-text col-xs-10">
-						
+					<div class="event-body list-group-item-text">
+						<div class = "col-xs-8 pull-left">
 						<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
 						<span class="glyphicon glyphicon-time"></span> <?php echo date_format($startdatetime, 'G:ia'); ?><br>
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
 						<span class="glyphicon glyphicon-briefcase"></span> <?php echo $companyname ?><br><br>
-					<a class="btn btn-lg btn-primary" href="EventDetail.php?id=<?php echo $idevent ?>" role="button">View details</a></p>
+						</div>
+						<div class="col-xs-0">
+						<a class="btn btn-lg btn-primary" href="EventDetail.php?id=<?php echo $idevent ?>" role="button">View details</a>
+						</div>
+					</div>
 				</div>
 			<?php } 
 			else if($class =='grid'){ 
