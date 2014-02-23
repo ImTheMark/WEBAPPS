@@ -16,7 +16,14 @@
 	<body>
 	
 		
-		<?php include('includes/nav.php'); 
+		<?php include('includes/nav.php');
+		      include ('model/companymodel.php');
+			  $companyModel = new CompanyModel();
+			  $companies = $companyModel->getAllCompanies();
+			  for($i = 0; $i < count($companies) ; $i++){
+				$company = $companies[$i];
+				$id = $company->idcompany;
+			  }
 		?>
 		
 		
