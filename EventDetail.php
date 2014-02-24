@@ -87,12 +87,12 @@
 				$companyModel = new CompanyModel();
 				$company = $companyModel->getCompanyGivenEventId($id);
 				if($event == null){
-					header('Location: search.php');
+					header('Location: company.php');
 					exit();
 				}
 			}
 			else{
-				header('Location: search.php');
+				header('Location: company.php');
 				exit();
 			}
 			$idevent = $event->idevent;
@@ -107,7 +107,6 @@
 			$companyid = $company->idcompany;
 			$companyname = $company->companyname;
 			$companydescription = $company->description;
-			//do postings here
 		
 		?>
   </head>

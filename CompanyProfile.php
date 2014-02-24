@@ -58,6 +58,23 @@
 ================================================== -->
   <body>
 	<?php include('includes/nav.php'); 
+	<?php include('model/CompanyModel.php');
+	<?php include('model/EventModel.php');
+	if(isset($_GET['id'])){
+				$id = $_GET['id'];
+				$companyModel = new CompanyModel();
+				$company = $companyModel->getCompanyById($id);
+				if($company == null){
+					header('Location: search.php');
+					exit();
+				}
+				
+				$eventModel = new EventModel();
+				$events= $eventModel->getEventsGivenCompanyId($id);
+				
+			}
+	
+	
 	?>
 	<div class="well" id="wellColor">
 
