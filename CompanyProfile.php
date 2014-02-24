@@ -58,8 +58,8 @@
 ================================================== -->
   <body>
 	<?php include('includes/nav.php'); 
-	<?php include('model/CompanyModel.php');
-	<?php include('model/EventModel.php');
+		include('model/CompanyModel.php');
+		include('model/EventModel.php');
 	if(isset($_GET['id'])){
 				$id = $_GET['id'];
 				$companyModel = new CompanyModel();
@@ -71,7 +71,16 @@
 				
 				$eventModel = new EventModel();
 				$events= $eventModel->getEventsGivenCompanyId($id);
-				
+				$id = $company->idcompany;
+				$name = $company->companyname;
+				$description = $company->description;
+				$email = $company -> email;
+				$address = $company ->address;
+				$contact = $company -> contactnumber;
+				$website = $company->website;
+				$picturename = $company->picturename;
+				$picturelink = $company->picturelink;
+				echo $id;
 			}
 	
 	
@@ -83,19 +92,16 @@
 		<div  class="col-md-14">
 			<div  class="col-md-4">
 				<div id="poster">
-					<img src="images/accenture.jpg" class="img-responsive" alt="Responsive image">
+					<img src="<?php echo $picturelink;?>" class="img-responsive" alt="<?php echo $picturename; ?>">
 				</div>
 			</div>
 			<br>
 			<div  class="col-md-8">
 			<div class="panel" >
-				<div class="panel-heading" id="panelHead" style="color:#FDF8FF;"><h4>Accenture| Management consulting, Technology and Outsourcing<h4></div>
+				<div class="panel-heading" id="panelHead" style="color:#FDF8FF;"><h4><?php echo $name; ?><h4></div>
 				  <div class="panel-body">
-					<p>Accenture helps organizations assess how to maximize their performance and works with them to achieve their vision. We develop and 
-					implement technology to improve our clients' productivity and efficiency - and may run parts of their business. Ultimately, we enable 
-					our clients to become high-performance businesses and governments.</p>
-					<p><strong>official website:</strong></p>
-					<a href="http://www.accenture.com">http://www.accenture.com</a></li>
+					<p><?php echo $description ;?></strong></p>
+					<a href="<?php echo $website; ?>"><?php echo $website; ?></a></li>
 					</div>
 			</div>
 			</div>

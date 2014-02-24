@@ -103,7 +103,7 @@
 			
 			if($numrows > 0 ){
 				while($row = mysql_fetch_assoc($query)){
-					$idevent = $row['event.idevent'];
+					$idevent = $row['idevent'];
 					$eventname = $row['eventname'];
 					$location = $row['location'];
 					$startdatetime = $row['startdatetime'];

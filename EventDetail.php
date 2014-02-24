@@ -170,7 +170,7 @@
 			  <div class="panel-body">
 				<h4><?php echo $companyname ?></h4>
 				<p class="text-justify"><?php echo $companydescription ?></p>
-				<p><span class="glyphicon glyphicon-info-sign"></span><a href="CompanyProfile.php?id=<?php echo $companyid; ?>">&nbsp Show Comapany Profile</a></p>
+				<p><span class="glyphicon glyphicon-info-sign"></span><a href="CompanyProfile.php?id=<?php echo $companyid; ?>">&nbsp Show Company Profile</a></p>
 			  </div>
 			</div>
 		

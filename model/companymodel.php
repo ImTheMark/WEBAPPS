@@ -9,7 +9,7 @@
 			$companies =  array();
 			
 			$query = "SELECT * 
-					 FROM company";
+					 FROM company INNER JOIN companypicture on company.idpicture = companypicture.idcompanypicture";
 					 
 			$query = mysql_query($query);
 			$numrows = mysql_num_rows($query);
@@ -22,11 +22,13 @@
 						$address = $row['address'];
 						$contactnumber = $row['contactnumber'];
 						$email = $row['email'];
-						
+						$website = $row['website'];
+						$picturelink= $row['picturelink'];
+						$picturename = $row['picturename'];
 						$categoryModel = new CategoryModel();
 					
 						$categories = $categoryModel->getCompanyCategories($idcompany);
-						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
+						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,$picturename, $picturelink);
 						array_push($companies, $company);
 						
 					}
@@ -36,7 +38,7 @@
 		
 		function getCompanyById($id){
 			$query = "SELECT * 
-					 FROM company WHERE idcompany =" . $id;
+					 FROM company INNER JOIN companypicture on company.idpicture = companypicture.idcompanypicture WHERE idcompany =" . $id;
 					 
 			$query = mysql_query($query);
 			$numrows = mysql_num_rows($query);
@@ -48,11 +50,13 @@
 				$address = $row['address'];
 				$contactnumber = $row['contactnumber'];
 				$email = $row['email'];
-				
+				$website = $row['website'];
+				$picturelink= $row['picturelink'];
+				$picturename = $row['picturename'];
 				$categoryModel = new CategoryModel();
 			
 				$categories = $categoryModel->getCompanyCategories($idcompany);
-				$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
+				$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,$picturename,$picturelink);
 				return $company;
 			}
 			else{
@@ -88,11 +92,11 @@
 						$address = $row['address'];
 						$contactnumber = $row['contactnumber'];
 						$email = $row['email'];
-						
+						$website = $row['website'];
 						$categoryModel = new CategoryModel();
 					
 						$categories = $categoryModel->getCompanyCategories($idcompany);
-						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
+						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,null,null);
 						array_push($companies, $company);
 						
 					}
@@ -117,11 +121,11 @@
 					$address = $row['address'];
 					$contactnumber = $row['contactnumber'];
 					$email = $row['email'];
-					
+					$website = $row['website'];
 					$categoryModel = new CategoryModel();
 				
 					$categories = $categoryModel->getCompanyCategories($idcompany);
-					$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$categories);
+					$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,null,null);
 					return $company;		
 			}
 			else{
