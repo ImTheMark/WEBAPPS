@@ -61,6 +61,25 @@
           -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
       }
 
+      @media(max-width:1200px){
+        .poster {
+            height: 100%;
+            width: 100%;
+            display: initial;
+        }
+
+        .poster img {
+            min-width: initial;    /* Scale up to fill container width */
+            min-height: initial;   /* Scale up to fill container height */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .panel{
+            height: 100%;
+        }
+      }
+
       
 
     </style>
