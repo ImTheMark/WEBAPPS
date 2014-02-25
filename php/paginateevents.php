@@ -80,12 +80,11 @@
 	
 	$query .= $cond;
 	
-	
 	$results = mysql_query($query);
 	if(mysql_num_rows($results) > 0){
 		$result = mysql_fetch_assoc($results);
 		$nRows = $result['nRows'];
-		$item_per_page = 3;
+		$item_per_page = 6;
 		$nPages = ceil($nRows/$item_per_page);
 		$pagination = "";
 		if($nPages == 1){

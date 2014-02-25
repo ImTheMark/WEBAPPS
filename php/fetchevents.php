@@ -15,7 +15,7 @@
 		$searchWord = $_POST['searchWord'];		
 	}	
 	
-	$item_per_page = 3;
+	$item_per_page = 6;
 	$page_number -=1;
 	$position = ($page_number * $item_per_page);
 	
