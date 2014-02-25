@@ -117,9 +117,9 @@
 					<div class="thumbnail col-lg-1 hidden-xs hidden-sm hidden-md">
 					  <img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
 					</div>
-					<p class="event-title list-group-item-heading col-lg-10 col-md-11"><?php echo $eventname ?></p>
+					<p class="event-title list-group-item-heading col-lg-10 col-md-12 col-sm-12"><?php echo $eventname ?></p>
 					<div class="event-body list-group-item-text">
-						<div class = "col-lg-8 col-md-11 pull-left">
+						<div class = "col-lg-10 col-md-12 col-sm-12 pull-left">
 						<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
 						<span class="glyphicon glyphicon-time"></span> <?php echo date_format($startdatetime, 'G:ia'); ?><br>
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
