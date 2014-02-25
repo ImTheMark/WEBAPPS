@@ -134,9 +134,13 @@
 				if($count % 3 == 0){ ?>
 					<div class="row">
 				<?php } ?>
-				<div class="col-lg-4">
-				  <img class="thumbnail img-responsive" src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
-				  <div class="details">
+				<div class="col-lg-4 col-md-4 col-sm-4">
+				<div class="grid-event-panel panel panel-default">
+				<a href="EventDetail.php?id=<?php echo $idevent ?>" class="nohover">
+					<div class="poster">
+				  		<img class="img-responsive" src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
+				  	</div>
+				  	<div class="details">
 					  <h2><?php echo $eventname ?></h2>
 					  <p>
 						<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
@@ -145,8 +149,9 @@
 						<span class="glyphicon glyphicon-briefcase"></span> <?php echo $companyname ?><br>
 					  </p>
 					</div>
-				  <p><a class="btn btn-default" href="EventDetail.php?id=<?php echo $idevent ?>" role="button">View details &raquo;</a></p>
-				</div>				
+				</a>
+				</div>	
+			  	</div>			
 				<?php 
 				if($count % 3 == 2){ ?>
 					</div>
