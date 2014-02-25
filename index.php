@@ -46,6 +46,7 @@
       }
       .panel{
         height: 450px;
+        word-break:break-all;
       }
       .poster {
           display: block;
