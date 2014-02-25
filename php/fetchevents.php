@@ -153,7 +153,7 @@
 				</div>	
 			  	</div>			
 				<?php 
-				if($count % 3 == 2){ ?>
+				if($count % 3 == 2 || $count+1 == $numrows){ ?>
 					</div>
 				<?php } ?>			
 			<?php }?>
