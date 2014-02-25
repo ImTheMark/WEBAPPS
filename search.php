@@ -148,13 +148,13 @@
 					<button id = "list" type="button" class="btn btn-default active"><span class="glyphicon glyphicon-list"></span> List</button>
 					<button id = "grid" type="button" class="btn btn-default"><span class="glyphicon glyphicon-th-large"></span> Grid</button>
 				</div>
-
+				<br><br>
+<!--
                	<div id="reportrange" class="col-md-5 pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                     <i class="fa fa-calendar fa-lg"></i>
 				    <span class=""><?php echo date("F j, Y", strtotime('-0 day')); ?> - <?php echo date("F j, Y"); ?></span> <b class="caret"></b>
 				</div>
 
-				<br><br>
 				 
 				<script type="text/javascript">
 				$('#reportrange').daterangepicker(
@@ -175,7 +175,7 @@
 				    }
 				);
 				</script>
-
+-->
 			</div>
 			<br>
 				<div id = "event-results" class = "list-group">
