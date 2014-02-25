@@ -20,13 +20,12 @@
 			background-color: #7C578C;
 			background: url('images/bg.png') repeat center center;
 		  }
-	   #poster {
+	    #poster {
 				float: left; 
 				width: 100%;
 				height: auto;
-				padding: 20px; 
+				padding: 10px; 
 		}
-		
 		
 		#wellColor {
 			background-color:#EED2EE;
@@ -40,7 +39,13 @@
 			color:black;
 		}
 		
-		
+		@media screen and (max-width: 450px) {
+			#pal{
+				position:block;
+				float:left;
+			}
+			
+		}
 	</style>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -97,7 +102,7 @@
 			</div>
 			<br>
 			<div  class="col-md-8">
-			<div class="panel" >
+			<div class="panel" id="pal">
 				<div class="panel-heading" id="panelHead" style="color:#FDF8FF;"><h4><?php echo $name; ?><h4></div>
 				  <div class="panel-body">
 					<p><?php echo $description ;?></strong></p>
@@ -106,11 +111,11 @@
 			</div>
 			</div>
 		</div>
-		</div>
+	  </div>
 		
 		<div class="row">
 		<div  class="col-xs-12" >
-			<div class="panel panel-danger">	
+			<div class="panel">	
 				<div class="panel-heading" id="panelHead" style="color:#FDF8FF;"><h4>Events</h4></div>
 				  <div class="panel-body" >			
 						<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
@@ -120,17 +125,19 @@
 					 <div id="my-tab-content" class="tab-content">
 						<div class="tab-pane active" id="current">
 							<div class="list-group">
-								<div class="list-group-item clearfix" id="detail">
+								
+								<div class="list-group-item clearfix">
 									<a href="#" class="thumbnail col-xs-1">
 									  <img src="images/IT-poster2.png" alt="...">
 									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT SERVICES</p>
+									<p class="event-title list-group-item-heading col-xs-6">IT-Servece</p>
 									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> January 23,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am
-										<span class="glyphicon glyphicon-map-marker"></span> DLSU </p>
+										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
+										<span class="glyphicon glyphicon-time"> 8am - 5pm
+										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
 									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
 									encourages educators to explore works from Public Intimacy at YBCA....</p>
+									
 								</div>
 								<div class="list-group-item clearfix">
 									<a href="#" class="thumbnail col-xs-1">
@@ -149,31 +156,34 @@
 						</div>
 						<div class="tab-pane" id="past">
 							<div class="list-group">
+								
 								<div class="list-group-item clearfix">
 									<a href="#" class="thumbnail col-xs-1">
 									  <img src="images/gamedev-poster.png" alt="...">
 									</a>
-									<p class="event-title list-group-item-heading col-xs-6">Game Development</p>
+									<p class="event-title list-group-item-heading col-xs-6">Game</p>
 									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> March 23,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 4pm
-										<span class="glyphicon glyphicon-map-marker"></span> DLSU </p>
+										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
+										<span class="glyphicon glyphicon-time"> 8am - 5pm
+										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
 									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
 									encourages educators to explore works from Public Intimacy at YBCA....</p>
+									
 								</div>
 								<div class="list-group-item clearfix">
 									<a href="#" class="thumbnail col-xs-1">
 									  <img src="images/IT-poster.png" alt="...">
 									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT Services</p>
+									<p class="event-title list-group-item-heading col-xs-6">IT-Service</p>
 									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> Febuary 29,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 10am - 1pm
-										<span class="glyphicon glyphicon-map-marker"></span> Makati Shangrila </p>
+										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
+										<span class="glyphicon glyphicon-time"> 8am - 5pm
+										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
 									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
 									encourages educators to explore works from Public Intimacy at YBCA....</p>
 									
 								</div>
+								
 							</div>
 						</div>
 					</div>

@@ -62,6 +62,25 @@
 			overflow: hidden;
 		}
 		
+		@media screen and (max-width: 450px) {
+			#location {
+				float: none; 
+				width: 100%;
+				height: auto;
+				padding: 10px; 
+			}
+			#detail {
+				float: none; 
+				width: 100%;
+				height: auto;
+				padding: 10px; 
+			}
+			#map{
+				height:100px;  
+				position: block; 
+				overflow: hidden;
+			}
+		}
 		
     </style>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
