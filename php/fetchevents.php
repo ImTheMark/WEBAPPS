@@ -15,7 +15,7 @@
 		$searchWord = $_POST['searchWord'];		
 	}	
 	
-	$item_per_page = 4;
+	$item_per_page = 3;
 	$page_number -=1;
 	$position = ($page_number * $item_per_page);
 	
@@ -132,7 +132,7 @@
 			<?php } 
 			else if($class =='grid'){ 
 				if($count % 3 == 0){ ?>
-					<div class="row">
+				<div class="row">
 				<?php } ?>
 				<div class="col-lg-4 col-md-4 col-sm-4">
 				<div class="grid-event-panel panel panel-default">
@@ -153,8 +153,8 @@
 				</div>	
 			  	</div>			
 				<?php 
-				if($count % 3 == 2 || $count+1 == $numrows){ ?>
-					</div>
+				if($count % 3 == 2 || $count+1 == $numrows){?>
+				</div>
 				<?php } ?>			
 			<?php }?>
 	
