@@ -28,7 +28,21 @@
 			.btn-toolbar{
 				display:inline-block;
  				text-align: center;
+				padding: 25px;
 			}​
+			.event-panel{
+				color: #333333;
+			}
+		    a.nohover { 
+		      color: #333333; 
+		    }
+		    a.nohover:hover { 
+		      text-decoration: none;
+		    }
+		    .event-panel:hover{
+		      background-color: #F0F0F0;
+		    }
+
 		</style>
 
 
@@ -59,7 +73,7 @@
 		<h3> <div class="label label-default"> Search for Events </div></h3>
 		<BR>
 		
-			<div id="filter" class="col-md-3">
+			<div id="filter" class="col-lg-3">
 
 			<?php 
 			$searchWord="";
@@ -141,7 +155,7 @@
 
 
 		<!----------------------------- RESULTS -------------------------------------->	
-			<div id="results" class="col-md-9">
+			<div id="results" class="col-lg-9">
 
 			<div class="search-options">
 				<div class="col-md-7 btn-group" style="overflow: auto">

@@ -112,22 +112,22 @@
 			
 			if($class =='list'){
 			?>
-				<div class="list-group-item clearfix">
-					<a href="EventDetail.php?id=<?php echo $idevent ?>" class="thumbnail col-xs-1">
+				<div class="list-group-item clearfix col-xs-12 event-panel">
+				<a href="EventDetail.php?id=<?php echo $idevent ?>"  class="nohover">
+					<div class="thumbnail col-lg-1 hidden-xs hidden-sm hidden-md">
 					  <img src=" <?php echo $picturelink ?>" alt="<?php echo $picturename ?>">
-					</a>
-					<p class="event-title list-group-item-heading col-xs-10"><?php echo $eventname ?></p>
+					</div>
+					<p class="event-title list-group-item-heading col-lg-10 col-md-11"><?php echo $eventname ?></p>
 					<div class="event-body list-group-item-text">
-						<div class = "col-xs-8 pull-left">
+						<div class = "col-lg-8 col-md-11 pull-left">
 						<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
 						<span class="glyphicon glyphicon-time"></span> <?php echo date_format($startdatetime, 'G:ia'); ?><br>
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
 						<span class="glyphicon glyphicon-briefcase"></span> <?php echo $companyname ?><br><br>
 						</div>
-						<div class="col-xs-0">
-						<a class="btn btn-lg btn-primary" href="EventDetail.php?id=<?php echo $idevent ?>" role="button">View details</a>
-						</div>
+						
 					</div>
+				</a>
 				</div>
 			<?php } 
 			else if($class =='grid'){ 
