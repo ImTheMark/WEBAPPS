@@ -37,7 +37,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Software Development'),(2,'Networking'),(3,'Business Management');
+INSERT INTO `category` VALUES (1,'Software Development'),(2,'Networking'),(3,'Business Management'),(4,'Computer'),(5,'Seminar'),(6,'On-Campus Interview'),(7,'Workshop'),(8, 'Mobile');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +98,7 @@ CREATE TABLE `company_category` (
 
 LOCK TABLES `company_category` WRITE;
 /*!40000 ALTER TABLE `company_category` DISABLE KEYS */;
-INSERT INTO `company_category` VALUES (1,1),(2,1),(2,2),(3,3);
+INSERT INTO `company_category` VALUES (1,1),(2,1),(2,2),(3,3),(4,5),(4,6),(4,7),(5,8),(6,1),(6,4);
 /*!40000 ALTER TABLE `company_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,7 +198,7 @@ Join us as we prepare you with the right equipment for the hunt. The seminar wou
 
 
 
-Please make sure to join in the facebook event. See you at the hunt!','YES',4),(4,'Python 101: beginners workshop ','A903 De La Salle University Manila','2014-02-15 09:00:00','2014-02-15 17:00:00','GEAR UP and LEARN PYTHON. Participants will get a chance to win free tickets for the Python Conference 2014 (http://pycon.python.ph/). Register now at http://bit.ly/LAWp8p','YES',5),(5,'Dart Flight School','G302A & G302B Gokingwei Building, De La Salle','2014-02-15 09:00:00','2014-02-15 16:00:00','Come fly with us and enroll in Dart Flight School! Dart is a new language, with tools and libraries, for scalable web app engineering. Dart is an open-source project with contributors from Google and elsewhere. We''re flying this Saturday, February 15, from 9am-4pm. Register at: > DLSU Students - http://tinyurl.com/dartflightdlsu  > Outsiders - http://tinyurl.com/dartflightMNL','YES',6),(6,'Game Development using Construct2','G304A De La Salle University Manila','2014-02-07 10:00:00','2014-02-07 12:00:00','Want to make your own game without going through any programming? It''s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',7),(7,'Leap Class Enrollment 2014','De La Salle University','2014-01-24 08:00:00','2014-01-25 20:00:00','Want to make your own game without going through any programming? It''s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',8),(8,'Smart On-Campus Interview','L128B  De La Salle University Manila','2014-02-06 13:00:00','2014-02-06 16:10:00','Smart will be having its on-campus interview at De La Salle University.','YES',9),(9,'Macquarie Company Orientation','Y409 De La Salle University Manila','2014-02-06 14:40:00','2014-02-06 16:10:00','Macquarie will be having its company orientation at De La Salle University. ','YES',10);
+Please make sure to join in the facebook event. See you at the hunt!','YES',4),(4,'Python 101: beginners workshop ','A903 De La Salle University Manila','2014-02-15 09:00:00','2014-02-15 17:00:00','GEAR UP and LEARN PYTHON. Participants will get a chance to win free tickets for the Python Conference 2014 (http://pycon.python.ph/). Register now at http://bit.ly/LAWp8p','YES',5),(5,'Dart Flight School','G302A & G302B Gokingwei Building, De La Salle','2014-02-15 09:00:00','2014-02-15 16:00:00','Come fly with us and enroll in Dart Flight School! Dart is a new language, with tools and libraries, for scalable web app engineering. Dart is an open-source project with contributors from Google and elsewhere. We''re flying this Saturday, February 15, from 9am-4pm. Register at: > DLSU Students - http://tinyurl.com/dartflightdlsu  > Outsiders - http://tinyurl.com/dartflightMNL','YES',6),(6,'Game Development using Construct2','De La Salle University Manila','2014-02-07 10:00:00','2014-02-07 12:00:00','Want to make your own game without going through any programming? It''s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',7),(7,'Leap Class Enrollment 2014','De La Salle University','2014-01-24 08:00:00','2014-01-25 20:00:00','Want to make your own game without going through any programming? It''s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',8),(8,'Smart On-Campus Interview','L128B  De La Salle University Manila','2014-02-06 13:00:00','2014-02-06 16:10:00','Smart will be having its on-campus interview at De La Salle University.','YES',9),(9,'Macquarie Company Orientation','Y409 De La Salle University Manila','2014-02-06 14:40:00','2014-02-06 16:10:00','Macquarie will be having its company orientation at De La Salle University. ','YES',10);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
