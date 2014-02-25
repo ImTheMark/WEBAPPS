@@ -45,6 +45,7 @@
 
 		</style>
 
+	    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
 
 	    <!--
 		
@@ -53,12 +54,11 @@
 				font-weight: bold;
 				font-size: 50px;
 			}
- -->
 
 	    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" /> 
-	    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
 	    <script type="text/javascript" src="js/moment.js"></script>
 	    <script type="text/javascript" src="js/daterangepicker.js"></script>
+ -->
 		
     <title>EVENTORY - Search</title>
 	</head>
@@ -136,14 +136,6 @@
 							<input class = 'companies' type="checkbox" value="<?php echo $id; ?>" <?php if($catname==$c){echo "checked";} ?>> <?php echo $c ;?></input><br>
 							<?php } ?>
 						
-						</div>
-				</div>
-				
-		<!----------------------------- CALENDAR -------------------------------------->
-				<div class="panel panel-default">
-				<div class="panel-heading">Calendar</div>
-						<div class="panel-body">
-							<img src="images/calendar.png" width="225px"/>
 						</div>
 				</div>
 
