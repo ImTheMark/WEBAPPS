@@ -17,12 +17,13 @@
 				
           </ul>
 		  </ul>
+      <!--
 		<form action='search.php' class="navbar-form navbar-right" role="search" method="GET">
 	        <div class="form-group">
 	          <input name='s' type="text" class="form-control" placeholder="Search Events...">
 	        </div>
 	        <button type="submit" class="btn btn-primary">Search</button>
-	    </form>
+	    </form>-->
         </div><!--/.nav-collapse -->
  </div>
  
