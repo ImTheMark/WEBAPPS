@@ -17,7 +17,8 @@
 	
 		
 		<?php include('includes/nav.php');
-		      include ('model/companymodel.php');
+		      include('model/companymodel.php');
+			   
 			  $companyModel = new CompanyModel();
 			  $companies = $companyModel->getAllCompanies();
 			  for($i = 0; $i < count($companies) ; $i++){
