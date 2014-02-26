@@ -61,7 +61,6 @@
 			position: relative; 
 			overflow: hidden;
 		}
-		
 		@media screen and (max-width: 450px) {
 			#location {
 				float: none; 
@@ -72,6 +71,19 @@
 			#detail {
 				float: none; 
 				width: 100%;
+				height: auto;
+				padding: 10px; 
+			}
+			#wellColor{
+				float: none; 
+				width: 100%;
+				height: auto;
+				padding: 10px; 
+			}
+			#info{
+				
+				float: none; 
+				width: 70%;
 				height: auto;
 				padding: 10px; 
 			}
@@ -133,22 +145,22 @@
 ================================================== -->
   <body>
 	<?php include('includes/nav.php'); ?>
-	<div class="well" id="wellColor">
+	<div class="well" id="wellColor" >
 
       <!-- Three columns of text below the carousel -->
-      <div class="row">
+      <div class="row"  >
 		<div  class="col-md-14">
 			<div  class="col-md-4">
 				<div id="poster">
 					<img src="<?php echo $picturelink ?>" class="img-responsive" alt="<?php echo $picturename?>">
 				</div>
 			</div>
-			<div  class="col-md-8">
+			<div  class="col-md-8" id="info">
 					<h1><?php echo $eventname?></h1>
-					<h3><span class="glyphicon glyphicon-copyright-mark">&nbsp<?php echo $companyname ?></span></h3>
-					<h3><span class="glyphicon glyphicon-calendar">&nbsp<?php echo date_format($startdatetime, 'l jS F Y') ?></span></h3>
-					<h3><span class="glyphicon glyphicon-time">&nbsp<?php echo date_format($startdatetime, 'G:ia'); ?> </span></h3>
-					<h3><span class="glyphicon glyphicon-map-marker">&nbsp<?php echo $location ?></span></h3>
+					<h3><?php echo $companyname ?> </h3>
+					<h3><?php echo date_format($startdatetime, 'l jS F Y') ?> </h3>
+					<h3><?php echo date_format($startdatetime, 'G:ia'); ?> </h3>
+					<h3><?php echo $location ?> </h3>
 					
 			</div>
 		</div>
