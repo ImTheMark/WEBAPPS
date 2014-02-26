@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<head>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/customstyles.css" rel="stylesheet">
@@ -16,7 +17,7 @@
 			}​
 
 		    @media(max-width:1200px){
-		        .poster{
+		        .company-logo{
 				    display: block;
 		            margin-left: auto;
 		            margin-right: auto;
@@ -65,35 +66,9 @@
 				</div>
 
 
-				<div class="list-group-item clearfix">
-					<div class="col-lg-3 company-logo">
-						<img src="images/accenture.jpg" class="img-responsive"/>
-					</div>
-					<p class="list-group-item-heading col-lg-6">ACCENTURE</p>
-					<p class="list-group-item-text col-lg-6">
-						<span class="glyphicon glyphicon-map-marker"></span> Makati<br>
-						<span class="glyphicon glyphicon-earphone"></span> 89333566<br>
-						<span class="glyphicon glyphicon-envelope"></span> accenture@accenture.com<br><br>
-						<a class="btn btn-sm btn-primary" href="search.php" role="button">View Company Events</a>&nbsp;&nbsp;
-						<a class="btn btn-sm btn-primary" href="http://accenture.com" role="button">View Website</a>
-					</p>
-				</div>
-
-				<div class="list-group-item clearfix">
-					<div class="col-lg-3 company-logo">
-						<img src="images/accenture.jpg" class="img-responsive"/>
-					</div>
-					<p class="list-group-item-heading col-lg-6">ACCENTURE</p>
-					<p class="list-group-item-text col-lg-6">
-						<span class="glyphicon glyphicon-map-marker"></span> Makati<br>
-						<span class="glyphicon glyphicon-earphone"></span> 89333566<br>
-						<span class="glyphicon glyphicon-envelope"></span> accenture@accenture.com<br><br>
-						<a class="btn btn-sm btn-primary" href="search.php" role="button">View Company Events</a>&nbsp;&nbsp;
-						<a class="btn btn-sm btn-primary" href="http://accenture.com" role="button">View Website</a>
-					</p>
-				</div>
 
 
+				
 			</div>
 		</div>
 
