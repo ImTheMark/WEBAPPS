@@ -45,7 +45,7 @@
         box-shadow: 0 0 3px #333333;
       }
       .panel{
-        height: 450px;
+        height: 480px;
         word-break:break-all;
       }
       .poster {

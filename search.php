@@ -46,7 +46,7 @@
         box-shadow: 0 0 3px #333333;
       }
       .grid-event-panel{
-        height: 450px;
+        height: 480px;
       }
       .poster {
           display: block;
