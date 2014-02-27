@@ -46,11 +46,8 @@
 		<BR>
 			
 		  
-		<div id="results" class="col-lg-12">
-			<div class="list-group">
-
-
-
+		<div class="col-lg-12">
+			<div id="company-results" class="list-group">
 				<div class="list-group-item clearfix">
 					<div class="col-lg-3 company-logo">
 						<img src="images/accenture.jpg" class="img-responsive"/>
@@ -64,11 +61,6 @@
 						<a class="btn btn-sm btn-primary" href="http://accenture.com" role="button">View Website</a>
 					</p>
 				</div>
-
-
-
-
-				
 			</div>
 		</div>
 
@@ -84,7 +76,7 @@
 		</div>
 		</center>
 
-
+		<script src="js/paginatecompanies.js"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
