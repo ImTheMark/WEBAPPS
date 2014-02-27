@@ -91,16 +91,45 @@
 			}
 		}
 		
-		function getEventsGivenCompanyId($id){
+		function getCurrentEventsGivenCompanyId($id){
 			$events = array();
 			
 			
 			$query = "SELECT * FROM event INNER JOIN company_event ON event.idevent = company_event.idevent
 						INNER JOIN eventpicture ON event.idpicture = eventpicture.ideventpicture
-						WHERE idcompany =" . $id . ";";
+						WHERE startdatetime >= NOW() AND idcompany =" . $id . ";";
 			$query = mysql_query($query);
 			$numrows = mysql_num_rows($query);
 			
+			if($numrows > 0 ){
+				while($row = mysql_fetch_assoc($query)){
+					$idevent = $row['idevent'];
+					$eventname = $row['eventname'];
+					$location = $row['location'];
+					$startdatetime = $row['startdatetime'];
+					$enddatetime = $row['enddatetime'];
+					$description = $row['description'];
+					$picture = $row['picturelink'];
+					$picturename = $row['picturename'];
+					$active = $row['active'];
+					
+					$eventobj = new EventObject($idevent,$eventname,$location,$startdatetime,$enddatetime,$description,$picture,$picturename,$active);
+					array_push($events, $eventobj);
+					
+				}
+			}
+			return $events;
+		}
+		
+		function getPastEventsGivenCompanyId($id){
+			$events = array();
+			
+			
+			$query = "SELECT * FROM event INNER JOIN company_event ON event.idevent = company_event.idevent
+						INNER JOIN eventpicture ON event.idpicture = eventpicture.ideventpicture
+						WHERE  idcompany =" . $id . ";";
+			$query = mysql_query($query);
+			$numrows = mysql_num_rows($query);
 			if($numrows > 0 ){
 				while($row = mysql_fetch_assoc($query)){
 					$idevent = $row['idevent'];

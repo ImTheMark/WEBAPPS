@@ -36,6 +36,8 @@
 				return $companies;
 		}
 		
+
+		
 		function getCompanyById($id){
 			$query = "SELECT * 
 					 FROM company INNER JOIN companypicture on company.idpicture = companypicture.idcompanypicture WHERE idcompany =" . $id;

@@ -80,7 +80,8 @@
 				}
 				
 				$eventModel = new EventModel();
-				$events= $eventModel->getEventsGivenCompanyId($id);
+				$cEvents= $eventModel->getCurrentEventsGivenCompanyId($id);
+				$pEvents= $eventModel->getPastEventsGivenCompanyId($id);
 				$id = $company->idcompany;
 				$name = $company->companyname;
 				$description = $company->description;
@@ -90,7 +91,8 @@
 				$website = $company->website;
 				$picturename = $company->picturename;
 				$picturelink = $company->picturelink;
-				echo $id;
+				
+				
 			}
 	
 	
@@ -130,155 +132,54 @@
 					 <div id="my-tab-content" class="tab-content">
 						<div class="tab-pane active" id="current">
 							<div class="list-group">
+								<?php foreach($cEvents as $cEvent){
+									$id = $cEvent->idevent;
+									$name = $cEvent->eventname;
+									$date = date_create($cEvent->startdatetime);
+									$location = $cEvent->location;
+									$description = $cEvent->description;
+									$picturelink = $cEvent->picturelink;
+									$picturename = $cEvent->picturename;
+								?>
+								<div class="list-group-item clearfix">
+									<a href="EventDetail.php?id=<?php echo $id; ?>" class="thumbnail col-xs-1">
+									  <img src="<?php echo $picturelink;?>" alt="<?php echo $picturename; ?>">
+									</a>
+									<p class="event-title list-group-item-heading col-xs-6"><?php echo $name;?></p>
+									<p class="event-body list-group-item-text col-xs-6">
+										<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($date, 'l jS F Y'); ?>&nbsp
+										<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'G:ia'); ?>
+										<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location; ?> </p>
+									<p class="event-body list-group-item-text col-xs-6"><br><?php echo $description; ?></p>
+								</div>
+								<?php } ?>
 								
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/IT-poster2.png" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT-Servece</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/leap.jpg" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">LEAP</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/IT-poster2.png" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT-Servece</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/leap.jpg" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">LEAP</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/IT-poster2.png" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT-Servece</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/leap.jpg" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">LEAP</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/IT-poster2.png" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT-Servece</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/leap.jpg" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">LEAP</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/IT-poster2.png" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT-Servece</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/leap.jpg" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">LEAP</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
 							</div>
 						</div>
 						<div class="tab-pane" id="past">
 							<div class="list-group">
-								
+								<?php foreach($pEvents as $pEvent){
+									$id = $pEvent->idevent;
+									$name = $pEvent->eventname;
+									$date = date_create($pEvent->startdatetime);
+									$location = $pEvent->location;
+									$description = $pEvent->description;
+									$picturelink = $pEvent->picturelink;
+									$picturename = $pEvent->picturename;
+								?>
 								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/gamedev-poster.png" alt="...">
+									<a href="EventDetail.php?id=<?php echo $id; ?>" class="thumbnail col-xs-1">
+									  <img src="<?php echo $picturelink; ?>" alt="<?php echo $picturename; ?>">
 									</a>
-									<p class="event-title list-group-item-heading col-xs-6">Game</p>
+									<p class="event-title list-group-item-heading col-xs-6"><?php echo $name; ?></p>
 									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
+										<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($date, 'l jS F Y'); ?> &nbsp
+										<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'G:ia'); ?>
+										<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location; ?> </p>
+									<p class="event-body list-group-item-text col-xs-6"><br><?php echo $description; ?></p>
 									
 								</div>
+								<?php } ?>
 								<div class="list-group-item clearfix">
 									<a href="#" class="thumbnail col-xs-1">
 									  <img src="images/IT-poster.png" alt="...">

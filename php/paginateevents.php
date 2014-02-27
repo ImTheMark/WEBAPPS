@@ -23,10 +23,10 @@
 			 INNER JOIN category on company_category.idcategory = category.idcategory
 			 INNER JOIN eventpicture on event.idpicture = eventpicture.ideventpicture";
 	
-	$cond = "";
+	$cond = " WHERE (event.startdatetime >= NOW())";
 	if($searchWord!=null && $searchWord!=""){
 		//$cond .= " WHERE (companyname LIKE '%" . $searchWord . "%' OR eventname LIKE '%" . $searchWord . "%')";
-		  $cond .= " WHERE (eventname LIKE '%" . $searchWord . "%')";
+		  $cond .= " AND (eventname LIKE '%" . $searchWord . "%')";
 	}
 	if(!empty($selectedCompanies)){
 		if($cond!=""){
