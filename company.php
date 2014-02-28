@@ -93,19 +93,21 @@
 					</p>
 				</div>
 			</div>
-		</div>
 
 
-<!-- 
-		<br>
-		<center>
-		<div class="btn-toolbar" role="toolbar">
-		  <div  id = "pages" class="btn-group">		
-		  		<a href="#"  class="" id = '1-page'> <button type="button" class="btn btn-default">1</button>
-		  		<a href="#"  class="" id = '2-page'> <button type="button" class="btn btn-default">2</button>
-		  </div>
+			<br>
+			<center>
+			<div class="btn-toolbar" role="toolbar">
+			  <div  id = "pages" class="btn-group">		
+			  		<a href="#"  class="" id = '1-page'> <button type="button" class="btn btn-default">1</button>
+			  		<a href="#"  class="" id = '2-page'> <button type="button" class="btn btn-default">2</button>
+			  </div>
+			</div>
+			</center>
+
+		
 		</div>
-		</center> -->
+
 
 		<script src="js/paginatecompanies.js"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
