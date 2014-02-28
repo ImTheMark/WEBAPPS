@@ -14,6 +14,9 @@
 			#results{
 				float: right; 
 			}
+		    .details{
+		      margin: 15px;
+		    }
 			.event-title{
 				font-weight: bold;
 				font-size: 25px;
@@ -34,39 +37,40 @@
 				color: #333333;
 			}
 		    a.nohover { 
-		      color: #333333; 
+		      	color: #333333; 
 		    }
 		    a.nohover:hover { 
-		      text-decoration: none;
+		      	text-decoration: none;
 		    }
 		    .event-panel:hover{
-		      background-color: #F0F0F0;
+		     	background-color: #F0F0F0;
 		    }
-      .grid-event-panel:hover{
-        box-shadow: 0 0 3px #333333;
-      }
-      .grid-event-panel{
-        height: 480px;
-      }
-      .poster {
-          display: block;
-          overflow: hidden;
-          height: 250px;
-          width: 100%;
-      }
+		    .grid-event-panel:hover{
+		      	box-shadow: 0 0 3px #333333;
+		    }
+		    .grid-event-panel{
+		      	height: 480px;
+        		word-wrap:break-word;
+		    }
+		    .poster {
+		        display: block;
+		        overflow: hidden;
+		        height: 250px;
+		        width: 100%;
+		    }
 
-      .poster img {
-          display: block; /* Otherwise it keeps some space around baseline */
-          min-width: 100%;    /* Scale up to fill container width */
-          min-height: 100%;   /* Scale up to fill container height */
-          -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
-      }
+		    .poster img {
+		        display: block; /* Otherwise it keeps some space around baseline */
+		        min-width: 100%;    /* Scale up to fill container width */
+		        min-height: 100%;   /* Scale up to fill container height */
+		        -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
+		    }
 
-      @media(max-width:1200px){
-        .grid-event-panel{
-            height: 100%;
-        }
-      }
+		    @media(max-width:1200px){
+		    	.grid-event-panel{
+		        	height: 100%;
+		      	}
+		    }
 
 		</style>
 
