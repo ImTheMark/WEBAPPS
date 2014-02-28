@@ -1,11 +1,18 @@
 
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<head>
+		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/customstyles.css" rel="stylesheet">
 		<style>
+			#filter{
+				float: left; 
+			}
+
+			#results{
+				float: right; 
+			}
 		    body{
 		      	background-color: #7C578C;
 		      	background: url('images/bg.png') repeat center center;
@@ -14,7 +21,7 @@
 				display:inline-block;
  				text-align: center;
 				padding: 25px;
-			}​
+			}​/*
 
 		    @media(max-width:1200px){
 		        .company-logo{
@@ -22,7 +29,7 @@
 		            margin-left: auto;
 		            margin-right: auto;
 		        }
-		    }
+		    }*/
 	    </style>
 
     <title>EVENTORY - Company List</title>
@@ -42,13 +49,37 @@
 		?>
 		
 		
-		<h3> <div class="label label-default"> List of Companies </div></h3>
+		<h3> <div class="label label-default"> Search for Companies </div></h3>
 		<BR>
+
+
+		<div id="filter" class="col-lg-3">
+
+				<div class="input-group">
+					<input id='filter-searchbar' name='searchWord' type="text" class="searchbox form-control" placeholder="Search Companies..." value= "" ><br>
+					<span class="input-group-btn">
+						<button id = 'filter-button' type="submit" class="btn btn-primary">Search</button>
+					</span>
+				</div>				
+				<br>
+
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Categories</div>
+						<div class="panel-body">
+					
+
+							<input class = 'categories' type="checkbox" value="Computer" > Computer</input><br>
+							
+						
+						</div>
+				</div>
+		</div>
 			
 		  
-		<div class="col-lg-12">
+		<div id="results" class="col-lg-9">
 			<div id="company-results" class="list-group">
-				<div class="list-group-item clearfix">
+				<div class="list-group-item clearfix col-lg-12">
 					<div class="col-lg-3 company-logo">
 						<img src="images/accenture.jpg" class="img-responsive"/>
 					</div>
@@ -65,7 +96,7 @@
 		</div>
 
 
-
+<!-- 
 		<br>
 		<center>
 		<div class="btn-toolbar" role="toolbar">
@@ -74,7 +105,7 @@
 		  		<a href="#"  class="" id = '2-page'> <button type="button" class="btn btn-default">2</button>
 		  </div>
 		</div>
-		</center>
+		</center> -->
 
 		<script src="js/paginatecompanies.js"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
