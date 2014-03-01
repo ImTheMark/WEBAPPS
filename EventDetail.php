@@ -220,6 +220,6 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/eventdetail.js"></script>
     <script src="js/holder.js"></script>
-	<script src="js/removesession.js"></script>
+	<script src="js/removesessionevents.js"></script>
   </body>
 </html>
