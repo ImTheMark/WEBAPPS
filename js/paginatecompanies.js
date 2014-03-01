@@ -25,12 +25,16 @@ $("input:checkbox.categories").change(function() {
       selectedCategories.push($(this).val());
     });
 	sessionStorage.setItem('CselectedCategories', JSON.stringify(selectedCategories));
+	pastPage = 1;
+	sessionStorage.setItem('CpastPage', pastPage);
 	paginate();
 });
 
 $("#filter-searchbar").change(function(){
 	searchWord = $("#filter-searchbar").val();
 	sessionStorage.setItem('CsearchWord', searchWord);
+	pastPage = 1;
+	sessionStorage.setItem('CpastPage', pastPage);
 	window.location.replace("company.php");
 	paginate();
 });
@@ -44,6 +48,8 @@ $(document).ready(function() {
 $("#filter-button").click( function(){
       searchWord = $("#filter-searchbar").val();
 	  sessionStorage.setItem('CsearchWord', searchWord);
+	  pastPage = 1;
+	  sessionStorage.setItem('CpastPage', pastPage);
 	  paginate();
 	  
 });
@@ -66,7 +72,6 @@ function paginate(){
 			displayCurrPage();
 		 }
 		 else{
-			alert(data);
 			$("#pages").html(data);
 			
 			displayCurrPage();

@@ -49,7 +49,7 @@
 	if(mysql_num_rows($results) > 0){
 		$result = mysql_fetch_assoc($results);
 		$nRows = $result['nRows'];
-		$item_per_page = 1;
+		$item_per_page = 4;
 		$nPages = ceil($nRows/$item_per_page);
 		$pagination = "";
 		if($nPages == 1){
