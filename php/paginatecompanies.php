@@ -1,18 +1,55 @@
 <?php
 	include_once('../includes/connection.php');
-	$pastPage = 1;
-	
+	$selectedCategories = "";
+	$searchWord = "";
+	$cond = "";
+	if(isset($_POST['categories'])){
+		$selectedCategories = $_POST['categories'];	
+	}
+	if(isset($_POST['searchWord'])){
+		$searchWord = $_POST['searchWord'];		
+	}	
 	if(isset($_POST['pastPage'])){
 		$pastPage = $_POST['pastPage'];		
 	}
 	
-	$query = "SELECT COUNT(distinct companyname)
-			  FROM company";
+	$query = "SELECT COUNT(distinct companyname) as nRows
+			  FROM company INNER JOIN company_category on company.idcompany = company_category.idcompany
+			  INNER JOIN category on company_category.idcategory = category.idcategory";
+	if($searchWord!=null && $searchWord!=""){
+		  $cond .= " WHERE(companyname LIKE '%" . $searchWord . "%')";
+	}
+	if(!empty($selectedCategories)){
+		if($cond!=""){
+			$cond.= " AND ";
+		}
+		else{
+			$cond .= " WHERE ";
+		}
+		for($i = 0 ; $i<count($selectedCategories);$i++){
+			if($i == 0){
+				$cond .= " (";
+			}
+			$catid = $selectedCategories[$i];
+			
+			$cond .= "category.idcategory = $catid";
+			
+			if($i == count($selectedCategories)-1){
+				$cond .= " ) ";
+			}
+			else{
+				$cond .= " OR ";
+			}
+		}
+		
+	}
+		
+	$query .= $cond;
 	$results = mysql_query($query);
 	if(mysql_num_rows($results) > 0){
 		$result = mysql_fetch_assoc($results);
 		$nRows = $result['nRows'];
-		$item_per_page = 6;
+		$item_per_page = 1;
 		$nPages = ceil($nRows/$item_per_page);
 		$pagination = "";
 		if($nPages == 1){

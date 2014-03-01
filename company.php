@@ -67,11 +67,19 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Categories</div>
 						<div class="panel-body">
-					
-
-							<input class = 'categories' type="checkbox" value="Computer" > Computer</input><br>
+						<?php
+							include_once('model/categorymodel.php');
 							
-						
+							$model = new CategoryModel();
+							$categories = $model->getAllCategories();
+							foreach($categories as $category){
+								$id = $category->idcategory;
+								$c = $category->category;
+							?>
+							<input class = 'categories' type="checkbox" value=" <?php echo $id; ?>" > <?php echo $c; ?></input><br>
+							
+							
+							<?php } ?>
 						</div>
 				</div>
 		</div>
@@ -107,10 +115,9 @@
 
 		
 		</div>
-
 		<script src="js/removesessionevents.js"></script>
-		<script src="js/paginatecompanies.js"></script>
 		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/paginatecompanies.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
 	

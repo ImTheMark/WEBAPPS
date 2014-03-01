@@ -196,6 +196,7 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/holder.js"></script>
+	<script src="js/removesessioncompanies.js"></script>
 	 <script src="js/removesessionevents.js"></script>
   </body>
 </html>
