@@ -39,6 +39,7 @@
 			$query = "SELECT *
 					  FROM webapps.event INNER JOIN webapps.eventpicture
 					  ON webapps.event.idpicture = webapps.eventpicture.ideventpicture
+					  WHERE (event.startdatetime >= NOW())
 					  ORDER BY startdatetime ASC
 					  LIMIT 60;";
 			$query = mysql_query($query);

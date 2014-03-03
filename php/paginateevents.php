@@ -79,7 +79,6 @@
 	}
 	
 	$query .= $cond;
-	
 	$results = mysql_query($query);
 	if(mysql_num_rows($results) > 0){
 		$result = mysql_fetch_assoc($results);

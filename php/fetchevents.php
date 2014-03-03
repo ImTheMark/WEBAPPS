@@ -84,7 +84,6 @@
 	
 	$query .= $cond;
 	$query .= " ORDER BY startdatetime desc LIMIT $position, $item_per_page";
-	echo $query;
 	$query = mysql_query($query);
 	$numrows = mysql_num_rows($query);
 	$count = 0;
