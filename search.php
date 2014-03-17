@@ -72,9 +72,37 @@
 		      	}
 		    }
 
+		    .panel-heading .accordion-toggle:after {
+			    /* symbol for "opening" panels */
+			    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+			    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+			    float: right;        /* adjust as needed */
+			    color: grey;         /* adjust as needed */
+			}
+
+
+			.panel-heading .accordion-toggle.collapsed:after {
+			    /* symbol for "collapsed" panels */
+			    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+			}
+
 		</style>
 
 	    <script type="text/javascript" src="js/jquery-1.11.0.js"></script> 
+	    <script type="text/javascript">
+	    	$(window).bind('resize load',function(){
+				if( $(this).width() < 767 )
+				{
+					$('.collapse').removeClass('in');
+					$('.collapse').addClass('out');
+				}
+				else
+				{
+					$('.collapse').removeClass('out');
+					$('.collapse').addClass('in');
+				}   
+			});
+	    </script>
 
 	    <!--
 		
@@ -127,10 +155,18 @@
 		
 		<br>
 		<!----------------------------- CATEGORIES -------------------------------------->
+
 				<div class="panel panel-default">
-					<div class="panel-heading">Categories</div>
-						<div class="panel-body">
-							<?php
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			          Categories
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseOne" class="panel-collapse collapse in">
+			      <div class="panel-body">
+			    		<?php
 							include('model/categorymodel.php');
 							
 							$model = new CategoryModel();
@@ -143,17 +179,24 @@
 							
 							
 							<?php } ?>
-						
-						</div>
-				</div>
+			       </div>
+			    </div>
+			  </div>
 				
 		
 
 		<!----------------------------- COMPANIES -------------------------------------->
 				<div class="panel panel-default">
-				<div class="panel-heading">Companies</div>
-						<div class="panel-body">
-							<?php
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			          Companies
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseTwo" class="panel-collapse collapse in">
+			      <div class="panel-body">
+			    		<?php
 							include('model/companymodel.php');
 							
 							$modelX = new CompanyModel();
@@ -164,9 +207,9 @@
 							?>
 							<input class = 'companies' type="checkbox" value="<?php echo $id; ?>" <?php if($catname==$c){echo "checked";} ?>> <?php echo $c ;?></input><br>
 							<?php } ?>
-						
-						</div>
-				</div>
+			       </div>
+			    </div>
+			  </div>
 
 
 
