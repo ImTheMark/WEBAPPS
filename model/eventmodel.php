@@ -128,7 +128,7 @@
 			
 			$query = "SELECT * FROM event INNER JOIN company_event ON event.idevent = company_event.idevent
 						INNER JOIN eventpicture ON event.idpicture = eventpicture.ideventpicture
-						WHERE  idcompany =" . $id . ";";
+						WHERE startdatetime < NOW() AND idcompany =" . $id . ";";
 			$query = mysql_query($query);
 			$numrows = mysql_num_rows($query);
 			if($numrows > 0 ){
