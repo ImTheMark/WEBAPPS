@@ -1,6 +1,7 @@
 <?php 
 session_start();
-if(!isset($_SESSION['login']) || $_SESSION['login'] = "") {?>
+if(!isset($_SESSION['login']) || $_SESSION['login'] == "" || $_SESSION['login'] == null) {
+?>
 <div class="container">
         <a href="index.php"><img src="images/logo.png" class="img-responsive"/></a>
 		<div class="navbar navbar-default navbar-inverse" role="navigation">
@@ -35,7 +36,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] = "") {?>
  </div>
  
  <?php } 
- else{  ?>
+ else{ ?>
  
  <div class="container">
         <a href="index.php"><img src="images/logo.png" class="img-responsive"/></a>
@@ -58,7 +59,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] = "") {?>
 		  </ul>
       
 		<div class = "navbar-form navbar-right">
-			<li><a href="logout.php"><?php echo $_SESSION['login']; ?></a></li>
+			<li><a href="logout.php"><?php echo $_SESSION['login']; ?> Logout</a></li>
 		</div>
 		<!--
 		<form action='search.php' class="navbar-form navbar-right" role="search" method="GET">
