@@ -25,10 +25,11 @@
 						$website = $row['website'];
 						$picturelink= $row['picturelink'];
 						$picturename = $row['picturename'];
+						$calendarlink = $row['calendarlink'];
 						$categoryModel = new CategoryModel();
 					
 						$categories = $categoryModel->getCompanyCategories($idcompany);
-						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,$picturename, $picturelink);
+						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,$picturename, $picturelink, $calendarlink);
 						array_push($companies, $company);
 						
 					}
@@ -55,10 +56,11 @@
 				$website = $row['website'];
 				$picturelink= $row['picturelink'];
 				$picturename = $row['picturename'];
+				$calendarlink = $row['calendarlink'];
 				$categoryModel = new CategoryModel();
 			
 				$categories = $categoryModel->getCompanyCategories($idcompany);
-				$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,$picturename,$picturelink);
+				$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,$picturename, $picturelink, $calendarlink);
 				return $company;
 			}
 			else{
@@ -95,10 +97,11 @@
 						$contactnumber = $row['contactnumber'];
 						$email = $row['email'];
 						$website = $row['website'];
+						$calendarlink = $row['calendarlink'];
 						$categoryModel = new CategoryModel();
 					
 						$categories = $categoryModel->getCompanyCategories($idcompany);
-						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,null,null);
+						$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,null, null, $calendarlink);
 						array_push($companies, $company);
 						
 					}
@@ -124,10 +127,11 @@
 					$contactnumber = $row['contactnumber'];
 					$email = $row['email'];
 					$website = $row['website'];
+					$calendarlink = $row['calendarlink'];
 					$categoryModel = new CategoryModel();
 				
 					$categories = $categoryModel->getCompanyCategories($idcompany);
-					$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,null,null);
+					$company = new CompanyObject($idcompany,$companyname,$description,$address,$contactnumber,$email,$website,$categories,null, null, $calendarlink);
 					return $company;		
 			}
 			else{

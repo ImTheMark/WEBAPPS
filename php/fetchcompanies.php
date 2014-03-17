@@ -72,7 +72,7 @@ include_once('../includes/connection.php');
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $address;?><br>
 						<span class="glyphicon glyphicon-earphone"></span> <?php echo $contact;?><br>
 						<span class="glyphicon glyphicon-envelope"></span> <?php echo $email;?><br><br>
-						<a class="btn btn-sm btn-primary" href="CompanyProfile?id=<?php echo $id;?>" role="button">View Company Details</a>&nbsp;&nbsp;
+						<a class="btn btn-sm btn-primary" href="CompanyProfile.php?id=<?php echo $id;?>" role="button">View Company Details</a>&nbsp;&nbsp;
 						<a class="btn btn-sm btn-primary" href="<?php echo $website;?>" role="button">View Website</a>
 					</p>
 				</div>

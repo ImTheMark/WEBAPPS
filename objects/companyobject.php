@@ -12,8 +12,9 @@
 		public $categories;
 		public $picturename;
 		public $picturelink;
+		public $calendarlink;
 		
-		public function __construct($idcompany, $companyname, $description, $address, $contactnumber,$email,$website,$categories,$picturename,$picturelink){
+		public function __construct($idcompany, $companyname, $description, $address, $contactnumber,$email,$website,$categories,$picturename,$picturelink,$calendarlink){
 			$this->idcompany = $idcompany;
 			$this->companyname = $companyname;
 			$this->description = $description;
@@ -24,6 +25,7 @@
 			$this->categories = $categories;
 			$this->picturename = $picturename;
 			$this->picturelink = $picturelink;
+			$this->calendarlink = $calendarlink;
 		}
 		
 	
