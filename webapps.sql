@@ -37,7 +37,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Software Development'),(2,'Networking'),(3,'Business Management'),(4,'Computer'),(5,'Seminar'),(6,'On-Campus Interview'),(7,'Workshop'),(8, 'Mobile');
+INSERT INTO `category` VALUES (1,'Software Development'),(2,'Networking'),(3,'Business Management'),(4,'Computer'),(5,'Seminar'),(6,'On-Campus Interview'),(7,'Workshop'),(8,'Mobile');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,6 +58,7 @@ CREATE TABLE `company` (
   `idpicture` int(11) DEFAULT NULL,
   `website` varchar(45) DEFAULT NULL,
   `calendarlink` varchar(45) DEFAULT NULL,
+  `password` varchar(45) NOT NULL,
   PRIMARY KEY (`idcompany`),
   KEY `idpicture_idx` (`idpicture`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -69,12 +70,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (1,'Google','Google is an American multinational corporation specializing in Internet-related services and products. These include search, cloud computing, software, and online advertising technologies. Most of its profits are derived from AdWords','Philippines','09171234567','google@gmail.com',1,'http://www.google.com',NULL),(2,'Accenture','Accenture plc is a multinational management consulting, technology services and outsourcing company. Incorporated headquarters are in Dublin, Republic of Ireland while operations headquarters are in Chicago, Illinois.','Philippines','09121234567','accenture@accenture.com',2,'http://www.accenture.com',NULL),(3,'Hewlett Packard','Hewlett-Packard Company or HP is an American multinational information technology corporation headquartered in Palo Alto, California, United States.','Philippines','09172324142','hp@hp.com',3,'http://www.hp.com',NULL),(4,'De La Salle University','De La Salle University is a private Lasallian university in Taft Avenue, Malate, Manila, Philippines. It was founded in 1911 by De La Salle Brothers as the De La Salle College in Paco, Manila with Blimond Pierre serving as its first director','De La Salle University , Taft Avenue , Manila','(02) 5244611','lscs@dlsu.com',4,'http://www.dlsu.edu.ph/',NULL),(5,'Smart Communications Inc.','Smart Communications is a wholly owned mobile phone and Internet service subsidiary of the Philippine Long Distance Telephone Company. On September 2013 the company reported that it has over 72.5 million cellular subscribers.','Smart Communications, Inc. 6799 Ayala Ave., M','09185678934','publicaffairs@smart.com.ph',5,'http://www1.smart.com.ph/corporate',NULL),(6,'Macquarie','Macquarie Group is a leading provider of banking, financial, advisory, investment and funds management services. Our global operations include offices in the world''s major financial centres.
-
-
-
-We combine entrepreneurial drive with deep industry and regional expertise and robust risk management. This gives our clients and investors confidence, and allows us to deliver innovative products and services and strong investment returns.','22/f 6750 Office Tower Ayala Avenue, Makati C','+63 2 857 0888','macquarie@macquarie.com',6,'http://www.macquarie.ph/mgl/ph',NULL);
-
+INSERT INTO `company` VALUES (1,'Google','Google is an American multinational corporation specializing in Internet-related services and products. These include search, cloud computing, software, and online advertising technologies. Most of its profits are derived from AdWords','Philippines','09171234567','google@gmail.com',1,'http://www.google.com',NULL,'123'),(2,'Accenture','Accenture plc is a multinational management consulting, technology services and outsourcing company. Incorporated headquarters are in Dublin, Republic of Ireland while operations headquarters are in Chicago, Illinois.','Philippines','09121234567','accenture@accenture.com',2,'http://www.accenture.com',NULL,'123'),(3,'Hewlett Packard','Hewlett-Packard Company or HP is an American multinational information technology corporation headquartered in Palo Alto, California, United States.','Philippines','09172324142','hp@hp.com',3,'http://www.hp.com',NULL,'123'),(4,'De La Salle University','De La Salle University is a private Lasallian university in Taft Avenue, Malate, Manila, Philippines. It was founded in 1911 by De La Salle Brothers as the De La Salle College in Paco, Manila with Blimond Pierre serving as its first director','De La Salle University , Taft Avenue , Manila','(02) 5244611','lscs@dlsu.com',4,'http://www.dlsu.edu.ph/',NULL,'123'),(5,'Smart Communications Inc.','Smart Communications is a wholly owned mobile phone and Internet service subsidiary of the Philippine Long Distance Telephone Company. On September 2013 the company reported that it has over 72.5 million cellular subscribers.','Smart Communications, Inc. 6799 Ayala Ave., M','09185678934','publicaffairs@smart.com.ph',5,'http://www1.smart.com.ph/corporate',NULL,'123'),(6,'Macquarie','Macquarie Group is a leading provider of banking, financial, advisory, investment and funds management services. Our global operations include offices in the world\'s major financial centres.\r\n\r\n\r\n\r\nWe combine entrepreneurial drive with deep industry and regional expertise and robust risk management. This gives our clients and investors confidence, and allows us to deliver innovative products and services and strong investment returns.','22/f 6750 Office Tower Ayala Avenue, Makati C','+63 2 857 0888','macquarie@macquarie.com',6,'http://www.macquarie.ph/mgl/ph',NULL,'123');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +144,7 @@ CREATE TABLE `companypicture` (
 
 LOCK TABLES `companypicture` WRITE;
 /*!40000 ALTER TABLE `companypicture` DISABLE KEYS */;
-INSERT INTO `companypicture` VALUES (1,'Google','images/google.jpg'),(2,'Accenture','images/accenture.jpg'),(3,'HP','images/hp.jpg'),(4,'dlsu','images/dlsuLogo.jpe'),(5,'smart','images/smartLogo.jpe'),(6,'macquarie','imnages/macquarieLogo.jpe');
+INSERT INTO `companypicture` VALUES (1,'Google','images/google.jpg'),(2,'Accenture','images/accenture.jpg'),(3,'HP','images/hp.jpg'),(4,'dlsu','images/dlsuLogo.jpe'),(5,'smart','images/smartLogo.jpe'),(6,'macquarie','images/macquarieLogo.jpe');
 /*!40000 ALTER TABLE `companypicture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,27 +174,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (1,'Job Expo 2014','Ayala Avenue corner,Makati Avenue,Makati City','2014-02-04 08:00:00','2014-02-06 20:00:00','Job Expo for DLSU Students','YES',2),(2,'Azeus Company Talk and Exam','A703, De La Salle University Manila','2014-01-25 10:00:00','2014-01-25 13:00:00','Hi guys, OJT season is almost here and we would like to invite you as LSCS presents to you Company Talks and Exam : Azues Systems Philippines. The talk would be held at A703 from 10:00 - 11:00 and the exam would be held from 11:00 - 1:00pm at A703 on Jan 25. Please don''t forget to pre-register and click attending! Pre-registered participants would receive food during the talk. 
-
-
-
-http://tinyurl.com/AzeusTalk-Exam
-
-
-
-See you guys there!','YES',3),(3,'ThesisIt! ','Y507 De La Salle University Manila','2014-01-10 13:00:00','2014-01-10 14:30:00','It''s OJT and Employment season again and the hunt is on.
-
-
-
-La Salle Computer Society and CATCH2T15 Batch Government brings you Resume Making Seminar.
-
-
-
-Join us as we prepare you with the right equipment for the hunt. The seminar would be held at Y507 from 1:00 - 2:30 PM. 
-
-
-
-Please make sure to join in the facebook event. See you at the hunt!','YES',4),(4,'Python 101: beginners workshop ','A903 De La Salle University Manila','2014-02-15 09:00:00','2014-02-15 17:00:00','GEAR UP and LEARN PYTHON. Participants will get a chance to win free tickets for the Python Conference 2014 (http://pycon.python.ph/). Register now at http://bit.ly/LAWp8p','YES',5),(5,'Dart Flight School','G302A & G302B Gokingwei Building, De La Salle','2014-02-15 09:00:00','2014-02-15 16:00:00','Come fly with us and enroll in Dart Flight School! Dart is a new language, with tools and libraries, for scalable web app engineering. Dart is an open-source project with contributors from Google and elsewhere. We''re flying this Saturday, February 15, from 9am-4pm. Register at: > DLSU Students - http://tinyurl.com/dartflightdlsu  > Outsiders - http://tinyurl.com/dartflightMNL','YES',6),(6,'Game Development using Construct2','De La Salle University Manila','2014-02-07 10:00:00','2014-02-07 12:00:00','Want to make your own game without going through any programming? It''s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',7),(7,'Leap Class Enrollment 2014','De La Salle University','2014-01-24 08:00:00','2014-01-25 20:00:00','Want to make your own game without going through any programming? It''s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',8),(8,'Smart On-Campus Interview','L128B  De La Salle University Manila','2014-02-06 13:00:00','2014-02-06 16:10:00','Smart will be having its on-campus interview at De La Salle University.','YES',9),(9,'Macquarie Company Orientation','Y409 De La Salle University Manila','2014-02-06 14:40:00','2014-02-06 16:10:00','Macquarie will be having its company orientation at De La Salle University. ','YES',10);
+INSERT INTO `event` VALUES (1,'Job Expo 2014','Ayala Avenue corner,Makati Avenue,Makati City','2014-04-24 08:00:00','2014-04-24 12:00:00','Job Expo for DLSU Students','YES',2),(2,'Azeus Company Talk and Exam','A703, De La Salle University Manila','2014-05-24 08:00:00','2014-05-24 13:00:00','Hi guys, OJT season is almost here and we would like to invite you as LSCS presents to you Company Talks and Exam : Azues Systems Philippines. The talk would be held at A703 from 10:00 - 11:00 and the exam would be held from 11:00 - 1:00pm at A703 on Jan 25. Please don\'t forget to pre-register and click attending! Pre-registered participants would receive food during the talk. \r\n\r\n\r\n\r\nhttp://tinyurl.com/AzeusTalk-Exam\r\n\r\n\r\n\r\nSee you guys there!','YES',3),(3,'ThesisIt! ','Y507 De La Salle University Manila','2014-07-14 08:00:00','2014-07-14 18:00:00','It\'s OJT and Employment season again and the hunt is on.\r\n\r\n\r\n\r\nLa Salle Computer Society and CATCH2T15 Batch Government brings you Resume Making Seminar.\r\n\r\n\r\n\r\nJoin us as we prepare you with the right equipment for the hunt. The seminar would be held at Y507 from 1:00 - 2:30 PM. \r\n\r\n\r\n\r\nPlease make sure to join in the facebook event. See you at the hunt!','YES',4),(4,'Python 101: beginners workshop ','A903 De La Salle University Manila','2014-05-24 08:00:00','2014-05-24 10:00:00','GEAR UP and LEARN PYTHON. Participants will get a chance to win free tickets for the Python Conference 2014 (http://pycon.python.ph/). Register now at http://bit.ly/LAWp8p','YES',5),(5,'Dart Flight School','G302A & G302B Gokingwei Building, De La Salle','2014-05-30 08:00:00','2014-05-30 09:00:00','Come fly with us and enroll in Dart Flight School! Dart is a new language, with tools and libraries, for scalable web app engineering. Dart is an open-source project with contributors from Google and elsewhere. We\'re flying this Saturday, February 15, from 9am-4pm. Register at: > DLSU Students - http://tinyurl.com/dartflightdlsu  > Outsiders - http://tinyurl.com/dartflightMNL','YES',6),(6,'Game Development using Construct2','De La Salle University Manila','2014-07-30 08:00:00','2014-07-30 09:00:00','Want to make your own game without going through any programming? It\'s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',7),(7,'Leap Class Enrollment 2014','De La Salle University','2014-07-12 08:00:00','2014-07-12 10:00:00','Want to make your own game without going through any programming? It\'s time to let out the game developer in you! Come to the Game Development using Construct2 seminar this friday, February 7, from 10:00 am - 12:00 pm. See you in G304A!','YES',8),(8,'Smart On-Campus Interview','L128B  De La Salle University Manila','2014-06-14 08:00:00','2014-06-14 08:10:00','Smart will be having its on-campus interview at De La Salle University.','YES',9),(9,'Macquarie Company Orientation','Y409 De La Salle University Manila','2014-06-14 08:00:00','2014-06-14 09:00:00','Macquarie will be having its company orientation at De La Salle University. ','YES',10);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-17 21:23:34
+-- Dump completed on 2014-03-17 23:21:04
