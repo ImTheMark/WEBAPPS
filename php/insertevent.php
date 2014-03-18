@@ -61,7 +61,7 @@
 			$enumrows = mysql_num_rows($selectEventID);
 			if($enumrows > 0 ){
 				$erow = mysql_fetch_assoc($selectEventID);
-				$eventID = $row['idevent'];
+				$eventID = $erow['idevent'];
 			}
 
 	$insertCompanyEventQuery = "INSERT INTO 'company_event' 
