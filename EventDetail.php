@@ -159,7 +159,7 @@
 					<h1><?php echo $eventname?></h1>
 					<h3><?php echo $companyname ?> </h3>
 					<h3><?php echo date_format($startdatetime, 'l jS F Y') ?> </h3>
-					<h3><?php echo date_format($startdatetime, 'G:ia'); ?> </h3>
+					<h3><?php echo date_format($startdatetime, 'g:i a'); ?> </h3>
 					<h3><?php echo $location ?> </h3>
 					
 			</div>
@@ -189,7 +189,7 @@
 				<br>
 				<p id="address"><?php echo $location ?></p>
 				<p><?php echo date_format($startdatetime, 'l jS F Y') ?></p>
-				<p><?php echo date_format($startdatetime, 'G:i a'); ?> </p>
+				<p><?php echo date_format($startdatetime, ' g:i a'); ?> </p>
 			  </div>
 			</div>
 		
