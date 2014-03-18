@@ -21,6 +21,15 @@
         background: url('images/bg.png') repeat center center;
       }
 	  
+	  h3{
+	  
+		line-height: 0.9;
+	  }
+	  
+	  h1{
+		font-weight: bold;
+	  }
+	  
       #poster {
 				float: left; 
 				width: 70%;
@@ -54,6 +63,10 @@
 		
 		h1,h2,h3,h4{
 			color:black;
+		}
+		
+		span{
+			color:gray;
 		}
 		
 		#map{
@@ -92,6 +105,17 @@
 				position: block; 
 				overflow: hidden;
 			}
+			
+			 h3{
+	  
+				line-height: 0.9;
+				font-size:20px;
+			  }
+			  
+			  h1{
+				font-weight: bold;
+				font-size:25px;
+			  }
 		}
 		
     </style>
@@ -157,10 +181,10 @@
 			</div>
 			<div  class="col-md-8" id="info">
 					<h1><?php echo $eventname?></h1>
-					<h3><?php echo $companyname ?> </h3>
-					<h3><?php echo date_format($startdatetime, 'l jS F Y') ?> </h3>
-					<h3><?php echo date_format($startdatetime, 'g:i a'); ?> </h3>
-					<h3><?php echo $location ?> </h3>
+					<h3><span>Organizer</span>  &nbsp&nbsp<?php echo $companyname ?> </h3>
+					<h3><span>When</span>      &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp<?php echo date_format($startdatetime, 'l jS F Y') ?> </h3>
+					<h3>          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo date_format($startdatetime, 'g:i a'); ?> </h3>
+					<h3><span>Where</span>     &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp<?php echo $location ?> </h3>
 					
 			</div>
 		</div>
