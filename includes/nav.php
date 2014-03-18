@@ -1,3 +1,4 @@
+
 <div class="container">
         <a href="index.php"><img src="images/logo.png" class="img-responsive"/></a>
 		<div class="navbar navbar-default navbar-inverse" role="navigation">
@@ -17,7 +18,8 @@
 				
           </ul>
 		  </ul>
-      <!--
+      
+		<!--
 		<form action='search.php' class="navbar-form navbar-right" role="search" method="GET">
 	        <div class="form-group">
 	          <input name='s' type="text" class="form-control" placeholder="Search Events...">
@@ -26,4 +28,4 @@
 	    </form>-->
         </div><!--/.nav-collapse -->
  </div>
- 
+
