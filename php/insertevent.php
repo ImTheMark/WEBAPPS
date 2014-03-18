@@ -8,9 +8,9 @@
 	$description = "";
 	$photoURL = "";
 	$companyID = "";
+
 	$idpicture = "";
 	$eventID = "";
-
 
 	if(isset($_POST['eventname'])){
 		$eventname = $_POST['eventname'];		
@@ -34,13 +34,12 @@
 		$companyID = $_POST['companyID'];		
 	}	
 
-	$insertImgQuery = "INSERT INTO 'ideventpicture' (picturename, picturelink)
-	VALUES ('".$eventname. "', '" .$photoURL."');"
+	$insertImgQuery = "INSERT INTO eventpicture (picturename, picturelink)
+	VALUES ('$eventname','$photoURL');";
 
-	$insertImgQuery = mysql_query($insertImgQuery);
+	mysql_query($insertImgQuery);
 
-	$selectIdpictureQuery = "SELECT ideventpicture FROM eventpicture
-	WHERE picturename = $eventname;"
+	$selectIdpictureQuery = "SELECT ideventpicture FROM eventpicture WHERE picturename = '$eventname';";
 
 	$selectIdpictureQuery = mysql_query($selectIdpictureQuery);
 			$numrows = mysql_num_rows($selectIdpictureQuery);
@@ -49,13 +48,13 @@
 				$idpicture = $row['ideventpicture'];
 			}
 
-	$insertEventQuery = "INSERT INTO 'event'(eventname, location, startdatetime, enddatetime, description, active, idpicture) 
-	VALUES ('" .$eventname. "','" .$location. "','" .$startdatetime. "','" .$enddatetime. "','" .$description. "','YES', " .$idpicture. ");"
+	$insertEventQuery = "INSERT INTO event (eventname, location, startdatetime, enddatetime, description, active, idpicture) 
+	VALUES ('$eventname','$location','$startdatetime','$enddatetime','$description','YES', $idpicture);";
 
-	$insertEventQuery = mysql_query($insertEventQuery);
+	mysql_query($insertEventQuery);
 
 	$selectEventID = "SELECT idevent FROM event
-	WHERE eventname = $eventname;"
+	WHERE eventname = '$eventname';";
 
 	$selectEventID = mysql_query($selectEventID);
 			$enumrows = mysql_num_rows($selectEventID);
@@ -64,9 +63,9 @@
 				$eventID = $erow['idevent'];
 			}
 
-	$insertCompanyEventQuery = "INSERT INTO 'company_event' 
-	VALUES ('" .$companyID. "', '" .$eventID. "'); "
+	$insertCompanyEventQuery = "INSERT INTO company_event 
+	VALUES ('$companyID', '$eventID'); ";
 
-	$insertCompanyEventQuery = mysql_query($insertCompanyEventQuery);
+	mysql_query($insertCompanyEventQuery);
 
 ?>
