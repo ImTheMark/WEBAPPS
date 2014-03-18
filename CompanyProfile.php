@@ -148,7 +148,7 @@
 									<p class="event-title list-group-item-heading col-xs-6"><?php echo $name;?></p>
 									<p class="event-body list-group-item-text col-xs-6">
 										<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($date, 'l jS F Y'); ?>&nbsp
-										<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'G:ia'); ?>
+										<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'g:ia'); ?>
 										<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location; ?> </p>
 									<p class="event-body list-group-item-text col-xs-6"><br><?php echo $description; ?></p>
 								</div>
@@ -174,7 +174,7 @@
 									<p class="event-title list-group-item-heading col-xs-6"><?php echo $name; ?></p>
 									<p class="event-body list-group-item-text col-xs-6">
 										<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($date, 'l jS F Y'); ?> &nbsp
-										<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'G:ia'); ?>
+										<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'g:ia'); ?>
 										<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location; ?> </p>
 									<p class="event-body list-group-item-text col-xs-6"><br><?php echo $description; ?></p>
 									
