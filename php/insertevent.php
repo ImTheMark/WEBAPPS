@@ -1,0 +1,7 @@
+eventname
+location
+startdatetime
+enddatetime
+description
+photoURL
+companyID
