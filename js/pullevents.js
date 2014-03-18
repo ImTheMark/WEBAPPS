@@ -120,7 +120,6 @@ function listEvents(feedRoot) {
   elem = array[curr].split(" ");
   var companyID = elem[0];
   var calendarlink = elem[1];
-  alert(companyID + " " + calendarlink);
   curr = curr + 1;
   
   var entries = feedRoot.feed.getEntries();
@@ -139,20 +138,16 @@ function listEvents(feedRoot) {
 	  endDateTime = times[0].getEndTime();
 	  endJSDate = endDateTime.getDate();
     }
-    var entryLinkHref = null;
-    if (entry.getHtmlLink() != null) {
-      entryLinkHref = entry.getHtmlLink().getHref();
-    }
-    var dateString = (startJSDate.getMonth() + 1) + "/" + startJSDate.getDate();
+    var dateString = (startJSDate.getYear()+1900) + "-" + (startJSDate.getMonth() + 1) + "-" + startJSDate.getDate();
     if (!startDateTime.isDateOnly()) {
       dateString += " " + startJSDate.getHours() + ":" + 
-          padNumber(startJSDate.getMinutes());
+          padNumber(startJSDate.getMinutes()) + ":00";
     }
 	
-	var edateString = (endJSDate.getMonth() + 1) + "/" + endJSDate.getDate();
+	var edateString = (startJSDate.getYear()+1900) + "-" +(endJSDate.getMonth() + 1) + "-" + endJSDate.getDate();
     if (!endDateTime.isDateOnly()) {
       edateString += " " + endJSDate.getHours() + ":" + 
-          padNumber(endJSDate.getMinutes());
+          padNumber(endJSDate.getMinutes())+ ":00";
     }
 	
 	var eventTitle = title;
@@ -161,6 +156,25 @@ function listEvents(feedRoot) {
 	var endDateTime = edateString;
 	var photoURL = des.substr(0,des.indexOf('\n'));
 	var description = des.substr(des.indexOf('\n'), des.length);
+	alert("TEST");
+	$.ajax({
+		  type: "POST",
+		  data: {
+			 'eventname' : eventTitle,
+			 'location' : location,
+			 'startdatetime' : startDateTime , 
+			 'enddatetime' : endDateTime, 
+			 'photoURL' : photoURL,
+			 'description' : description,
+			 'companyID' : companyID,
+		  },
+		  url: "php/testinsertevent.php",
+		  success: function(data){
+				alert(data);
+			}
+		});
+	
+	
   }
 }
 
