@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category` (
-  `idcategory` int(11) NOT NULL,
+  `idcategory` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(45) NOT NULL,
   PRIMARY KEY (`idcategory`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `company`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `company` (
-  `idcompany` int(11) NOT NULL,
+  `idcompany` int(11) NOT NULL AUTO_INCREMENT,
   `companyname` varchar(45) NOT NULL,
   `companydescription` varchar(1000) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
@@ -155,7 +155,7 @@ DROP TABLE IF EXISTS `event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `event` (
-  `idevent` int(11) NOT NULL,
+  `idevent` int(11) NOT NULL AUTO_INCREMENT,
   `eventname` varchar(45) NOT NULL,
   `location` varchar(45) DEFAULT NULL,
   `startdatetime` datetime DEFAULT NULL,
@@ -185,7 +185,7 @@ DROP TABLE IF EXISTS `eventpicture`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `eventpicture` (
-  `ideventpicture` int(11) NOT NULL,
+  `ideventpicture` int(11) NOT NULL AUTO_INCREMENT,
   `picturename` varchar(45) NOT NULL,
   `picturelink` varchar(45) NOT NULL,
   PRIMARY KEY (`ideventpicture`)
