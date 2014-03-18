@@ -167,7 +167,7 @@
 					  <h2><?php echo $eventname ?></h2>
 					  <p>
 						<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($startdatetime, 'l jS F Y'); ?><br>
-						<span class="glyphicon glyphicon-time"></span> <?php echo date_format($startdatetime, 'G:ia'); ?><br>
+						<span class="glyphicon glyphicon-time"></span> <?php echo date_format($startdatetime, 'G:i a'); ?><br>
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location ?><br>
 						<span class="glyphicon glyphicon-briefcase"></span> <?php echo $companyname ?><br>
 					  </p>

@@ -167,7 +167,7 @@ function listEvents(feedRoot) {
 			 'description' : description,
 			 'companyID' : companyID,
 		  },
-		  url: "php/testinsertevent.php",
+		  url: "php/insertevent.php",
 		  success: function(data){
 				alert(data);
 			}

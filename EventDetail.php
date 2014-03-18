@@ -189,7 +189,7 @@
 				<br>
 				<p id="address"><?php echo $location ?></p>
 				<p><?php echo date_format($startdatetime, 'l jS F Y') ?></p>
-				<p><?php echo date_format($startdatetime, 'G:ia'); ?> </p>
+				<p><?php echo date_format($startdatetime, 'G:i a'); ?> </p>
 			  </div>
 			</div>
 		
