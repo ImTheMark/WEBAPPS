@@ -34,38 +34,53 @@
 		$companyID = $_POST['companyID'];		
 	}	
 
-	$insertImgQuery = "INSERT INTO eventpicture (picturename, picturelink)
-	VALUES ('$eventname','$photoURL');";
+	$checkIfExisting = "SELECT eventname FROM event WHERE eventname = '$eventname';";
+	$checkIfExisting = mysql_query($checkIfExisting);
+		$cnumrows = mysql_num_rows($checkIfExisting);
+		if($cnumrows > 0){
+			$updateEvent = "UPDATE event SET location = '$location', startdatetime = '$startdatetime', 
+			enddatetime = '$enddatetime', description = '$description'
+			WHERE eventname = '$eventname';";
+			mysql_query($updateEvent);
+			$updateEventPicture = "UPDATE eventpicture SET picturelink = '$photoURL' WHERE picturename = '$eventname';";
+			mysql_query($updateEventPicture);
+		}
+		else{
 
-	mysql_query($insertImgQuery);
+			$insertImgQuery = "INSERT INTO eventpicture (picturename, picturelink)
+			VALUES ('$eventname','$photoURL');";
 
-	$selectIdpictureQuery = "SELECT ideventpicture FROM eventpicture WHERE picturename = '$eventname';";
+			mysql_query($insertImgQuery);
 
-	$selectIdpictureQuery = mysql_query($selectIdpictureQuery);
-			$numrows = mysql_num_rows($selectIdpictureQuery);
-			if($numrows > 0 ){
-				$row = mysql_fetch_assoc($selectIdpictureQuery);
-				$idpicture = $row['ideventpicture'];
-			}
+			$selectIdpictureQuery = "SELECT ideventpicture FROM eventpicture WHERE picturename = '$eventname';";
 
-	$insertEventQuery = "INSERT INTO event (eventname, location, startdatetime, enddatetime, description, active, idpicture) 
-	VALUES ('$eventname','$location','$startdatetime','$enddatetime','$description','YES', $idpicture);";
+			$selectIdpictureQuery = mysql_query($selectIdpictureQuery);
+					$numrows = mysql_num_rows($selectIdpictureQuery);
+					if($numrows > 0 ){
+						$row = mysql_fetch_assoc($selectIdpictureQuery);
+						$idpicture = $row['ideventpicture'];
+					}
 
-	mysql_query($insertEventQuery);
+			$insertEventQuery = "INSERT INTO event (eventname, location, startdatetime, enddatetime, description, active, idpicture) 
+			VALUES ('$eventname','$location','$startdatetime','$enddatetime','$description','YES', $idpicture);";
 
-	$selectEventID = "SELECT idevent FROM event
-	WHERE eventname = '$eventname';";
+			mysql_query($insertEventQuery);
 
-	$selectEventID = mysql_query($selectEventID);
-			$enumrows = mysql_num_rows($selectEventID);
-			if($enumrows > 0 ){
-				$erow = mysql_fetch_assoc($selectEventID);
-				$eventID = $erow['idevent'];
-			}
+			$selectEventID = "SELECT idevent FROM event
+			WHERE eventname = '$eventname';";
 
-	$insertCompanyEventQuery = "INSERT INTO company_event 
-	VALUES ('$companyID', '$eventID'); ";
+			$selectEventID = mysql_query($selectEventID);
+					$enumrows = mysql_num_rows($selectEventID);
+					if($enumrows > 0 ){
+						$erow = mysql_fetch_assoc($selectEventID);
+						$eventID = $erow['idevent'];
+					}
 
-	mysql_query($insertCompanyEventQuery);
+			$insertCompanyEventQuery = "INSERT INTO company_event 
+			VALUES ('$companyID', '$eventID'); ";
 
+			mysql_query($insertCompanyEventQuery);
+
+
+		}
 ?>
