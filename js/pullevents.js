@@ -156,7 +156,6 @@ function listEvents(feedRoot) {
 	var endDateTime = edateString;
 	var photoURL = des.substr(0,des.indexOf('\n'));
 	var description = des.substr(des.indexOf('\n'), des.length);
-	alert("TEST");
 	$.ajax({
 		  type: "POST",
 		  data: {
