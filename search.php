@@ -7,6 +7,19 @@
 		<link href="css/customstyles.css" rel="stylesheet">
  
 		<style>
+			.col-lg-3{
+				position: relative;
+				min-height: 1px;
+				padding-right: 15px;
+				padding-left: 0px;
+			}
+			
+			
+			
+			.col-md-7,.col-lg-9{
+				padding-right: 0px;
+				padding-left: 0px;
+			}
 			#filter{
 				float: left; 
 			}

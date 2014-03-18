@@ -6,6 +6,17 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/customstyles.css" rel="stylesheet">
 		<style>
+			.col-lg-3{
+				position: relative;
+				min-height: 1px;
+				padding-right: 15px;
+				padding-left: 0px;
+			}
+			
+			.col-lg-12,.col-lg-9{
+				padding-right: 0px;
+			}
+		
 			#filter{
 				float: left; 
 			}
