@@ -198,7 +198,7 @@ CREATE TABLE `eventpicture` (
 
 LOCK TABLES `eventpicture` WRITE;
 /*!40000 ALTER TABLE `eventpicture` DISABLE KEYS */;
-INSERT INTO `eventpicture` VALUES (1,'logo','images/e-logo.jpg'),(2,'job expo','images/job expo.jpg'),(3,'Azeus Exam and Talk','images/AzeusTalkNExam.jpg'),(4,'Thesis It','images/ThesisIt.jpg'),(5,'Python 101','images/Python101.png'),(6,'Darts','images/Dart.jpg'),(7,'game dev using construct2','images/GameDevConstruct2.jpg'),(8,'leap enrollment','images/leap.jpg'),(9,'smart','images/smart.jpg'),(10,'macquarie','images/macquarie.jpg');
+INSERT INTO `eventpicture` VALUES (1,'logo','images/e-logo.jpg'),(2,'job expo','images/job expo.jpg'),(3,'Azeus Exam and Talk','images/AzeusTalkNExam.jpg'),(4,'Thesis It','images/ThesisIt.jpg'),(5,'Python 101','images/Python101.png'),(6,'Darts','images/Dart.jpg'),(7,'game dev using construct2','images/GameDevConstruct2.jpg'),(8,'leap enrollment','images/leap.jpg'),(9,'smart','images/smart.jpg'),(10,'macquarie','images/macquarieLogo.jpg');
 /*!40000 ALTER TABLE `eventpicture` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
