@@ -24,6 +24,10 @@
 		      	background: url('images/bg.png') repeat center center;
 		    }
 			
+			 #wellColor {
+			background-color:#EED2EE;
+		}
+			
 			textarea{ 
 			  height:150px; 
 			  min-height:150px;  
@@ -119,7 +123,7 @@
 		<h3> <div class="label label-default"> Company Calendar Request Form </div></h3>
 		<BR>
 		
-		<div class="well">
+		<div class="well" id="wellColor">
 			<form id="form" class="form form-horizontal">
 			<fieldset>
 

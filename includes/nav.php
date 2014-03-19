@@ -14,7 +14,7 @@
           <ul class="nav navbar-nav">
 				<li><a href="search.php">Browse Events</a></li>
 				<li><a href="company.php">Companies</a></li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="contact.php">Contact Us</a></li>
 				
           </ul>
 		  </ul>
