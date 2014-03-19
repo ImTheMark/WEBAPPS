@@ -107,9 +107,9 @@
                         <address><strong>Eventory, Inc.</strong><br />
                         1234 taft, manila, philippines, 1006<br />
                         </address> 
-						<address><abbr title="Phone"><b>Phone:</b></abbr> (02) 456-7890</address> 
-						<address><abbr title="Phone"><b>Fax:</b></abbr> (02) 123-7890</address>						
-                        <address><abbr title="Email"><b>Email:</b></abbr> eventory@gmail.com</address>		 
+						<address><b>Phone:</b></abbr> (02) 456-7890</address> 
+						<address><b>Fax:</b></abbr> (02) 123-7890</address>						
+                        <address><b>Email:</b></abbr> eventory@gmail.com</address>		 
                     </p>     
                      
 					 <!-- Start Side Categories -->
