@@ -1,6 +1,6 @@
 
 <div class="container">
-        <a href="index.php"><img src="images/logo.png" class="img-responsive"/></a>
+        <a href="index.php"><img src="images/logo-2.png" class="img-responsive"/></a>
 		<div class="navbar navbar-default navbar-inverse" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -15,6 +15,7 @@
 				<li><a href="search.php">Browse Events</a></li>
 				<li><a href="company.php">Companies</a></li>
 				<li><a href="#">Contact Us</a></li>
+				<li><a href="apply.php">Apply</a></li>
 				
           </ul>
 		  </ul>
