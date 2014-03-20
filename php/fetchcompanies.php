@@ -65,9 +65,9 @@ include_once('../includes/connection.php');
 			?>
 			<div class="list-group-item clearfix col-lg-12">
 					<div class="col-lg-3 company-logo">
-						<img src="<?php echo $picturelink;?>" class="img-responsive" alt="<?php echo $picturename;?>"/>
+						<center><img src="<?php echo $picturelink;?>" class="img-responsive" alt="<?php echo $picturename;?>"/></center>
 					</div>
-					<p class="list-group-item-heading col-lg-6"> <?php echo $companyname; ?></p>
+					<p class="list-group-item-heading col-lg-6" style="font-weight: bold; font-size: 25px;"> <?php echo $companyname; ?></p>
 					<p class="list-group-item-text col-lg-6">
 						<span class="glyphicon glyphicon-map-marker"></span> <?php echo $address;?><br>
 						<span class="glyphicon glyphicon-earphone"></span> <?php echo $contact;?><br>

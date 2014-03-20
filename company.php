@@ -30,6 +30,12 @@
 				padding-left: 0px;
 			}
 			
+			.img-responsive {
+				display: block;
+				max-height: 100px;
+				max-width: 100%;
+				}
+			
 			.col-lg-12,.col-lg-9{
 				padding-right: 0px;
 			}

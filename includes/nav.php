@@ -15,10 +15,13 @@
 				<li><a href="search.php">Browse Events</a></li>
 				<li><a href="company.php">Companies</a></li>
 				<li><a href="contact.php">Contact Us</a></li>
-				<li><a href="apply.php">Apply</a></li>
 				
           </ul>
-		  </ul>
+          <ul class="nav navbar-nav pull-right">
+			<li><a href="apply.php" style="color:rgb(208, 133, 214);" onMouseOver="this.style.color='rgb(255, 255, 255)'"
+   onMouseOut="this.style.color='rgb(208, 133, 214)'"> Want to advertise your EVENTS? Apply Now!</a></li>
+				
+          </ul>
       
 		<!--
 		<form action='search.php' class="navbar-form navbar-right" role="search" method="GET">
