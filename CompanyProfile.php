@@ -39,6 +39,15 @@
 			color:black;
 		}
 		
+		
+		@media screen and (max-width: 1000px) {
+			#pal{
+				position:block;
+				float:left;
+			}
+			
+		}
+		
 		@media screen and (max-width: 450px) {
 			#pal{
 				position:block;
@@ -50,6 +59,18 @@
 		.list-group{
 			max-height: 400px;
 			overflow-y:scroll; 
+		}
+		
+		.event-title {
+			font-weight: bold;
+			font-size: 25px;
+		}
+		.event-panel{
+				color: #333333;
+			}
+			
+		.col-xs-6 {
+			width: 90%;
 		}
 	</style>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -141,16 +162,20 @@
 									$picturelink = $cEvent->picturelink;
 									$picturename = $cEvent->picturename;
 								?>
-								<div class="list-group-item clearfix">
-									<a href="EventDetail.php?id=<?php echo $id; ?>" class="thumbnail col-xs-1">
-									  <img src="<?php echo $picturelink;?>" alt="<?php echo $picturename; ?>">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6"><?php echo $name;?></p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($date, 'l jS F Y'); ?>&nbsp
-										<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'g:ia'); ?>
-										<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location; ?> </p>
-									<p class="event-body list-group-item-text col-xs-6"><br><?php echo $description; ?></p>
+								<div class="list-group-item clearfix event-panel" id="pal">
+									<div class="thumbnail col-xs-1">
+										<a href="EventDetail.php?id=<?php echo $id; ?>">
+										  <img src="<?php echo $picturelink;?>" alt="<?php echo $picturename; ?>">
+										</a>
+									</div>
+									<div class="col-xs-6" >
+											<p class="event-title list-group-item-heading"><?php echo $name;?></p>
+											<p class="event-body list-group-item-text">
+												<span class="glyphicon glyphicon-calendar"></span> <?php echo date_format($date, 'l jS F Y'); ?>&nbsp
+												<span class="glyphicon glyphicon-time"> <?php echo date_format($date, 'g:ia'); ?>
+												<span class="glyphicon glyphicon-map-marker"></span> <?php echo $location; ?> </p>
+											<p class="event-body list-group-item-text"><br><?php echo $description; ?></p>
+									</div>
 								</div>
 								<?php } ?>
 								
@@ -167,7 +192,7 @@
 									$picturelink = $pEvent->picturelink;
 									$picturename = $pEvent->picturename;
 								?>
-								<div class="list-group-item clearfix">
+								<div class="list-group-item clearfix event-panel">
 									<a href="EventDetail.php?id=<?php echo $id; ?>" class="thumbnail col-xs-1">
 									  <img src="<?php echo $picturelink; ?>" alt="<?php echo $picturename; ?>">
 									</a>
@@ -180,19 +205,7 @@
 									
 								</div>
 								<?php } ?>
-								<div class="list-group-item clearfix">
-									<a href="#" class="thumbnail col-xs-1">
-									  <img src="images/IT-poster.png" alt="...">
-									</a>
-									<p class="event-title list-group-item-heading col-xs-6">IT-Service</p>
-									<p class="event-body list-group-item-text col-xs-6">
-										<span class="glyphicon glyphicon-calendar"></span> August 04,2014 &nbsp
-										<span class="glyphicon glyphicon-time"> 8am - 5pm
-										<span class="glyphicon glyphicon-map-marker"></span> Edsa Shangrila </p>
-									<p class="event-body list-group-item-text col-xs-6"><br>Using the Visual Thinking Strategies (VTS) facilitation method, this event 
-									encourages educators to explore works from Public Intimacy at YBCA....</p>
-									
-								</div>
+								
 								
 							</div>
 						</div>

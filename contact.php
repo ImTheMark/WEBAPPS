@@ -28,9 +28,22 @@
         background: url('images/bg.png') repeat center center;
       }
 	  
+	  .navbar-collapse, .navbar-inverse .navbar-form {
+		border-color: #101010;
+		margin-top: 5px;
+		}
+	  
+	  .navbar {
+		margin-bottom: -13px;
+		overflow: visible;
+		}
 	   .sidebox {
 			background-color:#EED2EE;
 			margin-top:0px;
+		}
+		
+		.navbar {
+			min-height: 52px;
 		}
 		#form{
 			background-color:#EED2EE; 
@@ -44,7 +57,7 @@
 		.label {
 			display: inline;
 			padding: .2em .5em;
-			font-size: 67%;
+			font-size: 65%;
 			font-weight: bold;
 			line-height: 1;
 			color: #fff;
@@ -88,14 +101,18 @@
 				padding-top: 11px;
 				}
 				
+			h3{
+				margin-top: 22px;
+				margin-bottom: 16px;
+			}
 	   </style>
 </head>
 <body id="pageBody">
 <?php include('includes/nav.php'); ?>
 
-
-		<h3> <div class="label label-default" > Search for Events </div></h3>
-		<BR>
+		
+		<h3> <div class="label label-default" > Contact Us </div></h3>
+		
 <div id="divBoxed" class="container">
 
     <div class="contentArea">

@@ -130,7 +130,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="name">Company Name</label>  
+			  <label class="col-md-4 control-label" for="name">Company Name*</label>  
 			  <div class="col-md-5">
 			  <input id="name" name="name" placeholder="" class="form-control input-md" type="text">
 				
@@ -139,7 +139,7 @@
 
 			<!-- Textarea -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="description">Company Description</label>
+			  <label class="col-md-4 control-label" for="description">Company Description*</label>
 			  <div class="col-md-5">                     
 				<textarea class="form-control" id="description" name="description" ></textarea>
 			  </div>
@@ -147,7 +147,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="logo">Company Logo</label>  
+			  <label class="col-md-4 control-label" for="logo">Company Logo*</label>  
 			  <div class="col-md-5">
 			  <input id="logo" name="logo" placeholder="http://www.yoursite.com/logo.png" class="form-control input-md" type="text">
 			  <span class="help-block">Provide image link.</span>  
@@ -156,7 +156,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="calendar">Google Calendar Link</label>  
+			  <label class="col-md-4 control-label" for="calendar">Google Calendar Link*</label>  
 			  <div class="col-md-5">
 			  <input id="calendar" name="calendar" placeholder="" class="form-control input-md" type="text">
 				
@@ -165,7 +165,7 @@
 
 			<!-- Select Multiple -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="category">Category</label>
+			  <label class="col-md-4 control-label" for="category">Category*</label>
 			  <div class="col-md-5">
 				<select id="category" name="category" class="form-control" multiple="multiple" >
 				  <option value="1">Software Development</option>
@@ -182,7 +182,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="location">Location</label>  
+			  <label class="col-md-4 control-label" for="location">Location*</label>  
 			  <div class="col-md-5">
 			  <input id="location" name="location" placeholder="Philippines" class="form-control input-md" type="text">
 				
@@ -191,7 +191,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="email">Email Address</label>  
+			  <label class="col-md-4 control-label" for="email">Email Address*</label>  
 			  <div class="col-md-5">
 			  <input id="email" name="email" placeholder="youremail@company.com" class="form-control input-md" type="text">
 				
@@ -200,7 +200,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="contact">Contact Number</label>  
+			  <label class="col-md-4 control-label" for="contact">Contact Number*</label>  
 			  <div class="col-md-5">
 			  <input id="contact" name="contact" placeholder="" class="form-control input-md" type="text">
 				
@@ -209,7 +209,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="website">Website</label>  
+			  <label class="col-md-4 control-label" for="website">Website*</label>  
 			  <div class="col-md-5">
 			  <input id="website" name="website" placeholder="http://www.site.com/" class="form-control input-md" type="text">
 				
