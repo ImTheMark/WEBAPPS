@@ -94,7 +94,7 @@
 			$insertCompanyCategory = "INSERT INTO company_category (idcompany, idcategory) VALUES ('$idcompany', '$idcategory');";
 			mysql_query($insertCompanyCategory);
 		}
-
+		echo("Successful");
 	}
 
 

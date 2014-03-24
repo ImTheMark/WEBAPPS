@@ -130,7 +130,7 @@ DROP TABLE IF EXISTS `companypicture`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `companypicture` (
-  `idcompanypicture` int(11) NOT NULL,
+  `idcompanypicture` int(11) NOT NULL AUTO_INCREMENT,
   `picturename` varchar(45) NOT NULL,
   `picturelink` varchar(100) NOT NULL,
   PRIMARY KEY (`idcompanypicture`)
