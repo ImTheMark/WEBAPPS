@@ -1,6 +1,8 @@
 <?php
 	include_once('../includes/connection.php');
 
+	<script>alert('Entered!')</script>
+
 	$companyname = "";
 	$description = "";
 	$address = "";
@@ -41,6 +43,8 @@
 	if(isset($_POST['categories'])){
 		$categories = $_POST['categories'];		
 	}	
+	
+	echo ($companyname);
 
 	$checkIfExisting = "SELECT companyname FROM company WHERE companyname = '$companyname';";
 	$checkIfExisting = mysql_query($checkIfExisting);
