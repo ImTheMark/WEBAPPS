@@ -54,7 +54,7 @@
 					rules: {
 						name:{
 							minlength: 3,
-							maxlength: 20,
+							maxlength: 50,
 							required: true
 						},
 						description:{
@@ -86,7 +86,7 @@
 						},
 						email:{
 							minlength: 3,
-							maxlength: 20,
+							maxlength: 50,
 							email: true,
 							required: true
 						}
