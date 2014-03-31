@@ -39,7 +39,7 @@
 		$calendarlink = $_POST['calendarlink'];		
 	}	
 	if(isset($_POST['categories'])){
-		$categories = $_POST['categories'];		
+		$categories = $_POST['categories'];	
 	}	
 	
 
@@ -85,27 +85,11 @@
 					$idcompany = $erow['idcompany'];
 				}
 
-			echo ($categories);
-			
-		$insertCompanyCategory = "INSERT INTO company_category (idcompany, idcategory) VALUES ('$idcompany', '$categories');";
-			mysql_query($insertCompanyCategory);
-
 		foreach ($categories as $selectedCategory => $value) {
-			echo($selectedCategory);
-			echo($value);
-			
 
-			/*
-			$selectCategoryID = "SELECT idcategory FROM category WHERE category = '$selectedCategory';";
-			$selectCategoryID = mysql_query($selectCategoryID);
-			if($cnumrows > 0){
-				$crow = mysql_fetch_assoc($selectCategoryID);
-				$idcategory = $crow['idcategory'];
-			}
-
-			$insertCompanyCategory = "INSERT INTO company_category (idcompany, idcategory) VALUES ('$idcompany', '$idcategory');";
+			$insertCompanyCategory = "INSERT INTO company_category (idcompany, idcategory) VALUES ('$idcompany', '$selectedCategory + 1');";
 			mysql_query($insertCompanyCategory);
-			*/
+
 		}
 		echo("Successful");
 	}
