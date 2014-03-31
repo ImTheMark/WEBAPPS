@@ -52,7 +52,7 @@
 			$(document).ready(function(){
 				$("form").validate({
 					rules: {
-						name:{
+						companyname:{
 							minlength: 3,
 							maxlength: 50,
 							required: true
@@ -130,9 +130,9 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="name">Company Name*</label>  
+			  <label class="col-md-4 control-label" for="companyname">Company Name*</label>  
 			  <div class="col-md-5">
-			  <input id="companyname" name="name" placeholder="" class="form-control input-md" type="text">
+			  <input id="companyname" name="companyname" placeholder="" class="form-control input-md" type="text">
 				
 			  </div>
 			</div>
@@ -167,7 +167,7 @@
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="category">Category*</label>
 			  <div class="col-md-5">
-				<select id="category" name="categories" class="form-control" multiple="multiple" >
+				<select id="category" name="categories[]" class="form-control input" multiple="multiple" >
 				  <option value="1">Software Development</option>
 				  <option value="2">Networking</option>
 				  <option value="3">Business Management</option>

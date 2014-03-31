@@ -1,8 +1,6 @@
 <?php
 	include_once('../includes/connection.php');
 
-	<script>alert('Entered!')</script>
-
 	$companyname = "";
 	$description = "";
 	$address = "";
@@ -44,7 +42,6 @@
 		$categories = $_POST['categories'];		
 	}	
 	
-	echo ($companyname);
 
 	$checkIfExisting = "SELECT companyname FROM company WHERE companyname = '$companyname';";
 	$checkIfExisting = mysql_query($checkIfExisting);
@@ -55,6 +52,7 @@
 		mysql_query($updateCompany);
 		$updateCompanyPicture = "UPDATE companypicture SET picturelink = '$picturelink' WHERE picturename = '$companyname';";
 		mysql_query($updateCompanyPicture);
+		echo ("updated");
 	}
 	else{
 
@@ -84,10 +82,20 @@
 				$enumrows = mysql_num_rows($selectCompanyID);
 				if($enumrows > 0 ){
 					$erow = mysql_fetch_assoc($selectCompanyID);
-					$eventID = $erow['idcompany'];
+					$idcompany = $erow['idcompany'];
 				}
 
-		foreach ($categories as $selectedCategory) {
+			echo ($categories);
+			
+		$insertCompanyCategory = "INSERT INTO company_category (idcompany, idcategory) VALUES ('$idcompany', '$categories');";
+			mysql_query($insertCompanyCategory);
+
+		foreach ($categories as $selectedCategory => $value) {
+			echo($selectedCategory);
+			echo($value);
+			
+
+			/*
 			$selectCategoryID = "SELECT idcategory FROM category WHERE category = '$selectedCategory';";
 			$selectCategoryID = mysql_query($selectCategoryID);
 			if($cnumrows > 0){
@@ -97,6 +105,7 @@
 
 			$insertCompanyCategory = "INSERT INTO company_category (idcompany, idcategory) VALUES ('$idcompany', '$idcategory');";
 			mysql_query($insertCompanyCategory);
+			*/
 		}
 		echo("Successful");
 	}
