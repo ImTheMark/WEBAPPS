@@ -124,7 +124,7 @@
 		<BR>
 		
 		<div class="well" id="wellColor">
-			<form id="form" class="form form-horizontal">
+			<form id="form" class="form form-horizontal" action="php/insertcompany.php" method="post">
 			<fieldset>
 
 

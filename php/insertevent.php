@@ -33,7 +33,7 @@
 	if(isset($_POST['companyID'])){
 		$companyID = $_POST['companyID'];		
 	}	
-
+	echo "$eventname  $companyID\n";
 	$checkIfExisting = "SELECT eventname FROM event WHERE eventname = '$eventname';";
 	$checkIfExisting = mysql_query($checkIfExisting);
 		$cnumrows = mysql_num_rows($checkIfExisting);

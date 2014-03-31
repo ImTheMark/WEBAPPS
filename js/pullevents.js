@@ -121,7 +121,6 @@ function listEvents(feedRoot) {
   var companyID = elem[0];
   var calendarlink = elem[1];
   curr = curr + 1;
-  
   var entries = feedRoot.feed.getEntries();
   var len = entries.length;
   for (var i = 0; i < len; i++) {
