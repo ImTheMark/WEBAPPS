@@ -118,6 +118,27 @@
 			  }
 		}
 		
+
+		/* AddThisEvent (add to your existing CSS) */
+		.addthisevent-drop 						{display:inline-block;position:relative;z-index:999998;font-family:'Roboto',sans-serif;color:#fff!important;text-decoration:none;font-size:15px;text-decoration:none;}
+		.addthisevent-drop:hover 				{color:#fff;font-size:15px;text-decoration:none;}
+		.addthisevent_dropdown 					{position:relative;text-align:left;display:block!important;}
+		.addthisevent_dropdown span 			{display:inline-block;position:relative;line-height:110%;background:#ebebeb url(../gfx/button-bg.png) repeat-x;text-decoration:none;font-size:14px;font-weight:300;color:#333;cursor:pointer;padding:7px 14px 8px 12px;border:1px solid #e1e1e1;margin:0px 6px 0px 0px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+		.addthisevent_dropdown span:hover 		{background:#f4f4f4;color:#000;text-decoration:none;font-size:14px;}
+		.addthisevent_dropdown span:active 		{top:1px;}
+		.addthisevent_dropdown .ateoutlook 		{border-top:3px solid #fa9d00;}
+		.addthisevent_dropdown .ategoogle 		{border-top:3px solid #d53900;}
+		.addthisevent_dropdown .atehotmail 		{border-top:3px solid #1473c5;}
+		.addthisevent_dropdown .ateyahoo 		{border-top:3px solid #65106e;}
+		.addthisevent_dropdown .ateical 		{border-top:3px solid #ab373a;}
+		.addthisevent span 						{display:none!important;}
+		.addthisevent-drop ._url,.addthisevent-drop ._start,.addthisevent-drop ._end,.addthisevent-drop ._summary,.addthisevent-drop ._description,.addthisevent-drop ._location,.addthisevent-drop ._organizer,.addthisevent-drop ._organizer_email,.addthisevent-drop ._facebook_event,.addthisevent-drop ._all_day_event {display:none!important;}
+		.addthisevent_dropdown .copyx 			{display:none;}
+		.addthisevent_dropdown .brx 			{display:none;}
+		.addthisevent_dropdown .frs 			{position:absolute;top:8px;cursor:pointer;right:13px;padding-left:10px;font-style:normal;font-weight:normal;text-align:right;z-index:101;line-height:110%;background:#fff;text-decoration:none;font-size:10px;color:#cacaca;}
+		.addthisevent_dropdown .frs:hover 		{color:#6d84b4;}
+		.addthisevent 							{visibility:hidden;}
+
     </style>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -154,7 +175,7 @@
 			$eventname = $event->eventname;
 			$location = $event->location;
 			$startdatetime = date_create($event->startdatetime);
-			$enddatetime = $event->enddatetime;
+			$enddatetime = date_create($event->enddatetime);
 			$eventdescription = $event->description;
 			$picturelink = $event->picturelink;
 			$picturename = $event->picturename;
@@ -162,6 +183,7 @@
 			$companyid = $company->idcompany;
 			$companyname = $company->companyname;
 			$companydescription = $company->description;
+			$companyemail = $company->email;
 		
 		?>
   </head>
@@ -183,12 +205,29 @@
 					<h1><?php echo $eventname?></h1>
 					<h3><span>Organizer</span>  &nbsp&nbsp<?php echo $companyname ?> </h3>
 					<h3><span>When</span>      &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp<?php echo date_format($startdatetime, 'l jS F Y') ?> </h3>
-					<h3>          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo date_format($startdatetime, 'g:i a'); ?> </h3>
+					<h3>          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<?php echo date_format($startdatetime, 'g:i a'); ?> to <?php echo date_format($enddatetime, 'g:i a'); ?></h3>
 					<h3><span>Where</span>     &nbsp&nbsp &nbsp&nbsp&nbsp&nbsp<?php echo $location ?> </h3>
+				
+					<div class="addthisevent">
+						<h3><span>Add to Calendar</span></h3>
+					    <span class="_start"><?php echo date_format($startdatetime, "d/m/Y H:i:s"); ?></span>
+					    <span class="_end"><?php echo date_format($enddatetime, "d/m/Y H:i:s"); ?></span>
+					    <span class="_summary"><?php echo $eventname?></span>
+					    <span class="_zonecode"></span>
+					    <span class="_description"><?php echo $eventdescription ?></span>
+					    <span class="_location"><?php echo $location ?></span>
+					    <span class="_organizer"><?php echo $companyname ?></span>
+					    <span class="_organizer_email"><?php echo $companyemail; ?></span>
+					    <span class="_facebook_event"></span>
+					    <span class="_all_day_event">false</span>
+					    <span class="_date_format">DD/MM/YYYY</span>
+					</div>
 					
 			</div>
 		</div>
 		</div>
+		<br>
 		<div class="row">
 		<div  class="col-md-8" id="detail">
 		<div class="panel">
@@ -246,5 +285,21 @@
     <script src="js/holder.js"></script>
 	<script src="js/removesessioncompanies.js"></script>
 	<script src="js/removesessionevents.js"></script>
+	
+	  <!-- AddThisEvent -->
+	<script type="text/javascript" src="http://js.addthisevent.com/atemay.js"></script>
+
+	<!-- AddThisEvent Settings -->
+	<script type="text/javascript">
+	addthisevent.settings({
+		mouse		: false,
+		css			: false,
+		outlook		: {show:true, text:"Outlook"},
+		google		: {show:true, text:"Google"},
+		yahoo		: {show:true, text:"Yahoo"},
+		ical		: {show:true, text:"iCal"},
+		hotmail		: {show:true, text:"Hotmail"}
+	});
+	</script>
   </body>
 </html>

@@ -18,8 +18,8 @@
 				
           </ul>
           <ul class="nav navbar-nav pull-right">
-			<li><a href="apply.php" style="color:rgb(208, 133, 214);" onMouseOver="this.style.color='rgb(255, 255, 255)'"
-   onMouseOut="this.style.color='rgb(208, 133, 214)'"> Want to advertise your EVENTS? Apply Now!</a></li>
+			<li><a href="apply.php" style="color:rgb(208, 133, 214);font-size:15px" onMouseOver="this.style.color='rgb(255, 255, 255)'"
+   onMouseOut="this.style.color='rgb(208, 133, 214)'"><b> WANT TO ADVERTISE YOUR EVENTS? APPLY NOW!</b></a></li>
 				
           </ul>
       
